@@ -1,10 +1,10 @@
 package com.AbstractCnS.controller;
 
 import com.AbstractCnS.entity.Guest;
+import com.AbstractCnS.entity.JwtUtil;
 import com.AbstractCnS.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -64,7 +64,7 @@ public class UserControllerTest {
 
         given(userService.authenticate(email, password)).willReturn(mockUser);
 
-        given(jwtUtil.createToken(id, name, null))
+        given(jwtUtil.createToken(email, name))
                 .willReturn("header.payload.signature");
 
         mvc.perform(post("/reservation")

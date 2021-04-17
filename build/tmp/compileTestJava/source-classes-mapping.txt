@@ -1,2 +1,4 @@
 com/AbstractCnS/controller/UserControllerTest.java
  com.AbstractCnS.controller.UserControllerTest
+com/AbstractCnS/entity/JwtUtilTest.java
+ com.AbstractCnS.entity.JwtUtilTest

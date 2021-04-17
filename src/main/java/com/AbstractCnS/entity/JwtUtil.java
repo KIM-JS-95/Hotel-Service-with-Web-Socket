@@ -1,4 +1,4 @@
-package com.AbstractCnS.controller;
+package com.AbstractCnS.entity;
 
 
 import io.jsonwebtoken.Claims;
@@ -17,13 +17,11 @@ public class JwtUtil {
         this.key = Keys.hmacShaKeyFor(secret.getBytes());
     }
 
-    public String createToken(Long userId, String name, Long restaurantId) {
+    public String createToken(String email, String name) {
         JwtBuilder builder = Jwts.builder()
-                .claim("userId", userId)
+                .claim("email", email)
                 .claim("name", name);
-        if (restaurantId != null) {
-            builder = builder.claim("restaurantId", restaurantId);
-        }
+
         return builder
                 .signWith(key, SignatureAlgorithm.HS256)
                 .compact();
