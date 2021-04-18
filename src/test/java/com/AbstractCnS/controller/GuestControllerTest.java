@@ -1,7 +1,7 @@
 package com.AbstractCnS.controller;
 
 import com.AbstractCnS.entity.Guest;
-import com.AbstractCnS.entity.JwtUtil;
+import com.AbstractCnS.JwtUtil;
 import com.AbstractCnS.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,8 +23,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(UserController.class)
-public class UserControllerTest {
+@WebMvcTest(GuestController.class)
+public class GuestControllerTest {
 
     @Autowired
     private MockMvc mvc;

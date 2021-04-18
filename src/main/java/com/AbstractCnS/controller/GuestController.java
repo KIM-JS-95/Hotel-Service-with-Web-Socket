@@ -2,7 +2,7 @@ package com.AbstractCnS.controller;
 
 
 import com.AbstractCnS.entity.Guest;
-import com.AbstractCnS.entity.JwtUtil;
+import com.AbstractCnS.JwtUtil;
 import com.AbstractCnS.entity.response.SessionResponseDto;
 import com.AbstractCnS.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-public class UserController {
+public class GuestController {
 
     @Autowired
     private JwtUtil jwtUtil;

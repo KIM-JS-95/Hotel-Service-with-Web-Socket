@@ -1,4 +1,4 @@
-package com.AbstractCnS.entity;
+package com.AbstractCnS;
 
 
 import io.jsonwebtoken.Claims;
