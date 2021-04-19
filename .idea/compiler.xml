@@ -8,10 +8,15 @@
         <processorPath useClasspath="false">
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.10/625fc0055674dff70dbc76efa36d0f2c89b04a24/lombok-1.18.10.jar" />
         </processorPath>
-        <module name="AbstractCnS.test" />
-        <module name="AbstractCnS.main" />
+        <module name="AbstractCnS.Chat.main" />
+        <module name="AbstractCnS.Common.main" />
+        <module name="AbstractCnS.Guest.main" />
+        <module name="AbstractCnS.Hotel.main" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="11" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="AbstractCnS.main" target="11" />
+      <module name="AbstractCnS.test" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>

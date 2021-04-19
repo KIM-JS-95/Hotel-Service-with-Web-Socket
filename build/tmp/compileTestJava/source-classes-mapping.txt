@@ -1,4 +1,6 @@
-com/AbstractCnS/controller/UserControllerTest.java
- com.AbstractCnS.controller.UserControllerTest
+com/AbstractCnS/controller/GuestControllerTest.java
+ com.AbstractCnS.controller.GuestControllerTest
 com/AbstractCnS/entity/JwtUtilTest.java
  com.AbstractCnS.entity.JwtUtilTest
+com/AbstractCnS/controller/ChatRoomControllerTest.java
+ com.AbstractCnS.controller.ChatRoomControllerTest

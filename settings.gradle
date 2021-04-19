@@ -1,2 +1,12 @@
+pluginManagement{
+    repositories {
+        gradlePluginPortal()
+    }
+}
+
 rootProject.name = 'AbstractCnS'
+include 'Chat'
+include 'Common'
+include 'Hotel'
+include 'Guest'
 

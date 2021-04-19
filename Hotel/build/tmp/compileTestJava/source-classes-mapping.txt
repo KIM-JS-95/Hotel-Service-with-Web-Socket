@@ -1,0 +1,2 @@
+com/HotelService/controller/AdminControllerTest.java
+ com.HotelService.controller.AdminControllerTest

@@ -13,22 +13,14 @@ STOMP를 활용한 실시간 채팅 기능 구현
 구현기간: 2021-04-19 ~ 
 
 
-## 2. 엔티티 조인 / List 표현
-###     더파이럿츠 입사 문제와 유사 : 데이터 입력 병렬 처리 방식 학습 필요
-
-POST >>
-![Alt text](src/main/resources/image/onetoonejpa8-1.webp)
-
-GET>>
-![Alt text](src/main/resources/image/onetomany2-1.webp)
-
-## 3. controller / service 추상화
+## WebSocket
+``` bash
+Websocket은 기본의 단방햘 HTTP 프로토콜과 호환되어 양방향 통신을 제공하기 위해 개발된 프로토콜이다.
+일반 통신과 달리 http 80 Port를 이용하여 방화벽 제약이 없다.
 
 
-## Reference
-
-Link: [One To Many Mapping Annotation Example In Hibernate/JPA Using Spring Boot And Oracle][googlelink]
-
-[googlelink]:
-https://www.netsurfingzone.com/hibernate/one-to-many-mapping-annotation-example-in-hibernate-jpa-using-spring-boot-and-oracle/
-
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+}
+```
