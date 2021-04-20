@@ -1,12 +1,12 @@
-com/HotelService/controller/ChatController.java
- com.HotelService.controller.ChatController
+com/HotelService/controller/WellcomController.java
+ com.HotelService.controller.WellcomController
 com/HotelService/HotelApplication.java
  com.HotelService.HotelApplication
 com/HotelService/controller/ChatRoomController.java
  com.HotelService.controller.ChatRoomController
+com/HotelService/controller/ChatController.java
+ com.HotelService.controller.ChatController
 com/HotelService/service/AdminService.java
  com.HotelService.service.AdminService
 com/HotelService/controller/AdminController.java
  com.HotelService.controller.AdminController
-com/HotelService/controller/WellcomController.java
- com.HotelService.controller.WellcomController

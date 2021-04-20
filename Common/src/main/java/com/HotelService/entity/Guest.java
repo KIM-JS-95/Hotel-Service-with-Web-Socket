@@ -11,23 +11,25 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 
-
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class Guest {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    private String RoomNum;
-
     @NotEmpty
     private String email;
 
     @NotEmpty
     private String name;
+
+    @NotEmpty
+    private String phonenum;
+
+
 }

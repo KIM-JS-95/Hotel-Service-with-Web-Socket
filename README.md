@@ -6,7 +6,10 @@ beack -end / DB modeling
 
 ## 구현 파트
 ``` bash
-STOMP를 활용한 실시간 채팅 기능 구현
+1. Guest 체크 인/아웃 기능
+2. Admin Guest 정보 관리 및 수정
+3. STOMP를 활용한 실시간 채팅 기능 구현
+4. 호텔 부가 서비스(청소 및 비품 요청) 주문 기능
 ```
 
 ## 1. real-time chat system

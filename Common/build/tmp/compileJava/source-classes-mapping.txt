@@ -9,5 +9,8 @@ com/HotelService/entity/ChatRoom.java
 com/HotelService/entity/Guest.java
  com.HotelService.entity.Guest
  com.HotelService.entity.Guest$GuestBuilder
-com/HotelService/entity/GuestRepository.java
- com.HotelService.entity.GuestRepository
+com/HotelService/entity/Admin.java
+ com.HotelService.entity.Admin
+ com.HotelService.entity.Admin$AdminBuilder
+com/HotelService/entity/AdminRepository.java
+ com.HotelService.entity.AdminRepository

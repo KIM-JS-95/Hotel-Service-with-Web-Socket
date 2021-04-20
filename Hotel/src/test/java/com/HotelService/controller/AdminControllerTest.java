@@ -1,6 +1,6 @@
 package com.HotelService.controller;
 
-import com.HotelService.entity.Guest;
+import com.HotelService.entity.Admin;
 import com.HotelService.service.AdminService;
 import org.junit.Before;
 import org.junit.Test;
@@ -39,24 +39,22 @@ public class AdminControllerTest {
     @Autowired
     private WebApplicationContext webApplicationContext;
 
-    @Before()
-    public void setup()
-    {
+    @Before
+    public void setup() {
         //Init MockMvc Object and build
         mvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
     }
 
-
     @Test
-    public void list() throws Exception{
-        List<Guest> list = new ArrayList<>();
+    public void list() throws Exception {
+        List<Admin> list = new ArrayList<>();
 
         Long id = 100L;
         String RoomNum = "100";
         String email = "baugh248730@gmail.com";
         String name = "kim";
 
-        list.add(Guest.builder()
+        list.add(Admin.builder()
                 .id(id)
                 .email(email)
                 .name(name)
@@ -75,18 +73,18 @@ public class AdminControllerTest {
         String RoomNum = "100";
         String email = "admin@exmaple.com";
         String name = "Administrator";
+        String phone = "010-1234-5678";
 
-        Guest user = Guest.builder().email(email).name(name).build();
+        Admin mockadmin = Admin.builder().room(RoomNum).email(email).name(name).phone(phone).build();
 
-        given(adminService.addGuest(RoomNum, email, name)).willReturn(user);
+        given(adminService.addGuest(RoomNum, email, name, phone)).willReturn(mockadmin);
 
         mvc.perform(post("/reservation")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content("{\"email\":\"admin@exmaple.com\",\"name\":\"Administrator\"}"))
+                .content("{\"room\":\"100\" , \"email\":\"admin@exmaple.com\", \"name\":\"Administrator\",\"phone\" :\"010-1234-5678\"}"))
                 .andExpect(status().isCreated());
 
-
-        verify(adminService).addGuest(RoomNum, email, name);
+        verify(adminService).addGuest(RoomNum, email, name, phone);
     }
 
     @Test
@@ -99,5 +97,28 @@ public class AdminControllerTest {
         verify(adminService).delete(RoomNum);
 
     }
+
+    @Test
+    public void update() throws Exception {
+        Long id = 100L;
+        String RoomNum = "100";
+        String email = "admin@exmaple.com";
+        String name = "Administrator";
+        String phonenum = "010-1234-5678";
+
+        Admin admin = Admin.builder().room(RoomNum).email(email).name(name).phone(phonenum).build();
+
+        given(adminService.updateGuest(id, email, name, phonenum)).willReturn(admin);
+
+        mvc.perform(patch("/reservation/100")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{ \"email\":\"admin@exmaple.com\",\"name\":\"Administrator\"," +
+                        "\"phone\":\"010-1234-5678\" }"))
+                .andExpect(status().isOk());
+
+        verify(adminService).updateGuest(id, email, name, phonenum);
+
+    }
+
 
 }

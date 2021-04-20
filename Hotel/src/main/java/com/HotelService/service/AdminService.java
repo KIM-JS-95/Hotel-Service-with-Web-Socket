@@ -1,38 +1,59 @@
 package com.HotelService.service;
 
 
-
-import com.HotelService.entity.Guest;
-import com.HotelService.entity.GuestRepository;
+import com.HotelService.entity.Admin;
+import com.HotelService.entity.AdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 @Service
 public class AdminService {
 
-    @Autowired
-    private GuestRepository guestRepository;
+    private AdminRepository adminRepository;
 
-    public List<Guest> getGuest(){
-        List<Guest> users = guestRepository.findAll();
+    @Autowired
+    public AdminService(AdminRepository adminRepository) {
+        this.adminRepository=adminRepository;
+    }
+
+    public List<Admin> getGuest(){
+        List<Admin> users = adminRepository.findAll();
         return users;
     }
 
-    public Guest addGuest(String RoomNum, String email, String name){
-        Guest user = Guest.builder().RoomNum(RoomNum).email(email).name(name).build();
 
-        return guestRepository.save(user);
+    public Admin addGuest(String RoomNum, String email, String name, String phone){
+
+        Admin admin = Admin.builder()
+                .room(RoomNum)
+                .email(email)
+                .name(name)
+                .phone(phone)
+                .build();
+
+        return adminRepository.save(admin);
     }
 
 
-    public void delete(String roomNum) {
-        Guest guest = guestRepository.findByRoomNum(roomNum).orElse(null);
+    public String delete(String roomNum) {
+        Admin admin = adminRepository.findByRoom(roomNum).orElse(null);
+        Long id = admin.getId();
 
-        Long id = guest.getId();
+        adminRepository.deleteById(id);
 
-        guestRepository.delete(id);
+        return "check out";
+    }
+
+    public Admin updateGuest(Long id, String email, String name, String phone) {
+
+        Admin admin = adminRepository.findById(id).orElse(null);
+
+        admin.setEmail(email);
+        admin.setName(name);
+        admin.setPhone(phone);
+
+        return admin;
     }
 }

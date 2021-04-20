@@ -1,8 +1,10 @@
 package com.HotelService.controller;
 
 
-import com.HotelService.entity.Guest;
+import com.HotelService.entity.Admin;
 import com.HotelService.service.AdminService;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,29 +21,45 @@ public class AdminController {
     private AdminService adminService;
 
     @GetMapping("/reservation")
-    public List<Guest> list() {
-        List<Guest> users = adminService.getGuest();
+    public List<Admin> list() {
+        List<Admin> users = adminService.getGuest();
 
         return users;
     }
 
     @PostMapping("/reservation")
-    public ResponseEntity<?> create(@RequestBody Guest resource) throws URISyntaxException {
-        String RoomNum = resource.getRoomNum();
+    public ResponseEntity<?> create(
+            @RequestBody Admin resource) throws URISyntaxException {
+        String RoomNum = resource.getRoom();
         String email = resource.getEmail();
         String name = resource.getName();
-        Guest user= adminService.addGuest(RoomNum, email, name);
+        String phone = resource.getPhone();
 
-        String url = "/reservation/" + user.getId();
+        Admin admin = adminService.addGuest(RoomNum, email, name, phone);
+
+        String url = "/reservation/" + admin.getId();
+
         return ResponseEntity.created(new URI(url))
                 .body("{}");
     }
 
     @DeleteMapping("/reservation/{RoomNum}")
-    public String checkout(@PathVariable("RoomNum") String RoomNum){
+    public String checkout(@PathVariable("RoomNum") String RoomNum) {
 
         adminService.delete(RoomNum);
         return "successfully check out";
     }
+
+    @PatchMapping("/reservation/{id}")
+    public Admin update(@RequestBody Admin resource,
+                        @PathVariable("id") Long id) {
+
+        String email = resource.getEmail();
+        String name = resource.getName();
+        String phone = resource.getPhone();
+
+        return adminService.updateGuest(id, email, name, phone);
+    }
+
 
 }

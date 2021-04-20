@@ -5,15 +5,15 @@ import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
-public class GuestTest {
+public class AdminTest {
 
 
     @Test
     public void creation(){
-        Guest guest = Guest.builder()
+        Admin admin = Admin.builder()
                 .name("kim")
                 .build();
 
-        assertThat(guest.getName(), is("kim"));
+        assertThat(admin.getName(), is("kim"));
     }
 }

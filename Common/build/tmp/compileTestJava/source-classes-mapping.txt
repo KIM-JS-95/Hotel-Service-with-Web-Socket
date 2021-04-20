@@ -1,2 +1,2 @@
-com/HotelService/entity/GuestTest.java
- com.HotelService.entity.GuestTest
+com/HotelService/entity/AdminTest.java
+ com.HotelService.entity.AdminTest
