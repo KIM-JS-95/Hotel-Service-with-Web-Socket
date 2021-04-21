@@ -28,7 +28,7 @@ public class AdminController {
     }
 
     @PostMapping("/reservation")
-    public ResponseEntity<?> create(
+    public ResponseEntity<?> checkIn(
             @RequestBody Admin resource) throws URISyntaxException {
         String RoomNum = resource.getRoom();
         String email = resource.getEmail();
@@ -44,7 +44,7 @@ public class AdminController {
     }
 
     @DeleteMapping("/reservation/{RoomNum}")
-    public String checkout(@PathVariable("RoomNum") String RoomNum) {
+    public String checkOut(@PathVariable("RoomNum") String RoomNum) {
 
         adminService.delete(RoomNum);
         return "successfully check out";
