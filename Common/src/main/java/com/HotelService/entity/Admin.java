@@ -1,13 +1,12 @@
 package com.HotelService.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.util.List;
 
 @Entity
 @Getter
@@ -35,4 +34,8 @@ public class Admin {
     @Setter
     @NotEmpty
     private String phone;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "room_id")
+    private Room roomInfo;
 }

@@ -3,6 +3,7 @@ package com.HotelService.service;
 
 import com.HotelService.entity.Admin;
 import com.HotelService.entity.AdminRepository;
+import com.HotelService.entity.Room;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,13 +25,14 @@ public class AdminService {
     }
 
 
-    public Admin addGuest(String RoomNum, String email, String name, String phone){
+    public Admin addGuest(String RoomNum, String email, String name, String phone, Room room){
 
         Admin admin = Admin.builder()
                 .room(RoomNum)
                 .email(email)
                 .name(name)
                 .phone(phone)
+                .roomInfo(room)
                 .build();
 
         return adminRepository.save(admin);

@@ -1,6 +1,7 @@
 package com.HotelService.controller;
 
 import com.HotelService.entity.Admin;
+import com.HotelService.entity.Room;
 import com.HotelService.service.AdminService;
 import org.junit.Before;
 import org.junit.Test;
@@ -75,16 +76,18 @@ public class AdminControllerTest {
         String name = "Administrator";
         String phone = "010-1234-5678";
 
+        Room room = null;
+
         Admin mockadmin = Admin.builder().room(RoomNum).email(email).name(name).phone(phone).build();
 
-        given(adminService.addGuest(RoomNum, email, name, phone)).willReturn(mockadmin);
+        given(adminService.addGuest(RoomNum, email, name, phone, room)).willReturn(mockadmin);
 
         mvc.perform(post("/reservation")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{\"room\":\"100\" , \"email\":\"admin@exmaple.com\", \"name\":\"Administrator\",\"phone\" :\"010-1234-5678\"}"))
                 .andExpect(status().isCreated());
 
-        verify(adminService).addGuest(RoomNum, email, name, phone);
+        verify(adminService).addGuest(RoomNum, email, name, phone, room);
     }
 
     @Test

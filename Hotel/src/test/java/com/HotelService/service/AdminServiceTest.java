@@ -2,6 +2,7 @@ package com.HotelService.service;
 
 import com.HotelService.entity.Admin;
 import com.HotelService.entity.AdminRepository;
+import com.HotelService.entity.Room;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -64,11 +65,14 @@ public class AdminServiceTest {
         String name = "Administrator";
         String phonenum = "010-1234-5678";
 
+        Room room = null;
+
         Admin mockadmin = Admin.builder().email(email).name(name).phone(phonenum).build();
+
 
         given(adminRepository.save(any())).willReturn(mockadmin);
 
-        Admin admin = adminService.addGuest(RoomNum, email, name, phonenum);
+        Admin admin = adminService.addGuest(RoomNum, email, name, phonenum, room);
 
         assertThat(admin.getName(), is("Administrator"));
 
