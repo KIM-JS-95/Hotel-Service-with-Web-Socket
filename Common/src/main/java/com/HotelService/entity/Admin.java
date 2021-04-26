@@ -3,9 +3,11 @@ package com.HotelService.entity;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -31,6 +33,12 @@ public class Admin {
 
     @NotEmpty
     private String phone;
+
+    @CreatedDate
+    private LocalDateTime checkinTime;
+
+    @CreatedDate
+    private LocalDateTime checkoutTIme;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "room_id")

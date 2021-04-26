@@ -4,3 +4,7 @@ com/HotelServices/Socket/WebSockConfig.java
  com.HotelServices.Socket.WebSockConfig
 com/HotelServices/Socket/WebSockChatHandler.java
  com.HotelServices.Socket.WebSockChatHandler
+com/HotelServices/controller/ChatRoomController.java
+ com.HotelServices.controller.ChatRoomController
+com/HotelServices/controller/ChatController.java
+ com.HotelServices.controller.ChatController
