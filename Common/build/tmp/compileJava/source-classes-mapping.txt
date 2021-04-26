@@ -19,3 +19,5 @@ com/HotelService/entity/Guest.java
 com/HotelService/entity/Room.java
  com.HotelService.entity.Room
  com.HotelService.entity.Room$RoomBuilder
+com/HotelService/repository/GuestRepository.java
+ com.HotelService.repository.GuestRepository

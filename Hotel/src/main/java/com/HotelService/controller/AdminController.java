@@ -2,6 +2,7 @@ package com.HotelService.controller;
 
 
 import com.HotelService.entity.Admin;
+import com.HotelService.entity.Guest;
 import com.HotelService.entity.Room;
 import com.HotelService.service.AdminService;
 
@@ -21,6 +22,7 @@ public class AdminController {
     @Autowired
     private AdminService adminService;
 
+
     @GetMapping("/reservation")
     public List<Admin> list() {
         List<Admin> users = adminService.getGuest();
@@ -31,6 +33,7 @@ public class AdminController {
     @PostMapping("/reservation")
     public ResponseEntity<?> checkIn(
             @RequestBody Admin resource) throws URISyntaxException {
+
         String RoomNum = resource.getRoom();
         String email = resource.getEmail();
         String name = resource.getName();
@@ -63,6 +66,7 @@ public class AdminController {
 
         return adminService.updateGuest(id, email, name, phone);
     }
+
 
 
 }

@@ -23,16 +23,15 @@ public class GuestController {
 
     @PostMapping("/CheckIn")
     public ResponseEntity<?> checkIn(
-            @RequestBody Admin resource) throws URISyntaxException {
-        String RoomNum = resource.getRoom();
+            @RequestBody Guest resource) throws URISyntaxException {
+
         String email = resource.getEmail();
         String name = resource.getName();
-        String phone = resource.getPhone();
-        Room room = resource.getRoomInfo();
+        String phonenum = resource.getPhonenum();
 
-        Guest guest = guestService.CIrequest(RoomNum, email, name, phone, room);
+        Guest guest = guestService.CIrequest(email, name, phonenum);
 
-        String url = "/reservation/" + guest.getId();
+        String url = "/CheckIn/" + guest.getId();
 
         return ResponseEntity.created(new URI(url))
                 .body("{}");

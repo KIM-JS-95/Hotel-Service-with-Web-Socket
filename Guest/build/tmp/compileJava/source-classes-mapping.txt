@@ -2,3 +2,5 @@ HotelService/GuestApplication.java
  HotelService.GuestApplication
 HotelService/controller/GuestController.java
  HotelService.controller.GuestController
+HotelService/service/GuestService.java
+ HotelService.service.GuestService

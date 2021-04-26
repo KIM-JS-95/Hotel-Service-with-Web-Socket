@@ -1,2 +1,4 @@
+HotelService/service/GuestServiceTest.java
+ HotelService.service.GuestServiceTest
 HotelService/controller/GuestControllerTest.java
  HotelService.controller.GuestControllerTest

@@ -1,15 +1,27 @@
 package HotelService.service;
 
 
+import com.HotelService.entity.Admin;
 import com.HotelService.entity.Guest;
-import com.HotelService.entity.Room;
+import com.HotelService.repository.GuestRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class GuestService {
 
-    public Guest CIrequest(String roomNum, String email, String name, String phone, Room room) {
+    @Autowired
+    private GuestRepository guestRepository;
 
-        return null;
+    public Guest CIrequest(String email, String name, String phonenum) {
+
+        Guest guest = Guest.builder()
+                .email(email)
+                .name(name)
+                .phonenum(phonenum)
+                .build();
+
+        return guestRepository.save(guest);
     }
+
 }
