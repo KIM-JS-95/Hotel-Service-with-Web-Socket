@@ -2,7 +2,7 @@ package com.HotelService.service;
 
 
 import com.HotelService.entity.Admin;
-import com.HotelService.entity.AdminRepository;
+import com.HotelService.repository.AdminRepository;
 import com.HotelService.entity.Room;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

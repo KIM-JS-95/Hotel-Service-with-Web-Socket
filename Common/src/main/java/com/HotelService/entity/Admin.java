@@ -13,25 +13,22 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Setter
 public class Admin {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    @Setter
     @NotEmpty
     private String room;
 
-    @Setter
     @NotEmpty
     private String email;
 
-    @Setter
     @NotEmpty
     private String name;
 
-    @Setter
     @NotEmpty
     private String phone;
 

@@ -1,4 +1,4 @@
-package com.HotelService.controller;
+package com.HotelServices.controller;
 
 
 import lombok.RequiredArgsConstructor;

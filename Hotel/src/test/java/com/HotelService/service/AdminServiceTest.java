@@ -1,7 +1,7 @@
 package com.HotelService.service;
 
 import com.HotelService.entity.Admin;
-import com.HotelService.entity.AdminRepository;
+import com.HotelService.repository.AdminRepository;
 import com.HotelService.entity.Room;
 import org.junit.Before;
 import org.junit.Test;

@@ -1,19 +1,19 @@
 ## 역할
 
-```bash
-beack -end / DB modeling
-```
+>beack -end / DB modeling
 
 ## 구현 파트
+
 ``` bash
 1. Guest 체크 인/아웃 기능
 2. Admin Guest 정보 관리 및 수정
 3. STOMP를 활용한 실시간 채팅 기능 구현
 4. 호텔 부가 서비스(청소 및 비품 요청) 주문 기능
+5. 방 형태 및 빈방 검색 기능
 ```
 
 ## 1. real-time chat system
-구현기간: 2021-04-19 ~ 
+> 구현기간: 2021-04-19 ~~
 
 
 ## WebSocket

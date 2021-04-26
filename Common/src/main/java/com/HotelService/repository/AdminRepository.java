@@ -1,6 +1,7 @@
-package com.HotelService.entity;
+package com.HotelService.repository;
 
 
+import com.HotelService.entity.Admin;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
