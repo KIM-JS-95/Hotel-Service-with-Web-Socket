@@ -1,6 +1,7 @@
 package com.HotelService.entity;
 
 
+import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -22,6 +23,9 @@ public class Room {
     private String bedtype;
 
     private String people;
+
+    @NotNull
+    private String status;
 
 //    @OneToOne
 //    private Admin admin;

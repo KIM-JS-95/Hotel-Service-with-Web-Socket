@@ -24,4 +24,8 @@ public class RequestService {
 
         guestRepository.delete(id);
     }
+
+    public void checkin(){
+
+    }
 }
