@@ -45,8 +45,8 @@ public class RequestService {
     }
 
     public List<Room> roomstatus(){
-        List<Room> rooms = roomRepository.findByStaus();
+        List<Room> rooms = roomRepository.findByStausIsNull();
 
-        return rooms
+        return rooms;
     }
 }
