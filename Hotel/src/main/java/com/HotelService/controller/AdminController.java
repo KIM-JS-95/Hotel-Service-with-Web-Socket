@@ -2,7 +2,6 @@ package com.HotelService.controller;
 
 
 import com.HotelService.entity.Admin;
-import com.HotelService.entity.Guest;
 import com.HotelService.entity.Room;
 import com.HotelService.service.AdminService;
 
@@ -37,7 +36,7 @@ public class AdminController {
         String RoomNum = resource.getRoom();
         String email = resource.getEmail();
         String name = resource.getName();
-        String phone = resource.getPhone();
+        String phone = resource.getPhonenum();
         Room room = resource.getRoomInfo();
 
         Admin admin = adminService.addGuest(RoomNum, email, name, phone, room);
@@ -62,7 +61,7 @@ public class AdminController {
 
         String email = resource.getEmail();
         String name = resource.getName();
-        String phone = resource.getPhone();
+        String phone = resource.getPhonenum();
 
         return adminService.updateGuest(id, email, name, phone);
     }

@@ -32,7 +32,7 @@ public class Admin {
     private String name;
 
     @NotEmpty
-    private String phone;
+    private String phonenum;
 
     @CreatedDate
     private LocalDateTime checkinTime;

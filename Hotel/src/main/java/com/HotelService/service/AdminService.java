@@ -31,7 +31,7 @@ public class AdminService {
                 .room(RoomNum)
                 .email(email)
                 .name(name)
-                .phone(phone)
+                .phonenum(phone)
                 .roomInfo(room)
                 .build();
 
@@ -54,7 +54,7 @@ public class AdminService {
 
         admin.setEmail(email);
         admin.setName(name);
-        admin.setPhone(phone);
+        admin.setPhonenum(phone);
 
         return admin;
     }

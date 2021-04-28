@@ -78,7 +78,7 @@ public class AdminControllerTest {
 
         Room room = null;
 
-        Admin mockadmin = Admin.builder().room(RoomNum).email(email).name(name).phone(phone).build();
+        Admin mockadmin = Admin.builder().room(RoomNum).email(email).name(name).phonenum(phone).build();
 
         given(adminService.addGuest(RoomNum, email, name, phone, room)).willReturn(mockadmin);
 
@@ -109,7 +109,7 @@ public class AdminControllerTest {
         String name = "Administrator";
         String phonenum = "010-1234-5678";
 
-        Admin admin = Admin.builder().room(RoomNum).email(email).name(name).phone(phonenum).build();
+        Admin admin = Admin.builder().room(RoomNum).email(email).name(name).phonenum(phonenum).build();
 
         given(adminService.updateGuest(id, email, name, phonenum)).willReturn(admin);
 

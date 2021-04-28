@@ -45,7 +45,7 @@ public class AdminServiceTest {
         adminList.add(Admin.builder()
                 .email(email)
                 .name(name)
-                .phone(phonenum)
+                .phonenum(phonenum)
                 .build());
 
         given(adminRepository.findAll()).willReturn(adminList);
@@ -67,7 +67,7 @@ public class AdminServiceTest {
 
         Room room = null;
 
-        Admin mockadmin = Admin.builder().email(email).name(name).phone(phonenum).build();
+        Admin mockadmin = Admin.builder().email(email).name(name).phonenum(phonenum).build();
 
 
         given(adminRepository.save(any())).willReturn(mockadmin);
@@ -88,7 +88,7 @@ public class AdminServiceTest {
         String name = "Administrator";
         String phonenum = "010-1234-5678";
 
-        Admin mockadmin = Admin.builder().email(email).name(name).phone(phonenum).build();
+        Admin mockadmin = Admin.builder().email(email).name(name).phonenum(phonenum).build();
 
         given(adminRepository.findById(id)).willReturn(Optional.of(mockadmin));
 
@@ -108,7 +108,7 @@ public class AdminServiceTest {
         String name = "Administrator";
         String phonenum = "010-1234-5678";
 
-        Admin mockadmin = Admin.builder().room(RoomNum).email(email).name(name).phone(phonenum).build();
+        Admin mockadmin = Admin.builder().room(RoomNum).email(email).name(name).phonenum(phonenum).build();
 
         given(adminRepository.save(any())).willReturn(mockadmin);
 

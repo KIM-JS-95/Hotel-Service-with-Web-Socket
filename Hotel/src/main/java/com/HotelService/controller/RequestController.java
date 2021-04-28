@@ -16,17 +16,9 @@ public class RequestController {
     private RequestService requestService;
 
     @GetMapping("/request")
-    public List<Guest> requestlist() {
-        requestService.list();
-        return null;
-    }
+    public List<Guest> requestList() {
+        return requestService.list();
 
-    @PostMapping
-    public String CheckIn(){
-        //TODO : construct check in service
-
-        // requestService;
-        return "Complete check in Guests";
     }
 
     @DeleteMapping("/request/{id}")
@@ -38,6 +30,17 @@ public class RequestController {
         return "Canceled a reservation";
     }
 
+    @PostMapping("/request/{id}")
+    public String CheckIn(@RequestBody String resource,
+                          @PathVariable("id") Long id){
+        //TODO : construct check in service
+        // 1. 빈방 찾아 추가해주는 controller 추가
+        // 2. 빈방 번호 service 에 넘겨 Builer 에 추가
 
+        String roomnum = resource;
+        requestService.checkIn(id, roomnum);
+
+        return "Complete check in Guests";
+    }
 
 }
