@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.HotelService.service.AdminServiceTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2021-04-28T08:15:00" hostname="DESKTOP-R7AB2GV" time="0.097">
+<testsuite name="com.HotelService.service.AdminServiceTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2021-04-29T14:30:50" hostname="DESKTOP-R7AB2GV" time="0.222">
   <properties/>
-  <testcase name="delete" classname="com.HotelService.service.AdminServiceTest" time="0.09"/>
-  <testcase name="addGuest" classname="com.HotelService.service.AdminServiceTest" time="0.002"/>
+  <testcase name="delete" classname="com.HotelService.service.AdminServiceTest" time="0.209"/>
+  <testcase name="addGuest" classname="com.HotelService.service.AdminServiceTest" time="0.003"/>
   <testcase name="update" classname="com.HotelService.service.AdminServiceTest" time="0.003"/>
-  <testcase name="getGuest" classname="com.HotelService.service.AdminServiceTest" time="0.001"/>
+  <testcase name="getGuest" classname="com.HotelService.service.AdminServiceTest" time="0.007"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

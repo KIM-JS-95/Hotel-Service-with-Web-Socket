@@ -2,6 +2,7 @@ package com.HotelService.controller;
 
 
 import com.HotelService.entity.Guest;
+import com.HotelService.entity.Room;
 import com.HotelService.service.RequestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -41,6 +42,14 @@ public class RequestController {
         requestService.checkIn(id, roomnum);
 
         return "Complete check in Guests";
+    }
+
+    @GetMapping("/request/{id}")
+    public List<Room> EmptyRoom(){
+
+        List<Room> room = requestService.Emptyroom();
+
+        return room;
     }
 
 }
