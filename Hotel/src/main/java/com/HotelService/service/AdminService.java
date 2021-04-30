@@ -32,7 +32,7 @@ public class AdminService {
                 .email(email)
                 .name(name)
                 .phonenum(phone)
-                .roomInfo(room)
+               // .roomInfo(room)
                 .build();
 
         return adminRepository.save(admin);

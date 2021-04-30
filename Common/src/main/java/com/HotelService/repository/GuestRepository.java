@@ -12,5 +12,5 @@ public interface GuestRepository extends CrudRepository<Guest, Long> {
 
     Optional<Guest> findById(Long id);
 
-    void delete(Long id);
+    void deleteById(Long id);
 }

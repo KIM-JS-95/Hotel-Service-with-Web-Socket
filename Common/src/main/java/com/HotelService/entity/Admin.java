@@ -34,13 +34,13 @@ public class Admin {
     @NotEmpty
     private String phonenum;
 
-    @CreatedDate
-    private LocalDateTime checkinTime;
+//    @CreatedDate
+//    private LocalDateTime checkinTime;
+//
+//    @CreatedDate
+//    private LocalDateTime checkoutTIme;
 
-    @CreatedDate
-    private LocalDateTime checkoutTIme;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "room_id")
-    private Room roomInfo;
+//    @OneToOne
+//   // @JoinColumn(name = "room_id")
+//    private Room roomInfo;
 }

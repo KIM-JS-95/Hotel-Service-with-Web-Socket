@@ -76,18 +76,19 @@ public class AdminControllerTest {
         String name = "Administrator";
         String phone = "010-1234-5678";
 
-        Room room = null;
+        Room roomInfo = null;
 
-        Admin mockadmin = Admin.builder().room(RoomNum).email(email).name(name).phonenum(phone).build();
+        Admin mockadmin = Admin.builder().room(RoomNum).email(email).name(name).phonenum(phone).roomInfo(roomInfo).build();
 
-        given(adminService.addGuest(RoomNum, email, name, phone, room)).willReturn(mockadmin);
+        given(adminService.addGuest(RoomNum, email, name, phone, roomInfo)).willReturn(mockadmin);
 
         mvc.perform(post("/reservation")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content("{\"room\":\"100\" , \"email\":\"admin@exmaple.com\", \"name\":\"Administrator\",\"phone\" :\"010-1234-5678\"}"))
+                .content("{\"room\":\"100\" , \"email\":\"admin@exmaple.com\", " +
+                        "\"name\":\"Administrator\",\"phonenum\" :\"010-1234-5678\"}"))
                 .andExpect(status().isCreated());
 
-        verify(adminService).addGuest(RoomNum, email, name, phone, room);
+        verify(adminService).addGuest(RoomNum, email, name, phone, roomInfo);
     }
 
     @Test
@@ -116,7 +117,7 @@ public class AdminControllerTest {
         mvc.perform(patch("/reservation/100")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{ \"email\":\"admin@exmaple.com\",\"name\":\"Administrator\"," +
-                        "\"phone\":\"010-1234-5678\" }"))
+                        "\"phonenum\":\"010-1234-5678\" }"))
                 .andExpect(status().isOk());
 
         verify(adminService).updateGuest(id, email, name, phonenum);

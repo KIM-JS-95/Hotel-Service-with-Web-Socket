@@ -6,14 +6,13 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 import java.util.Optional;
 
-public interface RoomRepository extends CrudRepository<Room, String> {
+public interface RoomRepository extends CrudRepository<Room, Long> {
 
     List<Room> findAll();
 
-    Optional<Room> findByRoomnum(String roomnum);
+    //Optional<Room> findByRoomnum(String roomnum);
 
     void deleteById(Long id);
 
-
-    List<Room> findByStausIsNull();
+    List<Room> findByStIsNull();
 }

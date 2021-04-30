@@ -27,7 +27,7 @@ public class RequestService {
 
     public void cancel(Long id) {
 
-        guestRepository.delete(id);
+        guestRepository.deleteById(id);
     }
 
     public void checkIn(Long id, String roomnum){
@@ -45,8 +45,8 @@ public class RequestService {
     }
 
     public List<Room> Emptyroom(){
-        List<Room> rooms = roomRepository.findByStausIsNull();
 
+        List<Room> rooms = roomRepository.findByStIsNull();
 
         return rooms;
     }

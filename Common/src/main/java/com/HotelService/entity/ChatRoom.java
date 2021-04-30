@@ -20,7 +20,7 @@ public class ChatRoom {
     @Id
     @GeneratedValue
     private Long id;
-    String roomId;
-    String email;
-    String name;
+    private String roomId;
+    private String email;
+    private String name;
 }
