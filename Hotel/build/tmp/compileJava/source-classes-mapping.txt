@@ -2,11 +2,11 @@ com/HotelService/controller/WellcomController.java
  com.HotelService.controller.WellcomController
 com/HotelService/HotelApplication.java
  com.HotelService.HotelApplication
+com/HotelService/controller/RequestController.java
+ com.HotelService.controller.RequestController
 com/HotelService/service/AdminService.java
  com.HotelService.service.AdminService
 com/HotelService/controller/AdminController.java
  com.HotelService.controller.AdminController
-com/HotelService/controller/RequestController.java
- com.HotelService.controller.RequestController
 com/HotelService/service/RequestService.java
  com.HotelService.service.RequestService

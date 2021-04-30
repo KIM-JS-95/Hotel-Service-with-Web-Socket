@@ -40,7 +40,7 @@ public class Admin {
 //    @CreatedDate
 //    private LocalDateTime checkoutTIme;
 
-//    @OneToOne
-//   // @JoinColumn(name = "room_id")
-//    private Room roomInfo;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "room_id")
+    private Room roomInfo;
 }

@@ -16,23 +16,23 @@ public class AdminService {
 
     @Autowired
     public AdminService(AdminRepository adminRepository) {
-        this.adminRepository=adminRepository;
+        this.adminRepository = adminRepository;
     }
 
-    public List<Admin> getGuest(){
+    public List<Admin> getGuest() {
         List<Admin> users = adminRepository.findAll();
         return users;
     }
 
 
-    public Admin addGuest(String RoomNum, String email, String name, String phone, Room room){
+    public Admin addGuest(String RoomNum, String email, String name, String phone, Room room) {
 
         Admin admin = Admin.builder()
                 .room(RoomNum)
                 .email(email)
                 .name(name)
                 .phonenum(phone)
-               // .roomInfo(room)
+                .roomInfo(room)
                 .build();
 
         return adminRepository.save(admin);

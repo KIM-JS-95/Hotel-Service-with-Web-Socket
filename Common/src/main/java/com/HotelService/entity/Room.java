@@ -1,20 +1,21 @@
 package com.HotelService.entity;
 
-
 import lombok.*;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.validation.constraints.NotEmpty;
+import javax.persistence.*;
 
 @Entity
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@SequenceGenerator(name = "BOARD_SEQ_GENERATOR",
+        sequenceName = "BOARD_SEQ", initialValue = 1)
 public class Room {
 
     @Id
-    @GeneratedValue
-    private Long id;
+    @GeneratedValue(
+            generator = "BOARD_SEQ_GENERATOR")
+    private Long idx;
 
     private String roomnum;
 

@@ -37,8 +37,7 @@ public class AdminController {
         String email = resource.getEmail();
         String name = resource.getName();
         String phone = resource.getPhonenum();
-        Room room = null;
-              //  resource.getRoomInfo();
+        Room room = resource.getRoomInfo();
 
         Admin admin = adminService.addGuest(RoomNum, email, name, phone, room);
 
