@@ -41,10 +41,14 @@ public class AdminController {
 
         Admin admin = adminService.addGuest(RoomNum, email, name, phone, room);
 
-        String url = "/reservation/" + admin.getId();
-
-        return ResponseEntity.created(new URI(url))
-                .body("{}");
+        if(admin == null){
+            return ResponseEntity.badRequest().body("exist");
+        }
+        else {
+            String url = "/reservation/" + admin.getId();
+            return ResponseEntity.created(new URI(url))
+                    .body("{}");
+        }
     }
 
 
@@ -63,7 +67,8 @@ public class AdminController {
         String name = resource.getName();
         String phone = resource.getPhonenum();
 
-        return adminService.updateGuest(id, email, name, phone);
+        Admin admin = adminService.updateGuest(id, email, name, phone);
+        return admin;
     }
 
 

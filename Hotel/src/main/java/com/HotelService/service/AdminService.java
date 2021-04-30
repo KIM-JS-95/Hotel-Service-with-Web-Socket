@@ -26,16 +26,29 @@ public class AdminService {
 
 
     public Admin addGuest(String RoomNum, String email, String name, String phone, Room room) {
+        //TODO : RoomNum overlap handling
 
-        Admin admin = Admin.builder()
-                .room(RoomNum)
-                .email(email)
-                .name(name)
-                .phonenum(phone)
-                .roomInfo(room)
-                .build();
+        boolean flag =adminRepository.findByRoom(RoomNum).isPresent();
 
-        return adminRepository.save(admin);
+        System.out.println(flag);
+
+        Admin admin = null;
+
+        if(flag == false) {
+            admin = Admin.builder()
+                    .room(RoomNum)
+                    .email(email)
+                    .name(name)
+                    .phonenum(phone)
+                    .roomInfo(room)
+                    .build();
+
+            adminRepository.save(admin);
+        }else{
+            return null;
+        }
+
+        return admin;
     }
 
 
@@ -56,6 +69,6 @@ public class AdminService {
         admin.setName(name);
         admin.setPhonenum(phone);
 
-        return admin;
+        return adminRepository.save(admin);
     }
 }

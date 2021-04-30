@@ -13,7 +13,7 @@ import javax.persistence.*;
 public class Room {
 
     @Id
-    @GeneratedValue(
+    @GeneratedValue(strategy = GenerationType.IDENTITY,
             generator = "BOARD_SEQ_GENERATOR")
     private Long idx;
 
