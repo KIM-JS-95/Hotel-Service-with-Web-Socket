@@ -6,10 +6,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @AllArgsConstructor
@@ -19,8 +16,7 @@ import javax.persistence.Id;
 public class Guest {
 
     @Id
-    @GeneratedValue
-    @Column(name = "room_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String email;
@@ -28,6 +24,5 @@ public class Guest {
     private String name;
 
     private String phonenum;
-
 
 }

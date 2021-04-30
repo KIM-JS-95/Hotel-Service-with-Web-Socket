@@ -1,10 +1,8 @@
-package HotelService.controller;
+package com.HotelService.controller;
 
 
-import HotelService.service.GuestService;
-import com.HotelService.entity.Admin;
+import com.HotelService.service.GuestService;
 import com.HotelService.entity.Guest;
-import com.HotelService.entity.Room;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,7 +14,6 @@ import java.net.URISyntaxException;
 
 @RestController
 public class GuestController {
-
 
     @Autowired
     private GuestService guestService;

@@ -75,7 +75,6 @@ public class AdminControllerTest {
         String email = "admin@exmaple.com";
         String name = "Administrator";
         String phone = "010-1234-5678";
-
         Room roomInfo = null;
 
         Admin mockadmin = Admin.builder().room(RoomNum).email(email).name(name).phonenum(phone).roomInfo(roomInfo).build();

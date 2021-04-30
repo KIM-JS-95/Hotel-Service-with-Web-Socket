@@ -1,6 +1,6 @@
-HotelService/GuestApplication.java
- HotelService.GuestApplication
-HotelService/controller/GuestController.java
- HotelService.controller.GuestController
-HotelService/service/GuestService.java
- HotelService.service.GuestService
+com/HotelService/service/GuestService.java
+ com.HotelService.service.GuestService
+com/HotelService/controller/GuestController.java
+ com.HotelService.controller.GuestController
+com/HotelService/GuestApplication.java
+ com.HotelService.GuestApplication

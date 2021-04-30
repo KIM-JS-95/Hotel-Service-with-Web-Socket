@@ -1,6 +1,6 @@
-package HotelService.controller;
+package com.HotelService.controller;
 
-import HotelService.service.GuestService;
+import com.HotelService.service.GuestService;
 import com.HotelService.entity.Guest;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,3 +1,4 @@
+//TODO: Guest 엔티티 정상 구동 먼저 확인
 package com.HotelService.controller;
 
 
@@ -16,12 +17,15 @@ public class RequestController {
     @Autowired
     private RequestService requestService;
 
+
+    // All request List Print
     @GetMapping("/request")
     public List<Guest> requestList() {
         return requestService.list();
 
     }
 
+    // Cancel request
     @DeleteMapping("/request/{id}")
     public String cancel(
             @PathVariable("id") Long id) {
@@ -30,6 +34,7 @@ public class RequestController {
 
         return "Canceled a reservation";
     }
+
 
     @PostMapping("/request/{id}")
     public String CheckIn(@RequestBody String resource,
@@ -41,7 +46,7 @@ public class RequestController {
         String roomnum = resource;
         requestService.checkIn(id, roomnum);
 
-        return "Complete check in Guests";
+        return "request Complete";
     }
 
     @GetMapping("/request/{id}")

@@ -30,7 +30,7 @@ public class RequestService {
         guestRepository.deleteById(id);
     }
 
-    public void checkIn(Long id, String roomnum){
+    public Admin checkIn(Long id, String roomnum) {
 
         // TODO : 비어있는 room 찾아서 추가해주기
         Guest guest = guestRepository.findById(id).orElse(null);
@@ -41,7 +41,7 @@ public class RequestService {
                 .phonenum(guest.getPhonenum())
                 .room(roomnum)
                 .build();
-
+        return admin;
     }
 
     public List<Room> Emptyroom(){
