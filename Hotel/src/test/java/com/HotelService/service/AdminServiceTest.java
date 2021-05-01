@@ -16,6 +16,7 @@ import java.util.Optional;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 
@@ -80,7 +81,6 @@ public class AdminServiceTest {
 
     @Test
     public void update() {
-        List<Admin> adminList = new ArrayList<>();
 
         Long id = 100L;
         String RoomNum = "100";
@@ -94,7 +94,7 @@ public class AdminServiceTest {
 
         Admin admin = adminService.updateGuest(id, email, name, phonenum);
 
-        verify(adminRepository).findById(id);
+        verify(adminRepository).findById(eq(id));
 
         assertThat(admin.getName(), is("Administrator"));
     }

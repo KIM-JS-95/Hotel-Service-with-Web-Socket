@@ -25,4 +25,8 @@ public class Guest {
 
     private String phonenum;
 
+    private String start;
+
+    private String end;
+
 }

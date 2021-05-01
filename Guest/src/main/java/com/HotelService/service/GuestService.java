@@ -30,4 +30,11 @@ public class GuestService {
         return guestRepository.save(guest);
     }
 
+    public Guest CIcancel(Long id) {
+
+        guestRepository.deleteById(id);
+
+        return null;
+    }
+
 }

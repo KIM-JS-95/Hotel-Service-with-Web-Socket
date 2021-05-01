@@ -69,6 +69,6 @@ public class AdminService {
         admin.setName(name);
         admin.setPhonenum(phone);
 
-        return adminRepository.save(admin);
+        return admin;
     }
 }

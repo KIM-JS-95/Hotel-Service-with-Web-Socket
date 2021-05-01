@@ -5,10 +5,9 @@ import com.HotelService.service.GuestService;
 import com.HotelService.entity.Guest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -19,8 +18,8 @@ public class GuestController {
     private GuestService guestService;
 
     @PostMapping("/CheckIn")
-    public ResponseEntity<?> checkIn(
-            @RequestBody Guest resource) throws URISyntaxException {
+    public ResponseEntity<?> reservation(
+           @Valid @RequestBody Guest resource) throws URISyntaxException {
 
         String email = resource.getEmail();
         String name = resource.getName();
@@ -33,4 +32,13 @@ public class GuestController {
         return ResponseEntity.created(new URI(url))
                 .body("{}");
     }
+
+    @DeleteMapping("/CheckIn/{id}")
+    public String cancel(@PathVariable("id") Long id){
+
+        guestService.CIcancel(id);
+        return "delete";
+    }
+
+
 }
