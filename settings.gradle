@@ -9,4 +9,5 @@ include 'Chat'
 include 'Common'
 include 'Hotel'
 include 'Guest'
+include 'Sse'
 

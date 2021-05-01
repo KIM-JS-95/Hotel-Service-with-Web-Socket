@@ -10,6 +10,7 @@
         </processorPath>
         <module name="AbstractCnS.Chat.main" />
         <module name="AbstractCnS.Common.main" />
+        <module name="AbstractCnS.Sse.main" />
         <module name="AbstractCnS.Guest.main" />
         <module name="AbstractCnS.Hotel.main" />
       </profile>

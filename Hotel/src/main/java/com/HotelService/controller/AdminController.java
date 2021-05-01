@@ -22,6 +22,7 @@ public class AdminController {
     private AdminService adminService;
 
 
+    // 손님 전체 리스트
     @GetMapping("/reservation")
     public List<Admin> list() {
         List<Admin> users = adminService.getGuest();

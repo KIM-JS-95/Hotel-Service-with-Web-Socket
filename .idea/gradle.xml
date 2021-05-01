@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/Common" />
             <option value="$PROJECT_DIR$/Guest" />
             <option value="$PROJECT_DIR$/Hotel" />
+            <option value="$PROJECT_DIR$/Sse" />
           </set>
         </option>
       </GradleProjectSettings>
