@@ -44,7 +44,7 @@ dependencies {
 >
 > Gradle
 >
-> Spring Boot
+> Spring Boot ver.2.2.1.RELEASE
 >
 > TDD(Test Driven Development)
 
