@@ -8,8 +8,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 
 @SpringBootApplication
-@EnableScheduling
-@ComponentScan(basePackages = {"com.HotelService"})
+//@ComponentScan(basePackages = {"com.HotelService"})
 public class SpringBootApp extends SpringBootServletInitializer {
     public static void main(String[] args) {
         SpringApplication.run(SpringBootApp.class, args);
