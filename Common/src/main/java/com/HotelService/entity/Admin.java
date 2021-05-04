@@ -4,6 +4,7 @@ package com.HotelService.entity;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -16,6 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
+@EntityListeners(AuditingEntityListener.class)
 public class Admin {
 
     @Id
@@ -34,13 +36,13 @@ public class Admin {
     @NotEmpty
     private String phonenum;
 
-    @CreatedDate
-    private LocalDateTime checkinTime;
-
-    @CreatedDate
-    private LocalDateTime checkoutTIme;
+//    @CreatedDate
+//    private LocalDateTime checkinTime;
+//
+//    @CreatedDate
+//    private LocalDateTime checkoutTIme;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "room_id")
+    @JoinColumn(name = "room_info")
     private Room roomInfo;
 }
