@@ -9,12 +9,12 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Getter
 @SequenceGenerator(name = "BOARD_SEQ_GENERATOR",
-        sequenceName = "BOARD_SEQ", initialValue = 1)
+        sequenceName = "ROOM_SEQ", initialValue = 1)
 public class Room {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY,
-            generator = "BOARD_SEQ_GENERATOR")
+            generator = "ROOM_SEQ_GENERATOR")
     private Long idx;
 
     private String roomnum;

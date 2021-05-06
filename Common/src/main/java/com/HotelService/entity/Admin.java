@@ -43,6 +43,6 @@ public class Admin {
 //    private LocalDateTime checkoutTIme;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "room_info")
+    @JoinColumn(name = "room_idx")
     private Room roomInfo;
 }
