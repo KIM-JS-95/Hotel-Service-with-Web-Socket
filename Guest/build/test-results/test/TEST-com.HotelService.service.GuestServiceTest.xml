@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.HotelService.service.GuestServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-05-01T05:11:38" hostname="DESKTOP-R7AB2GV" time="0.075">
+<testsuite name="com.HotelService.service.GuestServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-05-06T15:15:02" hostname="DESKTOP-R7AB2GV" time="0.083">
   <properties/>
-  <testcase name="CIrequest" classname="com.HotelService.service.GuestServiceTest" time="0.075"/>
+  <testcase name="CIrequest" classname="com.HotelService.service.GuestServiceTest" time="0.083"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

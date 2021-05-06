@@ -3,6 +3,7 @@ package com.HotelService.repository;
 import com.HotelService.entity.Room;
 import org.springframework.data.repository.CrudRepository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,7 +13,8 @@ public interface RoomRepository extends CrudRepository<Room, Long> {
 
     //Optional<Room> findByRoomnum(String roomnum);
 
-    void deleteById(Long id);
+    @Transactional
+    void deleteByIdx(Long id);
 
     List<Room> findByStIsNull();
 }

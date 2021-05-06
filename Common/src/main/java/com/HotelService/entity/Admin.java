@@ -1,6 +1,7 @@
 package com.HotelService.entity;
 
 
+import com.HotelService.utils.BaseTimeEntity;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -18,7 +19,7 @@ import java.util.List;
 @AllArgsConstructor
 @Setter
 @EntityListeners(AuditingEntityListener.class)
-public class Admin {
+public class Admin extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,12 +36,6 @@ public class Admin {
 
     @NotEmpty
     private String phonenum;
-
-//    @CreatedDate
-//    private LocalDateTime checkinTime;
-//
-//    @CreatedDate
-//    private LocalDateTime checkoutTIme;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "room_idx")
