@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.data.jpa.mapping.JpaMetamodelMappingContext;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +23,7 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 
 
+@MockBean(JpaMetamodelMappingContext.class)
 public class AdminServiceTest {
 
     @MockBean
@@ -29,7 +31,9 @@ public class AdminServiceTest {
 
     @Mock
     private AdminRepository adminRepository;
-    private RoomRepository roomRepository;
+
+    @Mock
+   private RoomRepository roomRepository;
 
     @Before
     public void setup() {
@@ -110,14 +114,26 @@ public class AdminServiceTest {
         String name = "Administrator";
         String phonenum = "010-1234-5678";
 
-        Admin mockadmin = Admin.builder().room(RoomNum).email(email).name(name).phonenum(phonenum).build();
+        Room mockroom = Room.builder()
+                .roomnum(RoomNum)
+                .bedtype("twin")
+                .people("10")
+                .build();
+
+        Admin mockadmin = Admin.builder()
+                .room(RoomNum)
+                .email(email)
+                .name(name)
+                .phonenum(phonenum)
+                .roomInfo(mockroom).build();
 
         given(adminRepository.save(any())).willReturn(mockadmin);
+        given(roomRepository.save(mockroom)).willReturn(mockroom);
 
         given(adminRepository.findByRoom(RoomNum)).willReturn(Optional.of(mockadmin));
 
-        String admin = adminService.delete(RoomNum);
 
+        String admin = adminService.delete(RoomNum);
         assertThat(admin, is("check out"));
     }
 

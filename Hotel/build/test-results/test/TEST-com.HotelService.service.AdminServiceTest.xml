@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.HotelService.service.AdminServiceTest" tests="4" skipped="0" failures="1" errors="0" timestamp="2021-05-06T15:15:14" hostname="DESKTOP-R7AB2GV" time="0.187">
+<testsuite name="com.HotelService.service.AdminServiceTest" tests="4" skipped="0" failures="1" errors="0" timestamp="2021-05-09T13:54:11" hostname="DESKTOP-R7AB2GV" time="0.149">
   <properties/>
-  <testcase name="delete" classname="com.HotelService.service.AdminServiceTest" time="0.165">
+  <testcase name="delete" classname="com.HotelService.service.AdminServiceTest" time="0.141">
     <failure message="java.lang.NullPointerException: Cannot invoke &quot;com.HotelService.repository.RoomRepository.deleteByIdx(java.lang.Long)&quot; because &quot;this.roomRepository&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;com.HotelService.repository.RoomRepository.deleteByIdx(java.lang.Long)&quot; because &quot;this.roomRepository&quot; is null
-	at com.HotelService.service.AdminService.delete(AdminService.java:63)
+	at com.HotelService.service.AdminService.delete(AdminService.java:64)
 	at com.HotelService.service.AdminServiceTest.delete(AdminServiceTest.java:119)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
@@ -55,8 +55,8 @@
 	at java.base/java.lang.Thread.run(Thread.java:832)
 </failure>
   </testcase>
-  <testcase name="addGuest" classname="com.HotelService.service.AdminServiceTest" time="0.006"/>
-  <testcase name="update" classname="com.HotelService.service.AdminServiceTest" time="0.014"/>
+  <testcase name="addGuest" classname="com.HotelService.service.AdminServiceTest" time="0.004"/>
+  <testcase name="update" classname="com.HotelService.service.AdminServiceTest" time="0.002"/>
   <testcase name="getGuest" classname="com.HotelService.service.AdminServiceTest" time="0.001"/>
   <system-out><![CDATA[false
 ]]></system-out>
