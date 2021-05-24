@@ -11,17 +11,17 @@ import java.security.Key;
 public class JwtUtil {
 
     private Key key;
-    public JwtUtil(String secret){
+
+    public JwtUtil(String secret) {
         this.key = Keys.hmacShaKeyFor(secret.getBytes());
     }
 
-    public String createToken(Long userId, String name, Long restaurantId) {
+    public String createToken(String email, String name, String phonenum) {
         JwtBuilder builder = Jwts.builder()
-                .claim("userId", userId)
-                .claim("name", name);
-        if (restaurantId != null) {
-            builder = builder.claim("restaurantId", restaurantId);
-        }
+                .claim("userId", email)
+                .claim("name", name)
+                .claim("phonenum", phonenum);
+
         return builder
                 .signWith(key, SignatureAlgorithm.HS256)
                 .compact();

@@ -1,9 +1,12 @@
 package com.HotelService.controller;
 
 
+import com.HotelService.Sse.SessionResponseDTO;
 import com.HotelService.Sse.SseEmitterController;
 import com.HotelService.service.GuestService;
 import com.HotelService.entity.Guest;
+import com.HotelService.utils.JwtUtil;
+import com.fasterxml.classmate.AnnotationOverrides;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.EventListener;
@@ -34,10 +37,13 @@ public class GuestController {
     private GuestService guestService;
 
     @Autowired
+    private JwtUtil jwtUtil;
+
+    @Autowired
     private SseEmitterController sseEmitterController;
 
     @PostMapping("/CheckIn")
-    public ResponseEntity<?> reservation(
+    public ResponseEntity<SessionResponseDTO> reservation(
            @Valid @RequestBody Guest resource) throws URISyntaxException {
 
         String email = resource.getEmail();
@@ -45,13 +51,15 @@ public class GuestController {
         String phonenum = resource.getPhonenum();
 
         Guest guest = guestService.CIrequest(email, name, phonenum);
-
         sseEmitterController.handleSse();
 
-        String url = "/CheckIn/" + guest.getId();
+        String accessToken = jwtUtil.createToken(email, name, phonenum);
 
-        return ResponseEntity.created(new URI(url))
-                .body("{}");
+        String url = "/CheckIn/" + guest.getId();
+        return ResponseEntity.created(new URI(url)).body(
+                SessionResponseDTO.builder()
+                        .accessToken(accessToken)
+                        .build());
     }
 
     @DeleteMapping("/CheckIn/{id}")
