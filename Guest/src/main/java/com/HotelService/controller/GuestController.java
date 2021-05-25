@@ -6,30 +6,18 @@ import com.HotelService.Sse.SseEmitterController;
 import com.HotelService.service.GuestService;
 import com.HotelService.entity.Guest;
 import com.HotelService.utils.JwtUtil;
-import com.fasterxml.classmate.AnnotationOverrides;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.event.EventListener;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.scheduling.annotation.Async;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
-import java.util.concurrent.CopyOnWriteArraySet;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
-@Slf4j
+@RequiredArgsConstructor
 @RestController
 public class GuestController {
 
@@ -37,13 +25,13 @@ public class GuestController {
     private GuestService guestService;
 
     @Autowired
-    private JwtUtil jwtUtil;
-
-    @Autowired
     private SseEmitterController sseEmitterController;
 
+    private JwtUtil jwtUtil;
+
+
     @PostMapping("/CheckIn")
-    public ResponseEntity<SessionResponseDTO> reservation(
+    public ResponseEntity<?> reservation(
            @Valid @RequestBody Guest resource) throws URISyntaxException {
 
         String email = resource.getEmail();
@@ -53,13 +41,13 @@ public class GuestController {
         Guest guest = guestService.CIrequest(email, name, phonenum);
         sseEmitterController.handleSse();
 
-        String accessToken = jwtUtil.createToken(email, name, phonenum);
+       // String accessToken = jwtUtil.createToken(email, name, phonenum);
 
         String url = "/CheckIn/" + guest.getId();
-        return ResponseEntity.created(new URI(url)).body(
-                SessionResponseDTO.builder()
-                        .accessToken(accessToken)
-                        .build());
+        return ResponseEntity.created(new URI(url)).body("{}");
+               // SessionResponseDTO.builder()
+                      //  .accessToken(accessToken)
+                      //  .build());
     }
 
     @DeleteMapping("/CheckIn/{id}")

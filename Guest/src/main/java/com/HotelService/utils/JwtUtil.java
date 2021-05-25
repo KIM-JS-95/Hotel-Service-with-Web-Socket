@@ -18,7 +18,7 @@ public class JwtUtil {
 
     public String createToken(String email, String name, String phonenum) {
         JwtBuilder builder = Jwts.builder()
-                .claim("userId", email)
+                .claim("email", email)
                 .claim("name", name)
                 .claim("phonenum", phonenum);
 
