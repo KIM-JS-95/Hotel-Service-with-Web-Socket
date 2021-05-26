@@ -10,7 +10,9 @@ var main = {
         var data = {
             email: $('#email').val(),
             name: $('#name').val(),
-            phonenum: $('#phonenum').val()
+            phonenum: $('#phonenum').val(),
+            start: $('#start').val(),
+            end: $('#end').val()
         };
 
         $.ajax({
