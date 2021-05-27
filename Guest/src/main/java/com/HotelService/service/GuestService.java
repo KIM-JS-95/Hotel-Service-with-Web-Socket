@@ -4,11 +4,10 @@ package com.HotelService.service;
 import com.HotelService.entity.Guest;
 import com.HotelService.repository.GuestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.Date;
+import java.util.Optional;
 
 @Service
 public class GuestService {
@@ -31,6 +30,12 @@ public class GuestService {
                 .build();
 
         return guestRepository.save(guest);
+    }
+
+    public Optional<Guest> CIinquire(String email, String name){
+        Optional<Guest> guset = guestRepository.findByNameAndEmail(name, email);
+
+        return guset;
     }
 
     public Guest CIcancel(Long id) {

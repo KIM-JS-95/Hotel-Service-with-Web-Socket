@@ -1,22 +1,20 @@
 package com.HotelService.controller;
 
 
-import com.HotelService.Sse.SessionResponseDTO;
 import com.HotelService.Sse.SseEmitterController;
 import com.HotelService.service.GuestService;
 import com.HotelService.entity.Guest;
 import com.HotelService.utils.JwtUtil;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.LocalDate;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @RestController
@@ -24,6 +22,7 @@ public class GuestController {
 
     @Autowired
     private GuestService guestService;
+
 
     @Autowired
     private SseEmitterController sseEmitterController;
@@ -52,6 +51,14 @@ public class GuestController {
         //  .accessToken(accessToken)
         //  .build());
     }
+
+    @GetMapping("/CheckInInquire/{email}/{name}")
+    public Optional<Guest> CIinquire(@PathVariable String email,@PathVariable String name){
+        Optional<Guest> guest = guestService.CIinquire(email,name);
+
+        return guest;
+    }
+
 
     @DeleteMapping("/CheckIn/{id}")
     public String cancel(@PathVariable("id") Long id) {

@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>웹서비스</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body>
+<h1>호텔 예약 시스템</h1>
+
+<div class="col-md-12">
+    <div class="row">
+        <table class="table table-horizontal table-bordered">
+            <thead class="thead-strong">
+            <tr>
+                <th>이름</th>
+                <th>이메일</th>
+                <th>핸드폰번호</th>
+                <th>from</th>
+                <th>to</th>
+            </tr>
+            </thead>
+            <tbody id="tbody">
+            {{#guest}}
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{email}}</td>
+                    <td>{{phonenum}}</td>
+                    <td>{{start}}</td>
+                    <td>{{end}}</td>
+                </tr>
+            {{/guest}}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

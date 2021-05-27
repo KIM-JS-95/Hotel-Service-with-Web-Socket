@@ -52,7 +52,8 @@ public class GuestControllerTest {
 
         mvc.perform(post("/CheckIn")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content("{\"email\":\"admin@exmaple.com\", \"name\":\"Administrator\",\"phonenum\":\"010-1234-5678\",\"start\":\"2021-05-20\",\"end\":\"2021-05-27\"}"))
+                .content("{\"email\":\"admin@exmaple.com\", \"name\":\"Administrator\",\"phonenum\":\"010-1234-5678\"" +
+                        ",\"start\":\"2021-05-20\",\"end\":\"2021-05-27\"}"))
                 .andExpect(status().isCreated());
 
 

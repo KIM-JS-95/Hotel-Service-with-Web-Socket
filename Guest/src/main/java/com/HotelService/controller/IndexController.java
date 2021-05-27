@@ -13,9 +13,19 @@ public class IndexController {
         return "index";
     }
 
-    @GetMapping("/posts/save")
+    @GetMapping("/save")
     public String postsSave(){
-        return "posts-save";
+        return "save";
+    }
+
+    @GetMapping("/inquiry")
+    public String inquiry(){
+        return "inquiry";
+    }
+
+    @GetMapping("/inquiry/result")
+    public String inquiryResult(){
+        return "inquiry-result";
     }
 
 }

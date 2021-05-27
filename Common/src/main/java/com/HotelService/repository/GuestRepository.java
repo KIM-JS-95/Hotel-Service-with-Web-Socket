@@ -13,4 +13,6 @@ public interface GuestRepository extends CrudRepository<Guest, Long> {
     Optional<Guest> findById(Long id);
 
     void deleteById(Long id);
+
+    Optional<Guest> findByNameAndEmail(String name, String email);
 }
