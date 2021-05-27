@@ -1,16 +1,18 @@
 package com.HotelService.entity;
 
 
-import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @AllArgsConstructor
@@ -30,11 +32,11 @@ public class Guest {
 
     private String phonenum;
 
- //   @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private String start;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate start;
 
-  //  @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private String end;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate end;
 
 
 }

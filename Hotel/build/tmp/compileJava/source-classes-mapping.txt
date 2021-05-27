@@ -4,9 +4,9 @@ com/HotelService/controller/RequestController.java
  com.HotelService.controller.RequestController
 com/HotelService/HotelApplication.java
  com.HotelService.HotelApplication
-com/HotelService/service/RequestService.java
- com.HotelService.service.RequestService
-com/HotelService/service/AdminService.java
- com.HotelService.service.AdminService
 com/HotelService/controller/AdminController.java
  com.HotelService.controller.AdminController
+com/HotelService/service/AdminService.java
+ com.HotelService.service.AdminService
+com/HotelService/service/RequestService.java
+ com.HotelService.service.RequestService
