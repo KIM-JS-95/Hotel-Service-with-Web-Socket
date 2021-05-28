@@ -32,8 +32,8 @@ public class GuestService {
         return guestRepository.save(guest);
     }
 
-    public Optional<Guest> CIinquire(String email, String name){
-        Optional<Guest> guset = guestRepository.findByNameAndEmail(name, email);
+    public Guest CIinquire(String email, String name){
+        Guest guset = guestRepository.findByNameAndEmail(name, email);
 
         return guset;
     }

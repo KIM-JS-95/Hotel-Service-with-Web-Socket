@@ -12,13 +12,13 @@ var main = {
 
         $.ajax({
             type: 'GET',
-            url: '/CheckInInquire/'+email+'/'+name,
+            url: '/CheckInInquire',
             dataType: 'json',
             contentType:'application/json; charset=utf-8',
 
         }).done(function() {
             alert('조회!');
-            window.location.href = '/CheckInInquire/'+email+'/'+name;
+            window.location.href = 'inquiry-result';
         }).fail(function (error) {
             alert(JSON.stringify(error));
         });

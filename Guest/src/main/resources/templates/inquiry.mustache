@@ -11,25 +11,27 @@
 
 <div class="col-md-12">
     <div class="row">
-        <form>
+
+        <form action="/CheckInInquire" method="POST">
             <div class="form-group">
                 <label for="name">이름</label>
-                <input type="text" class="form-control" id="name" placeholder="이름을 입력하세요">
+                <input type="text" class="form-control" name="name" placeholder="이름을 입력하세요">
             </div>
 
             <div class="form-group">
                 <label for="email">이메일</label>
-                <input type="text" class="form-control" id="email" placeholder="이메일 주소를 입력하세요">
+                <input type="text" class="form-control" name="email" placeholder="이메일 주소를 입력하세요">
             </div>
+            <input type="submit" value="검색">
         </form>
 
         <br>
-        <button type="button" class="btn btn-primary" id="btn-search"> 검색 </button>
+      <!--  <button type="button" class="btn btn-primary" id="btn-search"> 검색 </button> -->
     </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="/js/search.js"></script>
+<!--<script src="/js/search.js"></script> -->
 </body>
 </html>

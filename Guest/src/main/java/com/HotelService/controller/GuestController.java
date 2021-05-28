@@ -2,27 +2,27 @@ package com.HotelService.controller;
 
 
 import com.HotelService.Sse.SseEmitterController;
-import com.HotelService.service.GuestService;
 import com.HotelService.entity.Guest;
+import com.HotelService.service.GuestService;
 import com.HotelService.utils.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.LocalDate;
-import java.util.Optional;
 
 @RequiredArgsConstructor
-@RestController
+@Controller
 public class GuestController {
 
     @Autowired
     private GuestService guestService;
-
 
     @Autowired
     private SseEmitterController sseEmitterController;
@@ -52,11 +52,18 @@ public class GuestController {
         //  .build());
     }
 
-    @GetMapping("/CheckInInquire/{email}/{name}")
-    public Optional<Guest> CIinquire(@PathVariable String email,@PathVariable String name){
-        Optional<Guest> guest = guestService.CIinquire(email,name);
+    @RequestMapping("/CheckInInquire")
+    public String CIinquire(@RequestParam("email") String email,
+                                     @RequestParam("name") String name, Model model){
 
-        return guest;
+//        System.out.println(email);
+//        System.out.println(name);
+
+        Guest guest = guestService.CIinquire(email,name);
+
+        model.addAttribute("guests", guest);
+
+        return "inquiry-result";
     }
 
 
