@@ -9,9 +9,9 @@ com/HotelService/GuestApplication.java
 com/HotelService/Sse/SessionResponseDTO.java
  com.HotelService.Sse.SessionResponseDTO
  com.HotelService.Sse.SessionResponseDTO$SessionResponseDTOBuilder
-com/HotelService/controller/IndexController.java
- com.HotelService.controller.IndexController
 com/HotelService/service/GuestService.java
  com.HotelService.service.GuestService
 com/HotelService/controller/GuestController.java
  com.HotelService.controller.GuestController
+com/HotelService/controller/IndexController.java
+ com.HotelService.controller.IndexController

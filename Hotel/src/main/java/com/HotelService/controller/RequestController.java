@@ -1,32 +1,36 @@
-//TODO: Guest 엔티티 정상 구동 먼저 확인
 package com.HotelService.controller;
 
 
 import com.HotelService.entity.Guest;
 import com.HotelService.entity.Room;
 import com.HotelService.service.RequestService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@RequiredArgsConstructor
+@Controller
 public class RequestController {
-
 
     @Autowired
     private RequestService requestService;
 
-
     // All request List Print
     @GetMapping("/request")
-    public List<Guest> requestList() {
-        return requestService.list();
+    public String requestList(Model model) {
+
+        model.addAttribute("guests", requestService.list());
+
+        return "request";
 
     }
 
     // Cancel request
-    @DeleteMapping("/request/{id}")
+    @DeleteMapping("/Cancel/{id}")
     public String cancel(
             @PathVariable("id") Long id) {
 
