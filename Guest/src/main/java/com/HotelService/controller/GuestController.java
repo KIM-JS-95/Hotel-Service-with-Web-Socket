@@ -16,6 +16,7 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.LocalDate;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Controller
@@ -54,17 +55,14 @@ public class GuestController {
 
     @RequestMapping("/CheckInInquire")
     public String CIinquire(@RequestParam("email") String email,
-                                     @RequestParam("name") String name, Model model){
+                            @RequestParam("name") String name, Model model) {
 
-//        System.out.println(email);
-//        System.out.println(name);
-
-        Guest guest = guestService.CIinquire(email,name);
+        Guest guest = guestService.CIinquire(email, name);
 
         model.addAttribute("guests", guest);
-
         return "inquiry-result";
     }
+
 
 
     @DeleteMapping("/CheckIn/{id}")

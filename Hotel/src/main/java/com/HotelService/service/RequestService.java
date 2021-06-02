@@ -18,8 +18,7 @@ import java.util.stream.Collectors;
 @Service
 public class RequestService {
 
-    @Autowired
-    private GuestRepository guestRepository;
+    private final GuestRepository guestRepository;
 
     @Autowired
     private RoomRepository roomRepository;
@@ -31,11 +30,13 @@ public class RequestService {
         return guest;
     }
 
+    @Transactional
     public void cancel(Long id) {
-
-        guestRepository.deleteById(id);
+        Guest guest = guestRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("해당 게시글이 없습니다. id= " + id));
+        guestRepository.delete(guest);
     }
 
+    @Transactional
     public Admin checkIn(Long id, String roomnum) {
 
         // TODO : 비어있는 room 찾아서 추가해주기
@@ -50,6 +51,7 @@ public class RequestService {
         return admin;
     }
 
+    @Transactional
     public List<Room> Emptyroom(){
 
         List<Room> rooms = roomRepository.findByStIsNull();

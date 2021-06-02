@@ -14,17 +14,21 @@
         <table class="table table-horizontal table-bordered">
             <thead class="thead-strong">
             <tr>
+                <th>번호</th>
                 <th>이름</th>
                 <th>이메일</th>
                 <th>핸드폰번호</th>
                 <th>from</th>
                 <th>to</th>
+                <br>
+                <th>Accept</th>
                 <th>Cancel</th>
             </tr>
             </thead>
             <tbody id="tbody">
             {{#guests}}
                 <tr>
+                    <td>{{id}}</td>
                     <td>{{name}}</td>
                     <td>{{email}}</td>
                     <td>{{phonenum}}</td>
@@ -33,6 +37,7 @@
                 </tr>
             {{/guests}}
             </tbody>
+
         </table>
     </div>
 </div>
@@ -41,5 +46,6 @@
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="/js/func.js"></script>
 </body>
 </html>

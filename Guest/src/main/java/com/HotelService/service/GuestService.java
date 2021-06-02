@@ -33,9 +33,9 @@ public class GuestService {
     }
 
     public Guest CIinquire(String email, String name){
-        Guest guset = guestRepository.findByNameAndEmail(name, email);
+        Optional<Guest> guest = guestRepository.findByNameAndEmail(name, email);
 
-        return guset;
+        return guest.get();
     }
 
     public Guest CIcancel(Long id) {

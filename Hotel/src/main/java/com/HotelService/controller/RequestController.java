@@ -30,13 +30,9 @@ public class RequestController {
     }
 
     // Cancel request
-    @DeleteMapping("/Cancel/{id}")
-    public String cancel(
-            @PathVariable("id") Long id) {
-
+    @DeleteMapping("/cancel/{id}")
+    public void cancel(@PathVariable("id") Long id) {
         requestService.cancel(id);
-
-        return "Canceled a reservation";
     }
 
 
