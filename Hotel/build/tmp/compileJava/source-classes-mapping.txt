@@ -6,7 +6,7 @@ com/HotelService/controller/AdminController.java
  com.HotelService.controller.AdminController
 com/HotelService/service/RequestService.java
  com.HotelService.service.RequestService
-com/HotelService/controller/IndexController.java
- com.HotelService.controller.IndexController
 com/HotelService/controller/RequestController.java
  com.HotelService.controller.RequestController
+com/HotelService/controller/IndexController.java
+ com.HotelService.controller.IndexController

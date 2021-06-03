@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -30,9 +31,10 @@ public class RequestController {
 //    }
 
     // Cancel request
-    @RequestMapping(value = "/cancel/{id}",  method = RequestMethod.DELETE)
-    public void cancel(@PathVariable("id") Long id) {
+    @DeleteMapping("/cancel/{id}")
+    public Long cancel(@PathVariable("id") Long id) {
         requestService.cancel(id);
+        return id;
     }
 
 

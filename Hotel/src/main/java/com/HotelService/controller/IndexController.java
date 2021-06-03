@@ -38,4 +38,9 @@ public class IndexController {
         return "view";
     }
 
+    @GetMapping("/request/accept")
+    public String accept(){
+        return "guestaccept";
+    }
+
 }

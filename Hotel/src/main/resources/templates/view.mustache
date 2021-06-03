@@ -14,28 +14,29 @@
 
         <form>
             <div class="form-group">
-                <label for="id">번호</label>
-                <td type="text" class="form-control" id="id">{{guest.id}}</td>
+                <label for="title">REQUEST NUMBER</label>
+                <input type="text" class="form-control" id="id" value="{{guest.id}}" readonly>
             </div>
-            <div class="form-group">
-                <label for="name">이름</label>
-                <td type="text" class="form-control" id="name">{{guest.name}}</td>
-            </div>
-            <div class="form-group">
-                <label for="phonenum"> 전화번호 </label>
-                <td type="text" class="form-control" id="phonenum">{{guest.phonenum}}</td>
-            </div>
-            <div class="form-group">
-                <label for="start"> FROM </label>
-                <td type="text" class="form-control"id="start">{{guest.start}}</td>
-            </div>
-            <div class="form-group">
-                <label for="end"> TO </label>
-                <td type="text" class="form-control"id="end">{{guest.end}}</td>
-            </div>
-        </form>
 
-        <button type="button" class="btn btn-danger" id="btn-delete">삭제</button>
+            <div class="form-group">
+                <label for="email">EMAIL</label>
+                <input type="text" class="form-control" id="email" value="{{guest.email}}" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="name">NAME</label>
+                <input type="text" class="form-control" id="name" value="{{guest.name}}" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="period">PERIOD</label>
+                <input type="text" class="form-control" id="start" value="{{guest.start}}" readonly>
+                <input type="text" class="form-control" id="end" value="{{guest.end}}" readonly>
+            </div>
+
+
+        </form>
+        <button type="button" class="btn btn-danger" id="btn-delete"> 예약 취소</button>
     </div>
 </div>
 

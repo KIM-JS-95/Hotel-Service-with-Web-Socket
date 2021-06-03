@@ -19,8 +19,8 @@ import java.util.Optional;
 @Service
 public class RequestService {
 
-    @Autowired
-    private GuestRepository guestRepository;
+
+    private final GuestRepository guestRepository;
 
     @Autowired
     private RoomRepository roomRepository;
@@ -38,7 +38,6 @@ public class RequestService {
 
         return new PostsResponseDto(guest);
     }
-
 
 
     @Transactional
