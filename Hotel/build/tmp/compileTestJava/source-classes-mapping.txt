@@ -2,5 +2,5 @@ com/HotelService/controller/AdminControllerTest.java
  com.HotelService.controller.AdminControllerTest
 com/HotelService/service/AdminServiceTest.java
  com.HotelService.service.AdminServiceTest
-com/HotelService/controller/RequestControllerTest.java
- com.HotelService.controller.RequestControllerTest
+com/HotelService/controller/AcceptControllerTest.java
+ com.HotelService.controller.AcceptControllerTest

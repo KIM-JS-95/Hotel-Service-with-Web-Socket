@@ -13,12 +13,6 @@ public class AdminTest {
     @Test
     public void creation(){
 
-//        Room room = Room.builder()
-//                .Roomnum("202")
-//                .people("10")
-//                .bedtype("twin")
-//                .build();
-
         Admin admin = Admin.builder()
                 .room("202")
                 .name("kim")

@@ -33,7 +33,7 @@ public class AdminServiceTest {
     private AdminRepository adminRepository;
 
     @Mock
-   private RoomRepository roomRepository;
+    private RoomRepository roomRepository;
 
     @Before
     public void setup() {

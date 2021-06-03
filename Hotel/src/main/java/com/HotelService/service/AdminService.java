@@ -5,15 +5,19 @@ import com.HotelService.entity.Admin;
 import com.HotelService.repository.AdminRepository;
 import com.HotelService.entity.Room;
 import com.HotelService.repository.RoomRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
 @Service
+@RequiredArgsConstructor
 public class AdminService {
 
     private AdminRepository adminRepository;
+
     private RoomRepository roomRepository;
 
     @Autowired

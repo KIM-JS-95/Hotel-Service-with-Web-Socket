@@ -2,8 +2,8 @@ com/HotelService/Sse/SseEmitterController.java
  com.HotelService.Sse.SseEmitterController
 com/HotelService/utils/JwtUtil.java
  com.HotelService.utils.JwtUtil
-com/HotelService/service/GuestService.java
- com.HotelService.service.GuestService
+com/HotelService/WebConfig.java
+ com.HotelService.WebConfig
 com/HotelService/GuestApplication.java
  com.HotelService.GuestApplication
 com/HotelService/controller/IndexController.java
@@ -11,7 +11,7 @@ com/HotelService/controller/IndexController.java
 com/HotelService/Sse/SessionResponseDTO.java
  com.HotelService.Sse.SessionResponseDTO
  com.HotelService.Sse.SessionResponseDTO$SessionResponseDTOBuilder
-com/HotelService/WebConfig.java
- com.HotelService.WebConfig
+com/HotelService/service/GuestService.java
+ com.HotelService.service.GuestService
 com/HotelService/controller/GuestController.java
  com.HotelService.controller.GuestController

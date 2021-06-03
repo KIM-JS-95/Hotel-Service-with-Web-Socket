@@ -5,6 +5,7 @@ import com.HotelService.entity.Admin;
 import com.HotelService.entity.Guest;
 import com.HotelService.entity.PostsResponseDto;
 import com.HotelService.entity.Room;
+import com.HotelService.repository.AdminRepository;
 import com.HotelService.repository.GuestRepository;
 import com.HotelService.repository.RoomRepository;
 import lombok.RequiredArgsConstructor;
@@ -15,24 +16,32 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 
-@RequiredArgsConstructor
 @Service
-public class RequestService {
+@Transactional
+@RequiredArgsConstructor
+public class AcceptService {
 
-
-    private final GuestRepository guestRepository;
-
+    @Autowired
+    private GuestRepository guestRepository;
     @Autowired
     private RoomRepository roomRepository;
 
-    @Transactional(readOnly = true)
+
+    @Autowired
+    public AcceptService(GuestRepository guestRepository, RoomRepository roomRepository) {
+        this.guestRepository = guestRepository;
+        this.roomRepository = roomRepository;
+    }
+
+
+    //@Transactional(readOnly = true)
     public List<Guest> list() {
         List<Guest> guest = guestRepository.findAll();
 
         return guest;
     }
 
-    @Transactional(readOnly = true)
+  //  @Transactional(readOnly = true)
     public PostsResponseDto view(Long id) {
         Guest guest = guestRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("해당 게시글이 없습니다. id= " + id));
 
@@ -40,13 +49,13 @@ public class RequestService {
     }
 
 
-    @Transactional
+  //  @Transactional
     public void cancel(Long id) {
         Guest guest = guestRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("해당 게시글이 없습니다. id= " + id));
         guestRepository.delete(guest);
     }
 
-    @Transactional
+  //  @Transactional
     public Admin checkIn(Long id, String roomnum) {
 
         // TODO : 비어있는 room 찾아서 추가해주기

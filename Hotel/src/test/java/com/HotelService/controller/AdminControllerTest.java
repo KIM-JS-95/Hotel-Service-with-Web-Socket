@@ -42,9 +42,9 @@ public class AdminControllerTest {
     @Autowired
     private WebApplicationContext webApplicationContext;
 
+    //Init MockMvc Object and build
     @Before
     public void setup() {
-        //Init MockMvc Object and build
         mvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
     }
 
@@ -56,11 +56,14 @@ public class AdminControllerTest {
         String RoomNum = "100";
         String email = "baugh248730@gmail.com";
         String name = "kim";
+        String phonenum = "010-1234-4556";
 
         list.add(Admin.builder()
                 .id(id)
+                .room(RoomNum)
                 .email(email)
                 .name(name)
+                .phonenum(phonenum)
                 .build());
 
         given(adminService.getGuest()).willReturn(list);
