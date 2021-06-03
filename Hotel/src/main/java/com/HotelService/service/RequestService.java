@@ -3,6 +3,7 @@ package com.HotelService.service;
 
 import com.HotelService.entity.Admin;
 import com.HotelService.entity.Guest;
+import com.HotelService.entity.PostsResponseDto;
 import com.HotelService.entity.Room;
 import com.HotelService.repository.GuestRepository;
 import com.HotelService.repository.RoomRepository;
@@ -12,13 +13,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
 public class RequestService {
 
-    private final GuestRepository guestRepository;
+    @Autowired
+    private GuestRepository guestRepository;
 
     @Autowired
     private RoomRepository roomRepository;
@@ -29,6 +31,15 @@ public class RequestService {
 
         return guest;
     }
+
+    @Transactional(readOnly = true)
+    public PostsResponseDto view(Long id) {
+        Guest guest = guestRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("해당 게시글이 없습니다. id= " + id));
+
+        return new PostsResponseDto(guest);
+    }
+
+
 
     @Transactional
     public void cancel(Long id) {

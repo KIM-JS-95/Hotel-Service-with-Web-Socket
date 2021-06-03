@@ -13,24 +13,24 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RequiredArgsConstructor
-@Controller
+@RestController
 public class RequestController {
 
     @Autowired
     private RequestService requestService;
 
     // All request List Print
-    @GetMapping("/request")
-    public String requestList(Model model) {
-
-        model.addAttribute("guests", requestService.list());
-
-        return "request";
-
-    }
+//    @GetMapping("/request")
+//    public String requestList(Model model) {
+//
+//        model.addAttribute("guests", requestService.list());
+//
+//        return "request";
+//
+//    }
 
     // Cancel request
-    @DeleteMapping("/cancel/{id}")
+    @RequestMapping(value = "/cancel/{id}",  method = RequestMethod.DELETE)
     public void cancel(@PathVariable("id") Long id) {
         requestService.cancel(id);
     }

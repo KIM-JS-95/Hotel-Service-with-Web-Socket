@@ -64,7 +64,6 @@ public class GuestController {
     }
 
 
-
     @DeleteMapping("/CheckIn/{id}")
     public String cancel(@PathVariable("id") Long id) {
 

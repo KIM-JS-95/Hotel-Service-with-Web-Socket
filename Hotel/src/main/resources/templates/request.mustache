@@ -16,11 +16,8 @@
             <tr>
                 <th>번호</th>
                 <th>이름</th>
-                <th>이메일</th>
-                <th>핸드폰번호</th>
                 <th>from</th>
                 <th>to</th>
-                <br>
                 <th>Accept</th>
                 <th>Cancel</th>
             </tr>
@@ -29,9 +26,7 @@
             {{#guests}}
                 <tr>
                     <td>{{id}}</td>
-                    <td>{{name}}</td>
-                    <td>{{email}}</td>
-                    <td>{{phonenum}}</td>
+                    <td><a href="/request/detail/{{id}}">{{name}}</a></td>
                     <td>{{start}}</td>
                     <td>{{end}}</td>
                 </tr>
@@ -41,8 +36,6 @@
         </table>
     </div>
 </div>
-
-
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

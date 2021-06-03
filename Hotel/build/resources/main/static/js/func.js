@@ -10,7 +10,7 @@ var main = {
         var id = $('#id').val();
 
         $.ajax({
-            type: 'DELETE',
+            type: 'GET',
             url: '/cancel/'+id,
             dataType: 'json',
             contentType:'application/json; charset=utf-8'

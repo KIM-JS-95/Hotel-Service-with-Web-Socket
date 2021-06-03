@@ -22,3 +22,5 @@ com/HotelService/entity/Room.java
  com.HotelService.entity.Room$RoomBuilder
 com/HotelService/repository/GuestRepository.java
  com.HotelService.repository.GuestRepository
+com/HotelService/entity/PostsResponseDto.java
+ com.HotelService.entity.PostsResponseDto
