@@ -23,14 +23,14 @@ public class IndexController {
         return "Welcome";
     }
 
-    @GetMapping("/request/detail")
+    @GetMapping("/request/list")
     public String request(Model model){
         model.addAttribute("guests", acceptService.list());
         return "request";
     }
 
     // 게스트 상세정보
-    @GetMapping("/request/detail/{id}")
+    @GetMapping("/request/list/{id}")
     public String view(@PathVariable("id") Long id, Model model) {
         PostsResponseDto guest = acceptService.view(id);
 
@@ -39,14 +39,14 @@ public class IndexController {
         return "view";
     }
 
-    // 게스트 접수 및 추가 입력 화면
-    @GetMapping("/request/accept/{id}")
-    public String accept(){
-        return "accept";
-    }
+//    // 게스트 접수 및 추가 입력 화면
+//    @GetMapping("/request/accept/{id}")
+//    public String accept(){
+//        return "accept";
+//    }
 
 
-    @GetMapping("request/status")
+    @GetMapping("/request/status")
     public String roomstatus(){
         return "emptyroom";
     }

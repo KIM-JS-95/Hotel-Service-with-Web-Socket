@@ -32,31 +32,31 @@ public class AdminService {
     }
 
 
-    public Admin addGuest(String RoomNum, String email, String name, String phone, Room room) {
-        //TODO : RoomNum overlap handling
-
-        boolean flag =adminRepository.findByRoom(RoomNum).isPresent();
-
-        System.out.println(flag);
-
-        Admin admin = null;
-
-        if(flag == false) {
-            admin = Admin.builder()
-                    .room(RoomNum)
-                    .email(email)
-                    .name(name)
-                    .phonenum(phone)
-                    .roomInfo(room)
-                    .build();
-
-            adminRepository.save(admin);
-        }else{
-            return null;
-        }
-
-        return admin;
-    }
+//    public Admin addGuest(String RoomNum, String email, String name, String phone, Room room) {
+//        //TODO : 여기서는 이제 필요 없을 듯
+//
+//        boolean flag =adminRepository.findByRoom(RoomNum).isPresent();
+//
+//        System.out.println(flag);
+//
+//        Admin admin = null;
+//
+//        if(flag == false) {
+//            admin = Admin.builder()
+//                    .room(RoomNum)
+//                    .email(email)
+//                    .name(name)
+//                    .phonenum(phone)
+//                    .roomInfo(room)
+//                    .build();
+//
+//            adminRepository.save(admin);
+//        }else{
+//            return null;
+//        }
+//
+//        return admin;
+//    }
 
 
     public String delete(String roomNum) {

@@ -7,12 +7,13 @@
 </head>
 
 <body>
-<h2> 예약 요청 현황</h2>
+<h1>고객 접수</h1>
 
 <div class="col-md-12">
     <div class="col-md-4">
-
         <form>
+
+            <h2>고객 정보</h2>
             <div class="form-group">
                 <label for="title">REQUEST NUMBER</label>
                 <input type="text" class="form-control" id="id" value="{{guest.id}}" readonly>
@@ -34,14 +35,18 @@
                 <input type="text" class="form-control" id="end" value="{{guest.end}}" readonly>
             </div>
 
+            <h2>방 정보</h2>
+
+
         </form>
-        <button type="button" class="btn btn-danger" id="btn-delete"> 예약 취소</button>
+        <a href="/" role="button" class="btn btn-secondary">취소</a>
+        <button type="button" class="btn btn-primary" id="btn-update">수정 완료</button>
+        <button type="button" class="btn btn-danger" id="btn-delete">삭제</button>
     </div>
 </div>
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="/js/func.js"></script>
 </body>
 </html>

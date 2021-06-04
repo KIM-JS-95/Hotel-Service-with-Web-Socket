@@ -23,44 +23,44 @@ public class AdminController {
 
 
     // 손님 전체 리스트
-    @GetMapping("/reservation")
+    @GetMapping("/stay")
     public List<Admin> list() {
         List<Admin> users = adminService.getGuest();
 
         return users;
     }
 
-    @PostMapping("/reservation")
-    public ResponseEntity<?> checkIn(
-            @RequestBody Admin resource) throws URISyntaxException {
+//    @PostMapping("/stay")
+//    public ResponseEntity<?> checkIn(
+//            @RequestBody Admin resource) throws URISyntaxException {
+//
+//        String RoomNum = resource.getRoom();
+//        String email = resource.getEmail();
+//        String name = resource.getName();
+//        String phone = resource.getPhonenum();
+//        Room room = resource.getRoomInfo();
+//
+//        Admin admin = adminService.addGuest(RoomNum, email, name, phone, room);
+//
+//        if(admin == null){
+//            return ResponseEntity.badRequest().body("exist");
+//        }
+//        else {
+//            String url = "/stay/" + admin.getId();
+//            return ResponseEntity.created(new URI(url))
+//                    .body("{}");
+//        }
+//    }
 
-        String RoomNum = resource.getRoom();
-        String email = resource.getEmail();
-        String name = resource.getName();
-        String phone = resource.getPhonenum();
-        Room room = resource.getRoomInfo();
 
-        Admin admin = adminService.addGuest(RoomNum, email, name, phone, room);
-
-        if(admin == null){
-            return ResponseEntity.badRequest().body("exist");
-        }
-        else {
-            String url = "/reservation/" + admin.getId();
-            return ResponseEntity.created(new URI(url))
-                    .body("{}");
-        }
-    }
-
-
-    @DeleteMapping("/reservation/{RoomNum}")
+    @DeleteMapping("/stay/{RoomNum}")
     public String checkOut(@PathVariable("RoomNum") String RoomNum) {
 
         adminService.delete(RoomNum);
         return "successfully check out";
     }
 
-    @PatchMapping("/reservation/{id}")
+    @PatchMapping("/stay/{id}")
     public Admin update(@RequestBody Admin resource,
                         @PathVariable("id") Long id) {
 

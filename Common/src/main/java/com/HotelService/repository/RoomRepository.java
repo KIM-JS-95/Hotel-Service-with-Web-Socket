@@ -12,7 +12,6 @@ import java.util.Optional;
 @Repository
 public interface RoomRepository extends CrudRepository<Room, Long> {
 
-
     List<Room> findAll();
 
     Optional<Room> findByRoomnum(String roomnum);

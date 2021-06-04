@@ -64,26 +64,6 @@ public class AdminServiceTest {
         assertThat(admin.getName(), is("Administrator"));
     }
 
-    @Test
-    public void addGuest() {
-        Long id = 100L;
-        String RoomNum = "100";
-        String email = "admin@exmaple.com";
-        String name = "Administrator";
-        String phonenum = "010-1234-5678";
-
-        Room room = null;
-
-        Admin mockadmin = Admin.builder().email(email).name(name).phonenum(phonenum).build();
-
-
-        given(adminRepository.save(any())).willReturn(mockadmin);
-
-        Admin admin = adminService.addGuest(RoomNum, email, name, phonenum, room);
-
-        assertThat(admin.getName(), is("Administrator"));
-
-    }
 
     @Test
     public void update() {

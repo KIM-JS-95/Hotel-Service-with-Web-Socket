@@ -15,24 +15,21 @@
             <thead class="thead-strong">
             <tr>
                 <th>번호</th>
-                <th>이름</th>
-                <th>from</th>
-                <th>to</th>
-                <th>Accept</th>
-                <th>Cancel</th>
+                <th>방번호</th>
+                <th>침대타입</th>
+                <th>인원</th>
+                <th>상태</th>
             </tr>
             </thead>
             <tbody id="tbody">
-            {{#guests}}
+            {{#rooms}}
                 <tr>
                     <td>{{id}}</td>
                     <td>{{name}}</td>
                     <td>{{start}}</td>
                     <td>{{end}}</td>
-                    <td><a href="/request/accept/{{id}}" role="button" class="btn btn-primary">예약접수</a></td>
-                    <td><a href="/request/detail/{{id}}" role="button" class="btn btn-danger">예약취소</a></td>
                 </tr>
-            {{/guests}}
+            {{/rooms}}
             </tbody>
 
         </table>
