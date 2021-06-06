@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.HotelService.service.AcceptServiceTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2021-06-06T05:04:51" hostname="DESKTOP-R7AB2GV" time="0.005">
+<testsuite name="com.HotelService.service.AcceptServiceTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2021-06-06T05:14:04" hostname="DESKTOP-R7AB2GV" time="0.004">
   <properties/>
-  <testcase name="addGuest" classname="com.HotelService.service.AcceptServiceTest" time="0.005">
+  <testcase name="addGuest" classname="com.HotelService.service.AcceptServiceTest" time="0.004">
     <failure message="java.lang.NullPointerException: Cannot invoke &quot;com.HotelService.entity.Admin.getName()&quot; because &quot;admin&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;com.HotelService.entity.Admin.getName()&quot; because &quot;admin&quot; is null
 	at com.HotelService.service.AcceptServiceTest.addGuest(AcceptServiceTest.java:71)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)

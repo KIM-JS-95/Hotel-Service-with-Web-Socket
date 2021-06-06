@@ -2,34 +2,28 @@ package com.HotelService.controller;
 
 import com.HotelService.entity.Admin;
 import com.HotelService.service.AdminService;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.data.jpa.mapping.JpaMetamodelMappingContext;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.WebApplicationContext;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(AdminController.class)
-//@MockBean(JpaMetamodelMappingContext.class)
 public class AdminControllerTest {
 
     @MockBean
@@ -65,11 +59,11 @@ public class AdminControllerTest {
                 .phonenum(phonenum)
                 .build());
 
-//        given(adminService.getGuest()).willReturn(list);
-//
-//        mvc.perform(get("/stay"))
-//                .andExpect(status().isOk())
-//                .andExpect(content().string(containsString("kim")));
+        given(adminService.getGuest()).willReturn(list);
+
+        mvc.perform(get("/stay"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("kim")));
 
     }
 

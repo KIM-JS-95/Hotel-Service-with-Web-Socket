@@ -7,10 +7,12 @@ import com.HotelService.repository.GuestRepository;
 import com.HotelService.repository.RoomRepository;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.jpa.mapping.JpaMetamodelMappingContext;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +26,8 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 
 
-@MockBean(JpaMetamodelMappingContext.class)
+@RunWith(SpringRunner.class)
+//@MockBean(JpaMetamodelMappingContext.class)
 public class AdminServiceTest {
 
     @MockBean
@@ -39,11 +42,11 @@ public class AdminServiceTest {
 //    @Mock
 //    private GuestRepository guestRepository;
 
-    @Before
-    public void setup() {
-        MockitoAnnotations.initMocks(this);
-        adminService = new AdminService(roomRepository,adminRepository);
-    }
+//    @Before
+//    public void setup() {
+//        MockitoAnnotations.initMocks(this);
+//        adminService = new AdminService(roomRepository,adminRepository);
+//    }
 
     @Test
     public void getGuest() {
@@ -94,7 +97,7 @@ public class AdminServiceTest {
 
         Long id = 100L;
         String email = "admin@exmaple.com";
-        String RoomNum = "100";
+        String RoomNum = "101";
         String name = "Administrator";
         String phonenum = "010-1234-5678";
 
@@ -111,11 +114,10 @@ public class AdminServiceTest {
                 .phonenum(phonenum)
                 .roomInfo(mockroom).build();
 
-        given(adminRepository.save(any())).willReturn(mockadmin);
-        given(roomRepository.save(mockroom)).willReturn(mockroom);
+        given(adminRepository.save(mockadmin)).willReturn(mockadmin);
+      //  given(roomRepository.save(mockroom)).willReturn(mockroom);
 
         given(adminRepository.findByRoom(RoomNum)).willReturn(Optional.of(mockadmin));
-
 
         String admin = adminService.delete(RoomNum);
         assertThat(admin, is("check out"));

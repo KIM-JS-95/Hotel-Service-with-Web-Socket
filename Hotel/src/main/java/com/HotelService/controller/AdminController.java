@@ -4,10 +4,8 @@ package com.HotelService.controller;
 import com.HotelService.entity.Admin;
 import com.HotelService.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
@@ -49,6 +47,8 @@ public class AdminController {
 
     @DeleteMapping("/stay/{RoomNum}")
     public String checkOut(@PathVariable("RoomNum") String RoomNum) {
+
+        System.out.print(RoomNum);
 
         adminService.delete(RoomNum);
         return "successfully check out";

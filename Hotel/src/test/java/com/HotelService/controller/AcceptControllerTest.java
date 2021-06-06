@@ -3,7 +3,6 @@ package com.HotelService.controller;
 import com.HotelService.entity.Admin;
 import com.HotelService.entity.Room;
 import com.HotelService.service.AcceptService;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,12 +11,10 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.WebApplicationContext;
 
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
@@ -56,10 +53,10 @@ public class AcceptControllerTest {
 
     @Test
     public void checkIn() throws Exception {
-        String RoomNum = "101";
-        String email = "admin@exmaple.com";
-        String name = "Administrator";
-        String phonenum = "010-1234-5678";
+        String RoomNum = "100";
+        String email = "baugh248730@gmail.com";
+        String name = "kim";
+        String phonenum = "010-1234-4556";
 
         Room roomInfo = Room.builder()
                 .idx(1L)
@@ -76,7 +73,8 @@ public class AcceptControllerTest {
 //                .contentType(MediaType.APPLICATION_JSON)
 //               .content("{\"room\":\"100\" , \"email\":\"admin@exmaple.com\", " +
 //                        "\"name\":\"Administrator\",\"phonenum\" :\"010-1234-5678\"}"))
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andExpect(content().string("kim"));
 
 //        verify(acceptService).addGuest(RoomNum, email, name, phonenum, roomInfo);
     }

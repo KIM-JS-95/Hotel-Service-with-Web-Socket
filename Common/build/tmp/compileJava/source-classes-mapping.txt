@@ -19,8 +19,8 @@ com/HotelService/entity/PostsResponseDto.java
  com.HotelService.entity.PostsResponseDto
 com/HotelService/repository/GuestRepository.java
  com.HotelService.repository.GuestRepository
-com/HotelService/repository/AdminRepository.java
- com.HotelService.repository.AdminRepository
 com/HotelService/entity/Admin.java
  com.HotelService.entity.Admin
  com.HotelService.entity.Admin$AdminBuilder
+com/HotelService/repository/AdminRepository.java
+ com.HotelService.repository.AdminRepository

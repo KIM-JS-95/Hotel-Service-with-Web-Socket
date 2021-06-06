@@ -17,19 +17,16 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AdminService {
 
-  //  private GuestRepository guestRepository;
-
     private RoomRepository roomRepository;
 
     private AdminRepository adminRepository;
 
-    @Autowired
-    public AdminService(RoomRepository roomRepository,
-                         AdminRepository adminRepository) {
-       // this.guestRepository = guestRepository;
-        this.roomRepository = roomRepository;
-        this.adminRepository=adminRepository;
-    }
+//    @Autowired
+//    public AdminService(RoomRepository roomRepository,
+//                         AdminRepository adminRepository) {
+//        this.roomRepository = roomRepository;
+//        this.adminRepository=adminRepository;
+//    }
 
     public List<Admin> getGuest() {
         List<Admin> users = adminRepository.findAll();
@@ -62,7 +59,6 @@ public class AdminService {
 //
 //        return admin;
 //    }
-
 
     public String delete(String roomNum) {
         Admin admin = adminRepository.findByRoom(roomNum).orElse(null);
