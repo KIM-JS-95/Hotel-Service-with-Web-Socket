@@ -26,20 +26,20 @@ public class AcceptServiceTest {
     @MockBean
     private AcceptService acceptService;
 
-    @Mock
-    private GuestRepository guestRepository;
-
-    @Mock
-    private RoomRepository roomRepository;
+//    @Mock
+//    private GuestRepository guestRepository;
+//
+//    @Mock
+//    private RoomRepository roomRepository;
 
     @Mock
     private AdminRepository adminRepository;
 
-    @Before
-    public void setUp(){
-        MockitoAnnotations.initMocks(this);
-        acceptService = new AcceptService(guestRepository,roomRepository,adminRepository);
-    }
+//    @Before
+//    public void setUp(){
+//        MockitoAnnotations.initMocks(this);
+//        acceptService = new AcceptService(guestRepository,roomRepository,adminRepository);
+//    }
 
     @Test
     public void addGuest() {

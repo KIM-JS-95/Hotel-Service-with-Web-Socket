@@ -3,6 +3,7 @@ package com.HotelService.service;
 import com.HotelService.entity.Admin;
 import com.HotelService.repository.AdminRepository;
 import com.HotelService.entity.Room;
+import com.HotelService.repository.GuestRepository;
 import com.HotelService.repository.RoomRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -35,10 +36,13 @@ public class AdminServiceTest {
     @Mock
     private RoomRepository roomRepository;
 
+//    @Mock
+//    private GuestRepository guestRepository;
+
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        adminService = new AdminService(adminRepository, roomRepository);
+        adminService = new AdminService(roomRepository,adminRepository);
     }
 
     @Test

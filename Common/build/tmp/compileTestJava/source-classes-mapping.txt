@@ -1,6 +1,4 @@
-com/HotelService/entity/GuestTest.java
- com.HotelService.entity.GuestTest
 com/HotelService/entity/AdminTest.java
  com.HotelService.entity.AdminTest
-com/HotelService/repository/RoomRepositoryTest.java
- com.HotelService.repository.RoomRepositoryTest
+com/HotelService/entity/GuestTest.java
+ com.HotelService.entity.GuestTest

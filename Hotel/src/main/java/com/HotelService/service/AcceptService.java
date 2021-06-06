@@ -11,11 +11,13 @@ import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
+
 
 @Service
 @RequiredArgsConstructor
@@ -27,13 +29,13 @@ public class AcceptService {
 
     private AdminRepository adminRepository;
 
-    @Autowired
-    public AcceptService(GuestRepository guestRepository, RoomRepository roomRepository,
-                         AdminRepository adminRepository) {
-        this.guestRepository = guestRepository;
-        this.roomRepository = roomRepository;
-        this.adminRepository=adminRepository;
-    }
+//    @Autowired
+//    public AcceptService(GuestRepository guestRepository, RoomRepository roomRepository,
+//                         AdminRepository adminRepository) {
+//        this.guestRepository = guestRepository;
+//        this.roomRepository = roomRepository;
+//        this.adminRepository=adminRepository;
+//    }
 
 
     @Transactional(readOnly = true)
@@ -43,7 +45,7 @@ public class AcceptService {
         return guest;
     }
 
-    //@Transactional(readOnly = true)
+    @Transactional(readOnly = true)
     public PostsResponseDto view(Long id) {
         Guest guest = guestRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("해당 게시글이 없습니다. id= " + id));
 
@@ -51,7 +53,7 @@ public class AcceptService {
     }
 
 
-    @Transactional
+   @Transactional
     public void cancel(Long id) {
         Guest guest = guestRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("해당 게시글이 없습니다. id= " + id));
         guestRepository.delete(guest);
@@ -73,7 +75,7 @@ public class AcceptService {
 //        return admin;
 //    }
 
-    public Admin addGuest(String RoomNum, String email, String name, String phone, Room room) {
+    public Admin addGuest(String RoomNum, String email, String name, String phonenum, Room room) {
 
         // boolean flag = roomRepository.findByRoomnum(RoomNum).isPresent();
 
@@ -81,8 +83,8 @@ public class AcceptService {
                 .room(RoomNum)
                 .email(email)
                 .name(name)
-                .phonenum(phone)
-                .roomInfo(room)
+                .phonenum(phonenum)
+               // .roomInfo(room)
                 .build();
 
         adminRepository.save(admin);
@@ -106,7 +108,7 @@ public class AcceptService {
 //        }
     }
 
-    @Transactional
+   // @Transactional
     public List<Room> Emptyroom(){
 
         List<Room> rooms = roomRepository.findByEmpty();

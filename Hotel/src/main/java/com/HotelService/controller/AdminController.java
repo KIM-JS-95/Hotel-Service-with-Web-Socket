@@ -2,25 +2,19 @@ package com.HotelService.controller;
 
 
 import com.HotelService.entity.Admin;
-import com.HotelService.entity.Room;
 import com.HotelService.service.AdminService;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.URI;
-import java.net.URISyntaxException;
+import javax.transaction.Transactional;
 import java.util.List;
-
 
 @RestController
 public class AdminController {
 
     @Autowired
     private AdminService adminService;
-
 
     // 손님 전체 리스트
     @GetMapping("/stay")
@@ -60,7 +54,7 @@ public class AdminController {
         return "successfully check out";
     }
 
-    @PatchMapping("/stay/{id}")
+    @PutMapping("/stay/{id}")
     public Admin update(@RequestBody Admin resource,
                         @PathVariable("id") Long id) {
 

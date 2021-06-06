@@ -4,26 +4,31 @@ package com.HotelService.service;
 import com.HotelService.entity.Admin;
 import com.HotelService.repository.AdminRepository;
 import com.HotelService.entity.Room;
+import com.HotelService.repository.GuestRepository;
 import com.HotelService.repository.RoomRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
-
 
 @Service
 @RequiredArgsConstructor
 public class AdminService {
 
-    private AdminRepository adminRepository;
+  //  private GuestRepository guestRepository;
 
     private RoomRepository roomRepository;
 
+    private AdminRepository adminRepository;
+
     @Autowired
-    public AdminService(AdminRepository adminRepository, RoomRepository roomRepository) {
-        this.adminRepository = adminRepository;
+    public AdminService(RoomRepository roomRepository,
+                         AdminRepository adminRepository) {
+       // this.guestRepository = guestRepository;
         this.roomRepository = roomRepository;
+        this.adminRepository=adminRepository;
     }
 
     public List<Admin> getGuest() {

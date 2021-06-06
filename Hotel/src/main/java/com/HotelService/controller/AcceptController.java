@@ -13,7 +13,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 
-
 @RestController
 public class AcceptController {
 
@@ -21,7 +20,7 @@ public class AcceptController {
     private AcceptService acceptService;
 
      //All request List Print
-//    @GetMapping("/request")
+//    @GetMapping("/request1")
 //    public List<Guest> list() {
 //
 //        List<Guest> guests= acceptService.list();
@@ -46,24 +45,25 @@ public class AcceptController {
     public ResponseEntity<?> checkIn(
             @RequestBody Admin resource) throws URISyntaxException {
 
-        String RoomNum = resource.getRoom();
-        String email = resource.getEmail();
-        String name = resource.getName();
-        String phone = resource.getPhonenum();
-        Room room = resource.getRoomInfo();
+//        String RoomNum = resource.getRoom();
+//        String email = resource.getEmail();
+//        String name = resource.getName();
+//        String phonenum = resource.getPhonenum();
+//        Room room = resource.getRoomInfo();
+//
+//        Admin admin = acceptService.addGuest(RoomNum, email, name, phonenum, room);
 
-        Admin admin = acceptService.addGuest(RoomNum, email, name, phone, room);
 
-        // 요부분 필요 없을것 같은데..
-        if(admin == null){
-            return ResponseEntity.badRequest().body("exist");
+//        // 요부분 필요 없을것 같은데..
+//        if(admin == null){
+//            return ResponseEntity.badRequest().body("exist");
+//        }
+//        else {
+//           String url = "/stay/" + admin.getId();
+//            return ResponseEntity.created(new URI(url))
+//                    .body("{}");
+        return null;
         }
-        else {
-            String url = "/stay/" + admin.getId();
-            return ResponseEntity.created(new URI(url))
-                    .body("{}");
-        }
-    }
 
     @GetMapping("/accept/empty")
     public List<Room> EmptyRoom(){
