@@ -2,7 +2,6 @@ package com.HotelService.controller;
 
 
 import com.HotelService.entity.Admin;
-import com.HotelService.entity.Guest;
 import com.HotelService.entity.Room;
 import com.HotelService.service.AcceptService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,52 +18,46 @@ public class AcceptController {
     @Autowired
     private AcceptService acceptService;
 
-     //All request List Print
-//    @GetMapping("/request1")
-//    public List<Guest> list() {
-//
-//        List<Guest> guests= acceptService.list();
-//        return guests;
-//    }
+    @GetMapping("/request")
+    public List<Admin> list() {
+
+        return acceptService.list();
+    }
+
+    @PostMapping("/accept/{Roomnum}")
+    public Room checkIn(
+            @RequestBody Admin resource, @PathVariable("Roomnum") String roomnum) throws URISyntaxException {
+
+        String email = resource.getEmail();
+        String name = resource.getName();
+        String phonenum = resource.getPhonenum();
+        String people = resource.getPeople();;
 
 
-//    @PostMapping("/accept/{id}")
-//    public String CheckIn(@RequestBody String resource,
-//                          @PathVariable("id") Long id){
-//
-//        // 1. 빈방 찾아 추가해주는 controller 추가
-//        // 2. 빈방 번호 service 에 넘겨 Builer 에 추가
-//
-//        String roomnum = resource;
-//        acceptService.checkIn(id, roomnum);
-//
-//        return "request Complete";
-//    }
+        Room room = acceptService.addGuest(email, name, phonenum,people, roomnum);
 
-    @PostMapping("/accept")
-    public ResponseEntity<?> checkIn(
-            @RequestBody Admin resource) throws URISyntaxException {
+//        Admin admin = Admin.builder()
+//                .room(RoomNum)
+//                .email(email)
+//                .name(name)
+//                .phonenum(phonenum)
+//                .roomInfo(room)
+//                .build();
 
-//        String RoomNum = resource.getRoom();
-//        String email = resource.getEmail();
-//        String name = resource.getName();
-//        String phonenum = resource.getPhonenum();
-//        Room room = resource.getRoomInfo();
-//
-//        Admin admin = acceptService.addGuest(RoomNum, email, name, phonenum, room);
-
-
-//        // 요부분 필요 없을것 같은데..
-//        if(admin == null){
+        // 요부분 필요 없을것 같은데..
+//        if (admin == null) {
 //            return ResponseEntity.badRequest().body("exist");
-//        }
-//        else {
-//           String url = "/stay/" + admin.getId();
+//        } else {
+//            String url = "/stay/" + admin.getId();
 //            return ResponseEntity.created(new URI(url))
 //                    .body("{}");
-        return null;
+
+
+            return room;
         }
 
+
+    // 빈방 리스트 조회
     @GetMapping("/accept/empty")
     public List<Room> EmptyRoom(){
 
@@ -74,7 +67,7 @@ public class AcceptController {
     }
 
 
-    // Cancel request
+    // 예약 취소
     @DeleteMapping("/accept/cancel/{id}")
     public Long cancel(@PathVariable("id") Long id) {
         acceptService.cancel(id);

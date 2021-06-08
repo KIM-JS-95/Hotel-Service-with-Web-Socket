@@ -19,8 +19,6 @@ import java.time.LocalDate;
 @Builder
 public class Guest {
 
-    //TODO: 인원 추가하기
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

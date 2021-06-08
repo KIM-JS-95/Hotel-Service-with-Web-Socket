@@ -1,6 +1,5 @@
 package com.HotelService.service;
 
-
 import com.HotelService.entity.Admin;
 import com.HotelService.repository.AdminRepository;
 import com.HotelService.entity.Room;
@@ -14,59 +13,31 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class AdminService {
 
     private RoomRepository roomRepository;
 
     private AdminRepository adminRepository;
 
-//    @Autowired
-//    public AdminService(RoomRepository roomRepository,
-//                         AdminRepository adminRepository) {
-//        this.roomRepository = roomRepository;
-//        this.adminRepository=adminRepository;
-//    }
+    @Autowired
+    public AdminService(RoomRepository roomRepository,
+                         AdminRepository adminRepository) {
+        this.roomRepository = roomRepository;
+        this.adminRepository = adminRepository;
+    }
 
-    public List<Admin> getGuest() {
+    public List<Admin> Guestlist() {
         List<Admin> users = adminRepository.findAll();
         return users;
     }
 
-
-//    public Admin addGuest(String RoomNum, String email, String name, String phone, Room room) {
-//        //TODO : 여기서는 이제 필요 없을 듯
-//
-//        boolean flag =adminRepository.findByRoom(RoomNum).isPresent();
-//
-//        System.out.println(flag);
-//
-//        Admin admin = null;
-//
-//        if(flag == false) {
-//            admin = Admin.builder()
-//                    .room(RoomNum)
-//                    .email(email)
-//                    .name(name)
-//                    .phonenum(phone)
-//                    .roomInfo(room)
-//                    .build();
-//
-//            adminRepository.save(admin);
-//        }else{
-//            return null;
-//        }
-//
-//        return admin;
-//    }
-
     public String delete(String roomNum) {
-        Admin admin = adminRepository.findByRoom(roomNum).orElse(null);
-        Long id = admin.getId();
-        admin.setRoomInfo(null);
+        Room room = roomRepository.findByRoomnum(roomNum);
+        Long id = room.getAdmin().getId();
+
+        room.setSt("empty");
 
         adminRepository.deleteById(id);
-        roomRepository.deleteByIdx(id);
 
         return "check out";
     }

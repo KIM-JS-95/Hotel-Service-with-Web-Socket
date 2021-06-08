@@ -18,4 +18,6 @@ public interface RoomRepository extends CrudRepository<Room, Long> {
 
     @Query(value ="SELECT * FROM hotel.room WHERE st= empty", nativeQuery = true)
     List<Room> findByEmpty();
+
+    Room findByRoomnum(String roomnum);
 }

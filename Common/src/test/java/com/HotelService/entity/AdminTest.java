@@ -14,10 +14,11 @@ public class AdminTest {
     public void creation(){
 
         Admin admin = Admin.builder()
-                .room("202")
+                .email("gmail.com")
                 .name("kim")
+                .phonenum("010-1111-1234")
                 .build();
 
-        assertThat(admin.getRoom(), is("202"));
+        assertThat(admin.getName(), is("kim"));
     }
 }

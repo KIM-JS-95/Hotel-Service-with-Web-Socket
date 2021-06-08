@@ -20,7 +20,7 @@ import java.util.Optional;
 
 
 @Service
-@RequiredArgsConstructor
+@Transactional
 public class AcceptService {
 
     private GuestRepository guestRepository;
@@ -29,86 +29,61 @@ public class AcceptService {
 
     private AdminRepository adminRepository;
 
-//    @Autowired
-//    public AcceptService(GuestRepository guestRepository, RoomRepository roomRepository,
-//                         AdminRepository adminRepository) {
-//        this.guestRepository = guestRepository;
-//        this.roomRepository = roomRepository;
-//        this.adminRepository=adminRepository;
+    @Autowired
+    public AcceptService(AdminRepository adminRepository, GuestRepository guestRepository, RoomRepository roomRepository) {
+        this.guestRepository= guestRepository;
+        this.adminRepository=adminRepository;
+        this.roomRepository=roomRepository;
+    }
+
+
+    public List<Admin> list() {
+        List<Admin> admins = adminRepository.findAll();
+
+        return admins;
+    }
+
+//    public PostsResponseDto view(Long id) {
+//        Guest guest = guestRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("해당 게시글이 없습니다. id= " + id));
+//
+//        return new PostsResponseDto(guest);
 //    }
 
 
-    @Transactional(readOnly = true)
-    public List<Guest> list() {
-        List<Guest> guest = guestRepository.findAll();
-
-        return guest;
-    }
-
-    @Transactional(readOnly = true)
-    public PostsResponseDto view(Long id) {
-        Guest guest = guestRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("해당 게시글이 없습니다. id= " + id));
-
-        return new PostsResponseDto(guest);
-    }
-
-
-   @Transactional
     public void cancel(Long id) {
-        Guest guest = guestRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("해당 게시글이 없습니다. id= " + id));
-        guestRepository.delete(guest);
+//        Guest guest = guestRepository.findById(id)
+//                .orElseThrow(()-> new IllegalArgumentException("해당 게시글이 없습니다. id= " + id));
+        guestRepository.deleteById(id);
     }
 
-    // 이제 필요 없을듯
-  //  @Transactional
-//    public Admin checkIn(Long id, String roomnum) {
-//
-//        // TODO : 비어있는 room 찾아서 추가해주기
-//        Guest guest = guestRepository.findById(id).orElse(null);
-//
-//        Admin admin = Admin.builder()
-//                .email(guest.getEmail())
-//                .name(guest.getName())
-//                .phonenum(guest.getPhonenum())
-//                .room(roomnum)
-//                .build();
-//        return admin;
-//    }
 
-    public Admin addGuest(String RoomNum, String email, String name, String phonenum, Room room) {
+    public Room addGuest(String email, String name, String phonenum,String people, String roomnum) {
 
         // boolean flag = roomRepository.findByRoomnum(RoomNum).isPresent();
 
+        //방 정보 가져와서
+        Room roominfo = roomRepository.findByRoomnum(roomnum);
+
         Admin admin = Admin.builder()
-                .room(RoomNum)
                 .email(email)
                 .name(name)
                 .phonenum(phonenum)
-               // .roomInfo(room)
+                .people(people)
                 .build();
 
-        adminRepository.save(admin);
+        // Merge 해주고 저장
+        Room room = Room.builder()
+                .roomnum(roominfo.getRoomnum())
+                .bedtype(roominfo.getBedtype())
+                .admin(admin)
+                .build();
 
-        return admin;
+      //  roomRepository.save(room);
 
-        // 방이 비어있다면
-//        if(flag == false) {
-//          Admin  admin = Admin.builder()
-//                    .room(RoomNum)
-//                    .email(email)
-//                    .name(name)
-//                    .phonenum(phone)
-//                    .roomInfo(room)
-//                    .build();
-//
-//            adminRepository.save(admin);
-//            return admin;
-//        }else{
-//            return null;
-//        }
+        return room;
+
     }
 
-   // @Transactional
     public List<Room> Emptyroom(){
 
         List<Room> rooms = roomRepository.findByEmpty();

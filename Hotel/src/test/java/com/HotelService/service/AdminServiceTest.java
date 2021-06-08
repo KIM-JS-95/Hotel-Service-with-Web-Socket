@@ -1,9 +1,8 @@
 package com.HotelService.service;
 
 import com.HotelService.entity.Admin;
-import com.HotelService.repository.AdminRepository;
 import com.HotelService.entity.Room;
-import com.HotelService.repository.GuestRepository;
+import com.HotelService.repository.AdminRepository;
 import com.HotelService.repository.RoomRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,7 +10,6 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.data.jpa.mapping.JpaMetamodelMappingContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
@@ -20,14 +18,12 @@ import java.util.Optional;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 
 
 @RunWith(SpringRunner.class)
-//@MockBean(JpaMetamodelMappingContext.class)
 public class AdminServiceTest {
 
     @MockBean
@@ -42,11 +38,11 @@ public class AdminServiceTest {
 //    @Mock
 //    private GuestRepository guestRepository;
 
-//    @Before
-//    public void setup() {
-//        MockitoAnnotations.initMocks(this);
-//        adminService = new AdminService(roomRepository,adminRepository);
-//    }
+    @Before
+    public void setup() {
+        MockitoAnnotations.initMocks(this);
+        adminService = new AdminService(roomRepository,adminRepository);
+    }
 
     @Test
     public void getGuest() {
@@ -64,7 +60,7 @@ public class AdminServiceTest {
 
         given(adminRepository.findAll()).willReturn(adminList);
 
-        List<Admin> admins = adminService.getGuest();
+        List<Admin> admins = adminService.Guestlist();
 
         Admin admin = admins.get(0);
 
@@ -95,32 +91,35 @@ public class AdminServiceTest {
     @Test
     public void delete() {
 
-        Long id = 100L;
         String email = "admin@exmaple.com";
         String RoomNum = "101";
         String name = "Administrator";
         String phonenum = "010-1234-5678";
 
-        Room mockroom = Room.builder()
-                .roomnum(RoomNum)
-                .bedtype("twin")
-                .people("10")
-                .build();
-
         Admin mockadmin = Admin.builder()
-                .room(RoomNum)
                 .email(email)
                 .name(name)
                 .phonenum(phonenum)
-                .roomInfo(mockroom).build();
+                .people("10")
+                .build();
 
-        given(adminRepository.save(mockadmin)).willReturn(mockadmin);
-      //  given(roomRepository.save(mockroom)).willReturn(mockroom);
+        Room mockroom = Room.builder()
+                .roomnum(RoomNum)
+                .bedtype("twin")
+                .st("empty")
+                .admin(mockadmin)
+                .build();
 
-        given(adminRepository.findByRoom(RoomNum)).willReturn(Optional.of(mockadmin));
+      //  given(adminRepository.save(mockadmin)).willReturn(mockadmin);
 
-        String admin = adminService.delete(RoomNum);
-        assertThat(admin, is("check out"));
+        // 고객과 방 정보를 저장
+        given(roomRepository.save(mockroom)).willReturn(mockroom);
+
+
+        given(roomRepository.findByRoomnum(RoomNum)).willReturn(mockroom);
+
+        adminService.delete(RoomNum);
+
     }
 
 }

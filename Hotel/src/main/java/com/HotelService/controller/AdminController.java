@@ -17,32 +17,10 @@ public class AdminController {
     // 손님 전체 리스트
     @GetMapping("/stay")
     public List<Admin> list() {
-        List<Admin> users = adminService.getGuest();
+        List<Admin> users = adminService.Guestlist();
 
         return users;
     }
-
-//    @PostMapping("/stay")
-//    public ResponseEntity<?> checkIn(
-//            @RequestBody Admin resource) throws URISyntaxException {
-//
-//        String RoomNum = resource.getRoom();
-//        String email = resource.getEmail();
-//        String name = resource.getName();
-//        String phone = resource.getPhonenum();
-//        Room room = resource.getRoomInfo();
-//
-//        Admin admin = adminService.addGuest(RoomNum, email, name, phone, room);
-//
-//        if(admin == null){
-//            return ResponseEntity.badRequest().body("exist");
-//        }
-//        else {
-//            String url = "/stay/" + admin.getId();
-//            return ResponseEntity.created(new URI(url))
-//                    .body("{}");
-//        }
-//    }
 
 
     @DeleteMapping("/stay/{RoomNum}")
@@ -55,15 +33,15 @@ public class AdminController {
     }
 
     @PutMapping("/stay/{id}")
-    public Admin update(@RequestBody Admin resource,
-                        @PathVariable("id") Long id) {
+    public String update(@RequestBody Admin resource,
+                        @PathVariable Long id) {
 
         String email = resource.getEmail();
         String name = resource.getName();
         String phone = resource.getPhonenum();
 
         Admin admin = adminService.updateGuest(id, email, name, phone);
-        return admin;
+        return "!";
     }
 
 
