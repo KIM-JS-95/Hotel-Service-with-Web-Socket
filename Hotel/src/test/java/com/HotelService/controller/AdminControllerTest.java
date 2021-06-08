@@ -7,7 +7,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -26,7 +25,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
-//@SpringBootTest(classes = {AdminController.class})
 @RunWith(SpringRunner.class)
 @WebMvcTest(AdminController.class)
 public class AdminControllerTest {
@@ -37,18 +35,6 @@ public class AdminControllerTest {
     @MockBean
     private AdminService adminService;
 
-//    @Mock
-//    private RoomRepository roomRepository;
-//
-//    @Mock
-//    private AdminRepository adminRepository;
-//
-//    @Before
-//    public void setUp(){
-//        MockitoAnnotations.initMocks(this);
-//        adminService = new AdminService(roomRepository, adminRepository);
-//    }
-
     @Autowired
     private WebApplicationContext webApplicationContext;
 
@@ -57,12 +43,12 @@ public class AdminControllerTest {
         mvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
     }
 
+    // 고객 전체 리스트 조회
     @Test
     public void list() throws Exception {
         List<Admin> list = new ArrayList<>();
 
         Long id = 100L;
-        String RoomNum = "100";
         String people = "10";
         String email = "baugh248730@gmail.com";
         String name = "kim";
@@ -99,7 +85,6 @@ public class AdminControllerTest {
     @Test
     public void update() throws Exception {
         Long id = 100L;
-        String RoomNum = "100";
         String email = "admin@exmaple.com";
         String name = "Administrator";
         String phonenum = "010-1234-5678";

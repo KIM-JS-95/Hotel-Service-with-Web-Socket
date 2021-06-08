@@ -22,9 +22,8 @@ public class AdminController {
         return users;
     }
 
-
-    @DeleteMapping("/stay/{RoomNum}")
-    public String checkOut(@PathVariable("RoomNum") String RoomNum) {
+    @DeleteMapping("/stay/{roomnum}")
+    public String checkOut(@PathVariable("roomnum") String RoomNum) {
 
         System.out.print(RoomNum);
 

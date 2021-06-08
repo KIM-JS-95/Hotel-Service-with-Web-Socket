@@ -13,7 +13,5 @@ public interface AdminRepository extends CrudRepository<Admin, Long> {
 
     List<Admin> findAll();
 
-    Optional<Admin> findByRoom(String room);
-
     void deleteById(Long id);
 }
