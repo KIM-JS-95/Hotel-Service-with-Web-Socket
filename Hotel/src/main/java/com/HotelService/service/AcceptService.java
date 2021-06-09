@@ -5,49 +5,39 @@
 //import com.HotelService.repository.AdminRepository;
 //import com.HotelService.repository.GuestRepository;
 //import com.HotelService.repository.RoomRepository;
+//import org.aspectj.lang.annotation.After;
+//import org.aspectj.lang.annotation.Before;
 //import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.stereotype.Component;
 //import org.springframework.stereotype.Service;
 //
+//import javax.transaction.Transactional;
 //import java.util.List;
 //
 //
 //@Service
+//@Transactional
 //public class AcceptService {
 //
 //    private GuestRepository guestRepository;
 //
 //    private RoomRepository roomRepository;
 //
-//    private AdminRepository adminRepository;
+//  //  private AdminRepository adminRepository;
 //
 //    @Autowired
-//    public AcceptService(AdminRepository adminRepository, GuestRepository guestRepository, RoomRepository roomRepository) {
+//    public AcceptService(GuestRepository guestRepository, RoomRepository roomRepository){//,AdminRepository adminRepository, RoomRepository roomRepository) {
 //        this.guestRepository= guestRepository;
-//        this.adminRepository=adminRepository;
 //        this.roomRepository=roomRepository;
 //    }
 //
-//
-//    public List<Admin> list() {
-//        List<Admin> admins = adminRepository.findAll();
-//
-//        return admins;
-//    }
-//
-////    public PostsResponseDto view(Long id) {
-////        Guest guest = guestRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("해당 게시글이 없습니다. id= " + id));
-////
-////        return new PostsResponseDto(guest);
-////    }
-//
-//
+//    // 예약 거절
 //    public void cancel(Long id) {
-////        Guest guest = guestRepository.findById(id)
-////                .orElseThrow(()-> new IllegalArgumentException("해당 게시글이 없습니다. id= " + id));
 //        guestRepository.deleteById(id);
 //    }
 //
 //
+//    // 예약 접수
 //    public Room addGuest(String email, String name,
 //                         String phonenum,String people, String roomnum) {
 //
@@ -74,6 +64,7 @@
 //
 //    }
 //
+//    // 빈 방 조회
 //    public List<Room> Emptyroom(){
 //
 //        List<Room> rooms = roomRepository.findByEmpty();

@@ -1,8 +1,10 @@
 package com.HotelService.service;
 
 import com.HotelService.entity.Admin;
+import com.HotelService.entity.Guest;
 import com.HotelService.entity.Room;
 import com.HotelService.repository.AdminRepository;
+import com.HotelService.repository.GuestRepository;
 import com.HotelService.repository.RoomRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -23,7 +25,6 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 
 
-@RunWith(SpringRunner.class)
 public class AdminServiceTest {
 
     @MockBean
@@ -35,15 +36,16 @@ public class AdminServiceTest {
     @Mock
     private RoomRepository roomRepository;
 
-//    @Mock
-//    private GuestRepository guestRepository;
+    @Mock
+    private GuestRepository guestRepository;
 
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        adminService = new AdminService(roomRepository,adminRepository);
+        adminService = new AdminService(roomRepository, adminRepository, guestRepository);
     }
 
+    // 게스트 정보  조회
     @Test
     public void getGuest() {
         List<Admin> adminList = new ArrayList<>();
@@ -60,7 +62,7 @@ public class AdminServiceTest {
 
         given(adminRepository.findAll()).willReturn(adminList);
 
-        List<Admin> admins = adminService.Guestlist();
+        List<Admin> admins = adminService.GuestList();
 
         Admin admin = admins.get(0);
 
@@ -68,6 +70,7 @@ public class AdminServiceTest {
     }
 
 
+    // 잔류 게스트 정보 수정
     @Test
     public void update() {
 
@@ -88,6 +91,8 @@ public class AdminServiceTest {
         assertThat(admin.getName(), is("Administrator"));
     }
 
+
+    //체크 아웃
     @Test
     public void delete() {
 
@@ -110,7 +115,7 @@ public class AdminServiceTest {
                 .admin(mockadmin)
                 .build();
 
-      //  given(adminRepository.save(mockadmin)).willReturn(mockadmin);
+        //  given(adminRepository.save(mockadmin)).willReturn(mockadmin);
 
         // 고객과 방 정보를 저장
         given(roomRepository.save(mockroom)).willReturn(mockroom);
@@ -122,4 +127,70 @@ public class AdminServiceTest {
 
     }
 
+    ///////////////////////////////////////////////////////
+
+   @Test
+    public void addGuest() {
+        String roomnum = "101";
+        String email = "admin@exmaple.com";
+        String name = "Administrator";
+        String phonenum = "010-1234-5678";
+        String people = "10";
+
+        Room mockroom = Room.builder()
+                .roomnum("101")
+                .bedtype("twin")
+                .st("empty")
+                .build();
+
+        // 미리 방 정보를 저장
+        given(roomRepository.save(mockroom)).willReturn(mockroom);
+
+        Admin mockadmin = Admin.builder()
+                .email(email)
+                .name(name)
+                .phonenum(phonenum)
+                .people(people)
+                .build();
+
+        // guest 와 room 정보를 병합 저장
+        Room room = Room.builder()
+                .roomnum(mockroom.getRoomnum())
+                .bedtype(mockroom.getBedtype())
+                .st("full")
+                .admin(mockadmin)
+                .build();
+
+       given(roomRepository.save(room)).willReturn(room);
+
+       //verify(acceptService).addGuest(email, name, phonenum, people, roomnum);
+
+       // verify(adminRepository).save(mockadmin);
+
+    }
+
+     //예약 거절
+    @Test
+    public void cancel(){
+
+        Long id = 100L;
+        String email = "admin@exmaple.com";
+        String name = "Administrator";
+        String phonenum = "010-1234-5678";
+
+        Guest mockadmin = Guest.builder()
+                .id(id)
+                .email(email)
+                .name(name)
+                .phonenum(phonenum)
+                .build();
+
+        // guest 정보 저장
+      //  given(guestRepository.save(mockadmin)).willReturn(mockadmin);
+
+        adminService.cancel(100L);
+     //   verify(guestRepository).deleteById(any());
+      //  acceptService.cancel(id);
+
+    }
 }

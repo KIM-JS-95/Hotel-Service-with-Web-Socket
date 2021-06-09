@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 public class AdminController {
 
@@ -17,7 +18,7 @@ public class AdminController {
     // 손님 전체 리스트
     @GetMapping("/stay")
     public List<Admin> list() {
-        List<Admin> users = adminService.Guestlist();
+        List<Admin> users = adminService.GuestList();
 
         return users;
     }
