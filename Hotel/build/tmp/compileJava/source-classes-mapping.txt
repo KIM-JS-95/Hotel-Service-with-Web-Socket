@@ -1,10 +1,8 @@
-com/HotelService/controller/AdminController.java
- com.HotelService.controller.AdminController
 com/HotelService/HotelApplication.java
  com.HotelService.HotelApplication
-com/HotelService/service/AcceptService.java
- com.HotelService.service.AcceptService
 com/HotelService/service/AdminService.java
  com.HotelService.service.AdminService
+com/HotelService/controller/AdminController.java
+ com.HotelService.controller.AdminController
 com/HotelService/controller/AcceptController.java
  com.HotelService.controller.AcceptController

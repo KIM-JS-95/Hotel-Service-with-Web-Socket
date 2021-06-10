@@ -23,7 +23,7 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">2</div>
+<div class="counter">1</div>
 <p>tests</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.124s</div>
+<div class="counter">0.283s</div>
 <p>duration</p>
 </div>
 </td>
@@ -51,7 +51,7 @@
 </td>
 <td>
 <div class="infoBox failures" id="successRate">
-<div class="percent">50%</div>
+<div class="percent">0%</div>
 <p>successful</p>
 </div>
 </td>
@@ -73,15 +73,15 @@
 <div id="tab0" class="tab">
 <h2>Failed tests</h2>
 <div class="test">
-<a name="i1"></a>
-<h3 class="failures">i1</h3>
+<a name="checkIn"></a>
+<h3 class="failures">checkIn</h3>
 <span class="code">
-<pre>java.lang.AssertionError: Status expected:&lt;200&gt; but was:&lt;404&gt;
+<pre>java.lang.AssertionError: Response content expected:&lt;kim&gt; but was:&lt;&gt;
 	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
 	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
-	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:627)
+	at org.springframework.test.web.servlet.result.ContentResultMatchers.lambda$string$4(ContentResultMatchers.java:136)
 	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:196)
-	at com.HotelService.controller.AcceptControllerTest.i1(AcceptControllerTest.java:78)
+	at com.HotelService.controller.AcceptControllerTest.checkIn(AcceptControllerTest.java:71)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -173,13 +173,8 @@
 </tr>
 </thead>
 <tr>
-<td class="success">checkIn</td>
-<td class="success">0.042s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="failures">i1</td>
-<td class="failures">0.082s</td>
+<td class="failures">checkIn</td>
+<td class="failures">0.283s</td>
 <td class="failures">failed</td>
 </tr>
 </table>
@@ -187,14 +182,14 @@
 <div id="tab2" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>12:37:22.748 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.HotelService.controller.AcceptControllerTest]
-12:37:22.748 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.HotelService.controller.AcceptControllerTest]
-12:37:22.749 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.HotelService.controller.AcceptControllerTest]
-12:37:22.750 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.HotelService.controller.AcceptControllerTest]
-12:37:22.756 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@6f0a01dc testClass = AcceptControllerTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@2a74e76a testClass = AcceptControllerTest, locations = '{}', classes = '{class com.HotelService.HotelApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@5de01f23, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@c459eb87, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@dfaeca7b, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@8ee08ae, [ImportsContextCustomizer@51c26745 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.context.MessageSourceAutoConfiguration, org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration, org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration, org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAutoConfiguration, org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration, org.springframework.boot.autoconfigure.hateoas.HypermediaAutoConfiguration, org.springframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration, org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration, org.springframework.boot.autoconfigure.jsonb.JsonbAutoConfiguration, org.springframework.boot.autoconfigure.mustache.MustacheAutoConfiguration, org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration, org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration, org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4657bd7a, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@2819f90d, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@d9b01ce9], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]], class annotated with @DirtiesContext [false] with mode [null].
-12:37:22.761 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.HotelService.controller.AcceptControllerTest]
-12:37:22.762 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.HotelService.controller.AcceptControllerTest]
-12:37:23.489 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true, server.port=-1}
+<pre>22:35:42.911 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.HotelService.controller.AcceptControllerTest]
+22:35:42.911 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.HotelService.controller.AcceptControllerTest]
+22:35:42.914 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.HotelService.controller.AcceptControllerTest]
+22:35:42.914 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.HotelService.controller.AcceptControllerTest]
+22:35:42.921 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@141f6de4 testClass = AcceptControllerTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@6f0a01dc testClass = AcceptControllerTest, locations = '{}', classes = '{class com.HotelService.HotelApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@5de01f23, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@c459eb87, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@dfaeca7b, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@8ee08ae, [ImportsContextCustomizer@2a74e76a key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.context.MessageSourceAutoConfiguration, org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration, org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration, org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAutoConfiguration, org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration, org.springframework.boot.autoconfigure.hateoas.HypermediaAutoConfiguration, org.springframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration, org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration, org.springframework.boot.autoconfigure.jsonb.JsonbAutoConfiguration, org.springframework.boot.autoconfigure.mustache.MustacheAutoConfiguration, org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration, org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration, org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4657bd7a, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@2819f90d, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@d9b01ce9], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]], class annotated with @DirtiesContext [false] with mode [null].
+22:35:42.925 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.HotelService.controller.AcceptControllerTest]
+22:35:42.925 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.HotelService.controller.AcceptControllerTest]
+22:35:43.565 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true, server.port=-1}
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -204,24 +199,25 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::        (v2.2.1.RELEASE)
 
-2021-06-09 12:37:23.852  INFO 3360 --- [    Test worker] c.H.controller.AcceptControllerTest      : Starting AcceptControllerTest on DESKTOP-R7AB2GV with PID 3360 (started by JAESEUNG in C:\Users\JAESEUNG\IdeaProjects\AbstractCnS\Hotel)
-2021-06-09 12:37:23.854  INFO 3360 --- [    Test worker] c.H.controller.AcceptControllerTest      : No active profile set, falling back to default profiles: default
-2021-06-09 12:37:25.115  INFO 3360 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-06-09 12:37:25.443  INFO 3360 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2021-06-09 12:37:25.443  INFO 3360 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2021-06-09 12:37:25.464  INFO 3360 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 21 ms
-2021-06-09 12:37:25.505  INFO 3360 --- [    Test worker] c.H.controller.AcceptControllerTest      : Started AcceptControllerTest in 2.004 seconds (JVM running for 4.19)
+2021-06-09 22:35:43.922  INFO 8456 --- [    Test worker] c.H.controller.AcceptControllerTest      : Starting AcceptControllerTest on DESKTOP-R7AB2GV with PID 8456 (started by JAESEUNG in C:\Users\JAESEUNG\IdeaProjects\AbstractCnS\Hotel)
+2021-06-09 22:35:43.925  INFO 8456 --- [    Test worker] c.H.controller.AcceptControllerTest      : No active profile set, falling back to default profiles: default
+2021-06-09 22:35:45.215  INFO 8456 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-09 22:35:45.722  INFO 8456 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2021-06-09 22:35:45.722  INFO 8456 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-06-09 22:35:45.743  INFO 8456 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 20 ms
+2021-06-09 22:35:45.780  INFO 8456 --- [    Test worker] c.H.controller.AcceptControllerTest      : Started AcceptControllerTest in 2.203 seconds (JVM running for 4.23)
 
 MockHttpServletRequest:
       HTTP Method = POST
-      Request URI = /accept
+      Request URI = /accept/100
        Parameters = {}
           Headers = [Content-Type:&quot;application/json&quot;]
              Body = &lt;no character encoding set&gt;
     Session Attrs = {}
 
 Handler:
-             Type = org.springframework.web.servlet.resource.ResourceHttpRequestHandler
+             Type = com.HotelService.controller.AcceptController
+           Method = com.HotelService.controller.AcceptController#checkIn(Admin, String)
 
 Async:
     Async started = false
@@ -239,9 +235,9 @@ FlashMap:
        Attributes = null
 
 MockHttpServletResponse:
-           Status = 404
+           Status = 200
     Error message = null
-          Headers = [Vary:&quot;Origin&quot;, &quot;Access-Control-Request-Method&quot;, &quot;Access-Control-Request-Headers&quot;]
+          Headers = []
      Content type = null
              Body = 
     Forwarded URL = null
@@ -258,7 +254,7 @@ MockHttpServletResponse:
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 6.8</a> at 2021. 6. 9. 오후 12:37:26</p>
+<a href="http://www.gradle.org">Gradle 6.8</a> at 2021. 6. 9. 오후 10:35:47</p>
 </div>
 </div>
 </body>

@@ -27,13 +27,10 @@ public class Admin extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotEmpty
     private String email;
 
-    @NotEmpty
     private String name;
 
-    @NotEmpty
     private String phonenum;
 
     private String people;

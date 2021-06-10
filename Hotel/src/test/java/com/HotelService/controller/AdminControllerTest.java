@@ -61,9 +61,9 @@ public class AdminControllerTest {
 
         given(adminService.GuestList()).willReturn(list);
 
-//        mvc.perform(get("/stay"))
-//                .andExpect(status().isOk())
-//                .andExpect(content().string(containsString("kim")));
+        mvc.perform(get("/stay"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("kim")));
 
     }
 

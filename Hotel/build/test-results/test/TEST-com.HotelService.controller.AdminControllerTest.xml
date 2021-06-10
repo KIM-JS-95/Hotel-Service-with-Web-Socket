@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.HotelService.controller.AdminControllerTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-06-09T03:37:26" hostname="DESKTOP-R7AB2GV" time="0.149">
+<testsuite name="com.HotelService.controller.AdminControllerTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-06-09T13:35:46" hostname="DESKTOP-R7AB2GV" time="0.056">
   <properties/>
-  <testcase name="update" classname="com.HotelService.controller.AdminControllerTest" time="0.135"/>
-  <testcase name="list" classname="com.HotelService.controller.AdminControllerTest" time="0.003"/>
-  <testcase name="checkout" classname="com.HotelService.controller.AdminControllerTest" time="0.008"/>
+  <testcase name="update" classname="com.HotelService.controller.AdminControllerTest" time="0.035"/>
+  <testcase name="list" classname="com.HotelService.controller.AdminControllerTest" time="0.007"/>
+  <testcase name="checkout" classname="com.HotelService.controller.AdminControllerTest" time="0.01"/>
   <system-out><![CDATA[
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -13,13 +13,13 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::        (v2.2.1.RELEASE)
 
-2021-06-09 12:37:25.697  INFO 3360 --- [    Test worker] c.H.controller.AdminControllerTest       : Starting AdminControllerTest on DESKTOP-R7AB2GV with PID 3360 (started by JAESEUNG in C:\Users\JAESEUNG\IdeaProjects\AbstractCnS\Hotel)
-2021-06-09 12:37:25.699  INFO 3360 --- [    Test worker] c.H.controller.AdminControllerTest       : No active profile set, falling back to default profiles: default
-2021-06-09 12:37:26.079  INFO 3360 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-06-09 12:37:26.273  INFO 3360 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2021-06-09 12:37:26.273  INFO 3360 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2021-06-09 12:37:26.282  INFO 3360 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 9 ms
-2021-06-09 12:37:26.294  INFO 3360 --- [    Test worker] c.H.controller.AdminControllerTest       : Started AdminControllerTest in 0.643 seconds (JVM running for 4.979)
+2021-06-09 22:35:46.138  INFO 8456 --- [    Test worker] c.H.controller.AdminControllerTest       : Starting AdminControllerTest on DESKTOP-R7AB2GV with PID 8456 (started by JAESEUNG in C:\Users\JAESEUNG\IdeaProjects\AbstractCnS\Hotel)
+2021-06-09 22:35:46.139  INFO 8456 --- [    Test worker] c.H.controller.AdminControllerTest       : No active profile set, falling back to default profiles: default
+2021-06-09 22:35:46.556  INFO 8456 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-09 22:35:46.801  INFO 8456 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2021-06-09 22:35:46.801  INFO 8456 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-06-09 22:35:46.823  INFO 8456 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 22 ms
+2021-06-09 22:35:46.843  INFO 8456 --- [    Test worker] c.H.controller.AdminControllerTest       : Started AdminControllerTest in 0.76 seconds (JVM running for 5.293)
 100]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

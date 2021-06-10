@@ -30,10 +30,10 @@ public class Guest {
 
     private String phonenum;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate start;
-
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate end;
+//    @DateTimeFormat(pattern = "yyyy-MM-dd")
+//    private LocalDate start;
+//
+//    @DateTimeFormat(pattern = "yyyy-MM-dd")
+//    private LocalDate end;
 
 }
