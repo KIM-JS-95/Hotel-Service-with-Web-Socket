@@ -16,7 +16,7 @@ public interface RoomRepository extends CrudRepository<Room, Long> {
 
     void deleteByIdx(Long id);
 
-    @Query(value ="SELECT * FROM hotel.room WHERE st= empty", nativeQuery = true)
+    @Query(value ="SELECT * FROM ROOM WHERE ST = 'empty'", nativeQuery = true)
     List<Room> findByEmpty();
 
     Room findByRoomnum(String roomnum);

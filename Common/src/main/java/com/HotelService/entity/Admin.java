@@ -21,10 +21,10 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
-public class Admin extends BaseTimeEntity {
+public class Admin {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
 
     private String email;

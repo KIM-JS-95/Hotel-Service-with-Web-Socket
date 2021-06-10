@@ -14,6 +14,8 @@ com/HotelService/entity/Guest.java
  com.HotelService.entity.Guest$GuestBuilder
 com/HotelService/repository/GuestRepository.java
  com.HotelService.repository.GuestRepository
+com/HotelService/entity/AcceptDTO.java
+ com.HotelService.entity.AcceptDTO
 com/HotelService/entity/Admin.java
  com.HotelService.entity.Admin
  com.HotelService.entity.Admin$AdminBuilder

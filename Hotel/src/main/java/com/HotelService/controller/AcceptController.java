@@ -1,46 +1,41 @@
 package com.HotelService.controller;
 
 
+import com.HotelService.entity.AcceptDTO;
 import com.HotelService.entity.Admin;
-import com.HotelService.entity.Guest;
 import com.HotelService.entity.Room;
 import com.HotelService.service.AdminService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.List;
 
+@RequiredArgsConstructor
 @RestController
 public class AcceptController {
 
     @Autowired
     private AdminService adminService;
 
-    // 체크인
-    @RequestMapping("accept")
-    @PostMapping(value = "{roomNum}")
-    public String checkIn(@RequestBody Admin resource
-                           ){
 
-//        String email = resource.getEmail();
-//        String name = resource.getName();
-//        String phonenum = resource.getPhonenum();
-//        String people = resource.getPeople();
-//
-//        Room room = adminService.addGuest(email, name, phonenum,people, roomNum);
-//
-//        Admin admin = Admin.builder()
-//                .email(email)
-//                .name(name)
-//                .phonenum(phonenum)
-//                .build();
+    @PostMapping("/accept/{roomnum}")
+    public Admin checkIn(@PathVariable String roomnum, @RequestBody AcceptDTO resource){
 
-        //String url = "/accept/" + roomNum;
-            return "!";
+        String email = resource.getEmail();
+        String name = resource.getName();
+        String phonenum = resource.getPhonenum();
+        String people = resource.getPeople();
+
+       // Room room = adminService.addGuest(email, name, phonenum,people, roomnum);
+
+        Admin admin = Admin.builder()
+                .email(email)
+                .name(name)
+                .phonenum(phonenum)
+                .build();
+
+            return admin;
         }
 
     // 빈방 리스트 조회

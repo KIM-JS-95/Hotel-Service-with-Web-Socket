@@ -26,12 +26,6 @@ public class Room {
 
     private String st;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate start;
-
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate end;
-
     @OneToOne(cascade = CascadeType.MERGE)
     private Admin admin;
 }

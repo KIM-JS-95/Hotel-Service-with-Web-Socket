@@ -39,11 +39,11 @@ public class AdminService {
     // 체크 아웃
     public String delete(String roomNum) {
         Room room = roomRepository.findByRoomnum(roomNum);
-        Long id = room.getAdmin().getId();
+       // Long id = room.getAdmin().getId();
 
         room.setSt("empty");
 
-        adminRepository.deleteById(id);
+      //  adminRepository.deleteById(id);
 
         return "check out";
     }
@@ -87,7 +87,7 @@ public class AdminService {
                     .admin(admin)
                     .build();
 
-            //  roomRepository.save(room);
+              roomRepository.save(room);
 
             return room;
 
