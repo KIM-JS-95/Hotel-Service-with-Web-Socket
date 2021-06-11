@@ -64,8 +64,15 @@ public class AcceptControllerTest {
 //        given(adminService.addGuest(email, name, phonenum, people, roomnum))
 //                .willReturn(roominfo);
 
-//        mvc.perform(post("/accept/100").contentType(MediaType.APPLICATION_JSON))
-//                .andExpect(status().isOk());
+        mvc.perform(post("/accept/100")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{\n" +
+                        "  \"email\" : \"baugh248730@gmail.com\",\n" +
+                        "  \"name\": \"kim\",\n" +
+                        "  \"phonenum\": \"010-1234-5677\",\n" +
+                        "  \"people\": \"10\"\n" +
+                        "}\n"))
+                .andExpect(status().isOk());
 
        // verify(adminService).addGuest(email, name, phonenum, people,roomnum);
     }

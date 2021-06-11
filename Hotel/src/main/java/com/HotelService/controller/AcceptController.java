@@ -5,7 +5,6 @@ import com.HotelService.entity.AcceptDTO;
 import com.HotelService.entity.Admin;
 import com.HotelService.entity.Room;
 import com.HotelService.service.AdminService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,6 +17,7 @@ public class AcceptController {
     private AdminService adminService;
 
 
+    //체크 인
     @PostMapping("/accept/{roomnum}")
     public Admin checkIn(@PathVariable String roomnum, @RequestBody AcceptDTO resource){
 
@@ -26,13 +26,8 @@ public class AcceptController {
         String phonenum = resource.getPhonenum();
         String people = resource.getPeople();
 
-       // Room room = adminService.addGuest(email, name, phonenum,people, roomnum);
+        Admin admin = adminService.addGuest(email, name, phonenum,people, roomnum);
 
-        Admin admin = Admin.builder()
-                .email(email)
-                .name(name)
-                .phonenum(phonenum)
-                .build();
 
             return admin;
         }

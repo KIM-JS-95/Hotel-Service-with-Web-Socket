@@ -14,17 +14,20 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Getter
 @Setter
-@EntityListeners(AuditingEntityListener.class)
+//@EntityListeners(AuditingEntityListener.class)
 public class Room {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idx;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long id;
 
+    @Id
     private String roomnum;
 
     private String bedtype;
 
     private String st;
 
+//    @OneToOne
+//    private Admin admin;
 }

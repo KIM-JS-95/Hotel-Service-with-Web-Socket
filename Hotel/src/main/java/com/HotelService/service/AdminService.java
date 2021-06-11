@@ -37,15 +37,20 @@ public class AdminService {
 
 
     // 체크 아웃
-    public String delete(String roomNum) {
+    public Room delete(String roomNum) {
+
         Room room = roomRepository.findByRoomnum(roomNum);
         // Long id = room.getAdmin().getId();
 
+        // admin id 가져와서
+       // Long id=room.getAdmin().getId();
+        // 고객 삭제
+      //  adminRepository.deleteById(id);
+
+        // 방 상태 비워주기
         room.setSt("empty");
 
-        //  adminRepository.deleteById(id);
-
-        return "check out";
+        return room;
     }
 
     // 인원 정보 변경
@@ -68,27 +73,30 @@ public class AdminService {
 
 
     // 예약 접수
-        public Room addGuest(String email, String name, String phonenum,String people, String roomnum) {
+        public Admin addGuest(String email, String name, String phonenum,String people, String roomnum) {
 
             //방 정보 가져와서
             Room roominfo = roomRepository.findByRoomnum(roomnum);
+
+           roominfo.setSt("full");
+
+            // Merge 해주고 저장
+//            Room room = Room.builder()
+//                    .roomnum(roominfo.getRoomnum())
+//                    .bedtype(roominfo.getBedtype())
+//                    .build();
 
             Admin admin = Admin.builder()
                     .email(email)
                     .name(name)
                     .phonenum(phonenum)
                     .people(people)
+                    .room(roominfo)
                     .build();
 
-            // Merge 해주고 저장
-            Room room = Room.builder()
-                    .roomnum(roominfo.getRoomnum())
-                    .bedtype(roominfo.getBedtype())
-                    .build();
+              adminRepository.save(admin);
 
-              roomRepository.save(room);
-
-            return room;
+            return admin;
 
         }
 

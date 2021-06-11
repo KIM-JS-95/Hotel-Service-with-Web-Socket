@@ -26,8 +26,8 @@ public class Admin {
 
     private String people;
 
-    @OneToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name="ROOM_IDX")
+    @OneToOne
+    @JoinColumn(name="ROOM_roomnum")
     private Room room;
 
 }

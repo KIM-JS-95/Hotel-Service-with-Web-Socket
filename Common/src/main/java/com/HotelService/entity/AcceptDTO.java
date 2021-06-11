@@ -2,7 +2,6 @@ package com.HotelService.entity;
 
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.time.LocalDate;
 

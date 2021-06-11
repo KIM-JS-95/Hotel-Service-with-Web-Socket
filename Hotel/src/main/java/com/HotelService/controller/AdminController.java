@@ -24,13 +24,12 @@ public class AdminController {
         return users;
     }
 
+    // 체크 아웃
     @DeleteMapping("/stay/{roomnum}")
-    public String checkOut(@PathVariable("roomnum") String RoomNum) {
+    public Room checkOut(@PathVariable("roomnum") String RoomNum) {
 
-        System.out.print(RoomNum);
-
-        adminService.delete(RoomNum);
-        return "successfully check out";
+        //adminService.delete(RoomNum);
+        return adminService.delete(RoomNum);
     }
 
     @PutMapping("/stay/{id}")
@@ -44,8 +43,6 @@ public class AdminController {
         Admin admin = adminService.updateGuest(id, email, name, phone);
         return admin;
     }
-
-
 
     // 방 정보 저장
     @PostMapping("/room")
