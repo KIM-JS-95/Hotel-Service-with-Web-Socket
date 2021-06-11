@@ -112,7 +112,6 @@ public class AdminServiceTest {
                 .roomnum(RoomNum)
                 .bedtype("twin")
                 .st("empty")
-                .admin(mockadmin)
                 .build();
 
         //  given(adminRepository.save(mockadmin)).willReturn(mockadmin);
@@ -158,7 +157,6 @@ public class AdminServiceTest {
                 .roomnum(mockroom.getRoomnum())
                 .bedtype(mockroom.getBedtype())
                 .st("full")
-                .admin(mockadmin)
                 .build();
 
        given(roomRepository.save(room)).willReturn(room);

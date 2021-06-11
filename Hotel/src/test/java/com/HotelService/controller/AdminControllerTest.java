@@ -1,10 +1,15 @@
 package com.HotelService.controller;
 
 import com.HotelService.entity.Admin;
+import com.HotelService.entity.Room;
+import com.HotelService.entity.RoomDTO;
+import com.HotelService.repository.RoomRepository;
 import com.HotelService.service.AdminService;
+import org.hamcrest.core.StringContains;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -23,9 +28,7 @@ import static org.hamcrest.CoreMatchers.containsString;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 
 @RunWith(SpringRunner.class)
@@ -38,6 +41,8 @@ public class AdminControllerTest {
     @MockBean
     private AdminService adminService;
 
+    @Mock
+    private RoomRepository roomRepository;
 
 
     // 고객 전체 리스트 조회
@@ -66,7 +71,6 @@ public class AdminControllerTest {
                 .andExpect(content().string(containsString("kim")));
 
     }
-
 
     @Test
     public void checkout() throws Exception {
@@ -99,6 +103,51 @@ public class AdminControllerTest {
         verify(adminService).updateGuest(id, email, name, phonenum);
 
     }
+
+    // 방 정보 추가
+    @Test
+    public void roomAdd() throws Exception {
+        Room room = Room.builder()
+                .roomnum("101")
+                .bedtype("twin")
+                .st("empty")
+                .build();
+
+        given(adminService.roomadd(room)).willReturn(room);
+
+        mvc.perform(post("/room")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{\"roomnum\" : \"101\"}"))
+                .andExpect(status().isOk());
+
+    }
+
+    // 방 정보 수정
+    @Test
+    public void roomupdate() throws Exception {
+        Room room = Room.builder()
+                .roomnum("101")
+                .bedtype("twin")
+                .st("empty")
+                .build();
+
+        given(adminService.roomadd(room)).willReturn(room);
+
+        Room mockroom = Room.builder()
+                .roomnum("201")
+                .bedtype("single")
+                .st("full")
+                .build();
+
+        given(adminService.roomupdate("101", mockroom)).willReturn(mockroom);
+        mvc.perform(put("/room/101")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{\"roomnum\" : \"201\"}"))
+                .andExpect(status().isOk());
+
+    }
+
+    // 삭제 기능 추가
 
 
 }

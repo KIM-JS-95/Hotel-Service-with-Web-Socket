@@ -5,6 +5,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.Null;
 import java.time.LocalDate;
 
 @Entity
@@ -26,6 +27,4 @@ public class Room {
 
     private String st;
 
-    @OneToOne(cascade = CascadeType.MERGE)
-    private Admin admin;
 }

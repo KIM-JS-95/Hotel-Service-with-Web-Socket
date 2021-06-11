@@ -2,6 +2,7 @@ package com.HotelService.controller;
 
 
 import com.HotelService.entity.Admin;
+import com.HotelService.entity.Room;
 import com.HotelService.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,7 @@ public class AdminController {
 
     @Autowired
     private AdminService adminService;
+
 
     // 손님 전체 리스트
     @GetMapping("/stay")
@@ -32,7 +34,7 @@ public class AdminController {
     }
 
     @PutMapping("/stay/{id}")
-    public String update(@RequestBody Admin resource,
+    public Admin update(@RequestBody Admin resource,
                         @PathVariable Long id) {
 
         String email = resource.getEmail();
@@ -40,8 +42,26 @@ public class AdminController {
         String phone = resource.getPhonenum();
 
         Admin admin = adminService.updateGuest(id, email, name, phone);
-        return "!";
+        return admin;
     }
+
+
+
+    // 방 정보 저장
+    @PostMapping("/room")
+    public Room roomadd(@RequestBody Room room){
+
+        return adminService.roomadd(room);
+    }
+
+    // 방 정보 수정
+    @PutMapping("/room/{roomnum}")
+    public Room roomupdate(@PathVariable String roomnum, @RequestBody Room room){
+
+        return adminService.roomupdate(roomnum, room);
+    }
+
+
 
 
 }

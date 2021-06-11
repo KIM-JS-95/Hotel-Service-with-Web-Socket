@@ -23,10 +23,10 @@ public class AdminService {
     private GuestRepository guestRepository;
 
     public AdminService(RoomRepository roomRepository,
-                         AdminRepository adminRepository, GuestRepository guestRepository) {
+                        AdminRepository adminRepository, GuestRepository guestRepository) {
         this.roomRepository = roomRepository;
         this.adminRepository = adminRepository;
-        this.guestRepository =guestRepository;
+        this.guestRepository = guestRepository;
     }
 
 
@@ -39,11 +39,11 @@ public class AdminService {
     // 체크 아웃
     public String delete(String roomNum) {
         Room room = roomRepository.findByRoomnum(roomNum);
-       // Long id = room.getAdmin().getId();
+        // Long id = room.getAdmin().getId();
 
         room.setSt("empty");
 
-      //  adminRepository.deleteById(id);
+        //  adminRepository.deleteById(id);
 
         return "check out";
     }
@@ -59,15 +59,15 @@ public class AdminService {
 
         return admin;
     }
-        ///////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////
 
-        // 예약 거절
-        public void cancel(Long id) {
-            guestRepository.deleteById(id);
-        }
+    // 예약 거절
+    public void cancel(Long id) {
+        guestRepository.deleteById(id);
+    }
 
 
-        // 예약 접수
+    // 예약 접수
         public Room addGuest(String email, String name, String phonenum,String people, String roomnum) {
 
             //방 정보 가져와서
@@ -84,7 +84,6 @@ public class AdminService {
             Room room = Room.builder()
                     .roomnum(roominfo.getRoomnum())
                     .bedtype(roominfo.getBedtype())
-                    .admin(admin)
                     .build();
 
               roomRepository.save(room);
@@ -93,11 +92,33 @@ public class AdminService {
 
         }
 
-        // 빈 방 조회
-        public List<Room> Emptyroom(){
 
-            List<Room> rooms = roomRepository.findByEmpty();
+    // 방 정보 추가
+    public Room roomadd(Room room) {
 
-            return rooms;
-        }
+        roomRepository.save(room);
+
+        return room;
     }
+
+    // 빈 방 조회
+    public List<Room> Emptyroom() {
+
+        List<Room> rooms = roomRepository.findByEmpty();
+
+        return rooms;
+    }
+
+
+    // 방 정보 수정
+    public Room roomupdate(String roomnum, Room roompach) {
+
+        Room room = roomRepository.findByRoomnum(roomnum);
+
+        room.setBedtype(roompach.getBedtype());
+        room.setBedtype(roompach.getBedtype());
+        room.setBedtype(roompach.getSt());
+
+        return room;
+    }
+}
