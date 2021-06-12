@@ -96,33 +96,39 @@ public class AdminServiceTest {
     @Test
     public void delete() {
 
+        Long id = 1L;
         String email = "admin@exmaple.com";
         String RoomNum = "101";
         String name = "Administrator";
         String phonenum = "010-1234-5678";
 
+        Room mockroom = Room.builder()
+                .roomnum(RoomNum)
+                .bedtype("twin")
+                .st("full")
+                .build();
+
+
         Admin mockadmin = Admin.builder()
+                .id(id)
                 .email(email)
                 .name(name)
                 .phonenum(phonenum)
                 .people("10")
+                .room(mockroom)
                 .build();
 
-        Room mockroom = Room.builder()
-                .roomnum(RoomNum)
-                .bedtype("twin")
-                .st("empty")
-                .build();
-
-        //  given(adminRepository.save(mockadmin)).willReturn(mockadmin);
+        given(adminRepository.save(mockadmin)).willReturn(mockadmin);
 
         // 고객과 방 정보를 저장
         given(roomRepository.save(mockroom)).willReturn(mockroom);
 
+        assertThat(mockroom.getSt(),is("full"));
 
-        given(roomRepository.findByRoomnum(RoomNum)).willReturn(mockroom);
+        given(adminRepository.findById(id)).willReturn(Optional.of(mockadmin));
 
-        adminService.delete(RoomNum);
+
+        // Room room = adminService.delete(1L);
 
     }
 

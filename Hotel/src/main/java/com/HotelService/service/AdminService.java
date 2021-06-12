@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AdminService {
@@ -37,18 +38,17 @@ public class AdminService {
 
 
     // 체크 아웃
-    public Room delete(String roomNum) {
+    public Room delete(Long id) {
 
+        Admin admin = adminRepository.findById(id).orElse(null);
+
+        String roomNum = admin.getRoom().getRoomnum();
         Room room = roomRepository.findByRoomnum(roomNum);
-        // Long id = room.getAdmin().getId();
-
-        // admin id 가져와서
-       // Long id=room.getAdmin().getId();
-        // 고객 삭제
-      //  adminRepository.deleteById(id);
-
-        // 방 상태 비워주기
         room.setSt("empty");
+        admin.setRoom(null);
+
+        // 고객 삭제
+        adminRepository.deleteById(id);
 
         return room;
     }
@@ -73,32 +73,32 @@ public class AdminService {
 
 
     // 예약 접수
-        public Admin addGuest(String email, String name, String phonenum,String people, String roomnum) {
+    public Admin addGuest(String email, String name, String phonenum, String people, String roomnum) {
 
-            //방 정보 가져와서
-            Room roominfo = roomRepository.findByRoomnum(roomnum);
+        //방 정보 가져와서
+        Room roominfo = roomRepository.findByRoomnum(roomnum);
 
-           roominfo.setSt("full");
+        roominfo.setSt("full");
 
-            // Merge 해주고 저장
+        // Merge 해주고 저장
 //            Room room = Room.builder()
 //                    .roomnum(roominfo.getRoomnum())
 //                    .bedtype(roominfo.getBedtype())
 //                    .build();
 
-            Admin admin = Admin.builder()
-                    .email(email)
-                    .name(name)
-                    .phonenum(phonenum)
-                    .people(people)
-                    .room(roominfo)
-                    .build();
+        Admin admin = Admin.builder()
+                .email(email)
+                .name(name)
+                .phonenum(phonenum)
+                .people(people)
+                .room(roominfo)
+                .build();
 
-              adminRepository.save(admin);
+        adminRepository.save(admin);
 
-            return admin;
+        return admin;
 
-        }
+    }
 
 
     // 방 정보 추가

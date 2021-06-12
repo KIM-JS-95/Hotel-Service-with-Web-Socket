@@ -44,9 +44,9 @@ public class AcceptController {
 
    //  예약 취소
     @DeleteMapping("/accept/cancel/{id}")
-    public Long cancel(@PathVariable("id") Long id) {
+    public String cancel(@PathVariable("id") Long id) {
         adminService.cancel(id);
-        return id;
+        return "예약이 취소되었습니다.";
     }
 
 }

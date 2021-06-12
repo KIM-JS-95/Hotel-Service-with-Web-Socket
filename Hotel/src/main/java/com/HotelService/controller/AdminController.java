@@ -16,7 +16,7 @@ public class AdminController {
     private AdminService adminService;
 
 
-    // 손님 전체 리스트
+    // 게스트 및 해당 방 전체 리스트 조회
     @GetMapping("/stay")
     public List<Admin> list() {
         List<Admin> users = adminService.GuestList();
@@ -24,12 +24,12 @@ public class AdminController {
         return users;
     }
 
-    // 체크 아웃
-    @DeleteMapping("/stay/{roomnum}")
-    public Room checkOut(@PathVariable("roomnum") String RoomNum) {
+    // CHECK-OUT
+    @DeleteMapping("/stay/{id}")
+    public Room checkOut(@PathVariable("id") Long id) {
 
         //adminService.delete(RoomNum);
-        return adminService.delete(RoomNum);
+        return adminService.delete(id);
     }
 
     @PutMapping("/stay/{id}")
@@ -57,8 +57,5 @@ public class AdminController {
 
         return adminService.roomupdate(roomnum, room);
     }
-
-
-
 
 }

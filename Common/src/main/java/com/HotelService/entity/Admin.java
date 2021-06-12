@@ -26,7 +26,7 @@ public class Admin {
 
     private String people;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST,orphanRemoval = false)
     @JoinColumn(name="ROOM_roomnum")
     private Room room;
 

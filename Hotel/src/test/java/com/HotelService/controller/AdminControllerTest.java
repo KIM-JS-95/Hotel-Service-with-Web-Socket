@@ -74,12 +74,12 @@ public class AdminControllerTest {
 
     @Test
     public void checkout() throws Exception {
-        String RoomNum = "100";
+        Long id = 101L;
 
-        mvc.perform(delete("/stay/100"))
+        mvc.perform(delete("/stay/101"))
                 .andExpect(status().isOk());
 
-        verify(adminService).delete(RoomNum);
+        verify(adminService).delete(id);
 
     }
 

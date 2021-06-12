@@ -1,50 +1,66 @@
-
-
 # HOTEL (ADMIN PART)
 
 ```bash
 호텔 운영에 필요한 ADMIN, CANCEL, CHECK IN/OUT 등의 기능 구현
 ```
+---
 
 ## API Structure
+### 1. Admin Controller
 
-### 1. IndexController
-```bash
-1. Home 화면
-  @GetMapping("/")
-  
-2. 예약 요청 상태의 고객 리스트 조회 
-  @GetMapping("/request/list")
+| API | 의미 | 기본값 |
+|---|:---:|---:|
+| @GetMapping("/stay") | Admin List  | Admin(List) |
+| @DeleteMapping("/stay/{RoomNum}") | CHECK-OUT |  Room |
+| @PutMapping("/stay/{id}") | GUEST INFO UPDATE  | Admin |
+| @PostMapping("/room") | Room save  | Room |
+| @PutMapping("/room/{roomnum}| Room Modify | Room |
 
-3. 게스트 예약 요청 상세 정보 View
-  @GetMapping("/request/list/{id}")
-
-4. 게스트 예약 접수 (삭제 예정)
-  @GetMapping("/request/accept/{id}")
+* Room save Json
 ```
-### 2. Admin Controller
-```bash
-1. 게스트 및 해당 방 전체 리스트 조회
-  @GetMapping("/stay")
-
-3. CHECK-OUT
-  @DeleteMapping("/stay/{RoomNum}")
-
-4. GUEST INFO UPDATE 
-  @PatchMapping("/stay/{id}")
+{
+  "roomnum" : "101",
+  "bedtype": "twin",
+  "st": "empty"
+}
 ```
+
+---
 
 ### 2. Accept Controller
-```bash
-1. 예약 요청 상태의 고객 리스트 조회  (삭제예정)
-  @GetMapping("/accept")
 
-2. Empty 상태의 방을 조회하여 게스트의 접수 기능에 추가하여 예약 접수(AcceptController 수정할것)
-  @PostMapping("/accept")
+| API | 의미 | 기본값 |
+|---|:---:|---:|
+| @PostMapping("/accept/{roomnum}") | Check-In  | Admin |
+| @GetMapping("/accept/empty") | Empty Room List |  Room(List) |
+| @DeleteMapping("/accept/cancel/{id}") | Cancel Book  | String |
 
-3. Only Empty 상태의 Room 조회
-  @GetMapping("/accept/empty")
-
-4. 예약 접수 취소 
-  @DeleteMapping("/accept/cancel/{id}") (js 데이터 경로 수정)
+* Accept save Json
 ```
+{
+  "email" : "baugh248730@gmail.com",
+  "name": "kim",
+  "phonenum": "010-1234-5677",
+  "people": "10"
+}
+```
+
+* return
+```
+{
+    "id": 1,
+    "email": "baugh248730@gmail.com",
+    "name": "kim",
+    "phonenum": "010-1234-5677",
+    "people": "10",
+    "room": {
+        "roomnum": "101",
+        "bedtype": "twin",
+         "st": "full"
+    }
+}
+```
+
+* Room의 <b> st(상태) </b> 가 Empty에서 FULL로 변경되고
+Check-out 되면 다시 Empty 상태로 변경됨
+
