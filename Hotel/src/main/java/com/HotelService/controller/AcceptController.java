@@ -1,7 +1,7 @@
 package com.HotelService.controller;
 
 
-import com.HotelService.entity.AcceptDTO;
+import com.HotelService.entity.DTO.AcceptDTO;
 import com.HotelService.entity.Admin;
 import com.HotelService.entity.Room;
 import com.HotelService.service.AdminService;

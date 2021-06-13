@@ -39,6 +39,7 @@ public class GuestServiceTest {
         String name = "kim";
         String email = "admin@email.com";
         String phonenum = "101-1111-1111";
+        String people = "10";
         LocalDate start = LocalDate.of(2021,05, 20);
         LocalDate end = LocalDate.of(2021,05, 27);
 
@@ -52,7 +53,7 @@ public class GuestServiceTest {
 
         given(guestRepository.save(any())).willReturn(mockguest);
 
-        Guest guest = guestService.CIrequest(email,name,phonenum,start,end);
+        Guest guest = guestService.CIrequest(email,name,phonenum,people, start,end);
 
         assertThat(guest.getName(),is("kim"));
     }

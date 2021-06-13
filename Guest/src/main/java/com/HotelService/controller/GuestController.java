@@ -2,13 +2,13 @@ package com.HotelService.controller;
 
 
 import com.HotelService.Sse.SseEmitterController;
+import com.HotelService.entity.DTO.SearchDTO;
 import com.HotelService.entity.Guest;
 import com.HotelService.service.GuestService;
 import com.HotelService.utils.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,10 +16,8 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.LocalDate;
-import java.util.Optional;
 
-@RequiredArgsConstructor
-@Controller
+@RestController
 public class GuestController {
 
     @Autowired
@@ -38,10 +36,11 @@ public class GuestController {
         String email = resource.getEmail();
         String name = resource.getName();
         String phonenum = resource.getPhonenum();
+        String people = resource.getPeople();
         LocalDate start = resource.getStart();
         LocalDate end = resource.getEnd();
 
-        Guest guest = guestService.CIrequest(email, name, phonenum, start, end);
+        Guest guest = guestService.CIrequest(email, name, phonenum, people, start, end);
         sseEmitterController.handleSse();
 
         // String accessToken = jwtUtil.createToken(email, name, phonenum);
@@ -53,14 +52,16 @@ public class GuestController {
         //  .build());
     }
 
-    @RequestMapping("/CheckInInquire")
-    public String CIinquire(@RequestParam("email") String email,
-                            @RequestParam("name") String name, Model model) {
+    @GetMapping("/CheckInInquire")
+    public Guest CIinquire(@RequestBody SearchDTO resource){// Model model) {
+
+        String email = resource.getEmail();
+        String name = resource.getName();
 
         Guest guest = guestService.CIinquire(email, name);
 
-        model.addAttribute("guests", guest);
-        return "inquiry-result";
+       // model.addAttribute("guests", guest);
+        return guest;
     }
 
 

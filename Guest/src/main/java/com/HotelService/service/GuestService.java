@@ -19,12 +19,13 @@ public class GuestService {
         this.guestRepository = guestRepository;
     }
 
-    public Guest CIrequest(String email, String name, String phonenum, LocalDate start, LocalDate end) {
+    public Guest CIrequest(String email, String name, String phonenum, String people, LocalDate start, LocalDate end) {
 
         Guest guest = Guest.builder()
                 .email(email)
                 .name(name)
                 .phonenum(phonenum)
+                .people(people)
                 .start(start)
                 .end(end)
                 .build();

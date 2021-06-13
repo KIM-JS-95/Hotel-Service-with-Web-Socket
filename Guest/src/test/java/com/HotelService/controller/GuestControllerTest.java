@@ -35,6 +35,7 @@ public class GuestControllerTest {
         String email = "admin@exmaple.com";
         String name = "Administrator";
         String phonenum = "010-1234-5678";
+        String people = "10";
         LocalDate start = LocalDate.of(2021,05, 20);
         LocalDate end = LocalDate.of(2021,05, 27);
 
@@ -44,20 +45,27 @@ public class GuestControllerTest {
                 .email(email)
                 .name(name)
                 .phonenum(phonenum)
+                .people(people)
                 .start(start)
                 .end(end)
                 .build();
 
-        given(guestService.CIrequest(email, name, phonenum, start, end)).willReturn(guest);
+        given(guestService.CIrequest(email, name, phonenum, people, start, end)).willReturn(guest);
 
         mvc.perform(post("/CheckIn")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content("{\"email\":\"admin@exmaple.com\", \"name\":\"Administrator\",\"phonenum\":\"010-1234-5678\"" +
-                        ",\"start\":\"2021-05-20\",\"end\":\"2021-05-27\"}"))
+                .content("  {\n" +
+                "            \"email\" : \"admin@exmaple.com\",\n" +
+                "            \"name\" : \"Administrator\", \n" +
+                "                \"phonenum\" : \"010-1234-5678\", \n" +
+                "                \"people\" : \"10\",\n" +
+                "        \"start\" : \"2021-05-20\",\n" +
+                "                    \"end\" : \"2021-05-27\"\n" +
+                "        }"))
                 .andExpect(status().isCreated());
 
 
-        verify(guestService).CIrequest(email, name, phonenum, start, end);
+        verify(guestService).CIrequest(email, name, phonenum,people, start, end);
     }
 
     @Test
@@ -67,6 +75,7 @@ public class GuestControllerTest {
         String email = "baugh247@gmail.com";
         String name = "Administrator";
         String phonenum = "010-1234-5678";
+        String people = "10";
         LocalDate start = LocalDate.of(2021,05, 20);
         LocalDate end = LocalDate.of(2021,05, 27);
 
@@ -75,11 +84,12 @@ public class GuestControllerTest {
                 .email(email)
                 .name(name)
                 .phonenum(phonenum)
+                .people(people)
                 .start(start)
                 .end(end)
                 .build();
 
-        given(guestService.CIrequest(email, name, phonenum,start,end)).willReturn(guest);
+        given(guestService.CIrequest(email, name, phonenum,people,start,end)).willReturn(guest);
 
         mvc.perform(post("/CheckIn")
                 .contentType(MediaType.APPLICATION_JSON)

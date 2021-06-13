@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.HotelService.controller.AdminControllerTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2021-06-12T02:36:52" hostname="DESKTOP-R7AB2GV" time="0.267">
+<testsuite name="com.HotelService.controller.AdminControllerTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2021-06-13T06:52:22" hostname="DESKTOP-R7AB2GV" time="0.075">
   <properties/>
-  <testcase name="update" classname="com.HotelService.controller.AdminControllerTest" time="0.223"/>
-  <testcase name="list" classname="com.HotelService.controller.AdminControllerTest" time="0.019"/>
-  <testcase name="roomAdd" classname="com.HotelService.controller.AdminControllerTest" time="0.006"/>
-  <testcase name="checkout" classname="com.HotelService.controller.AdminControllerTest" time="0.007"/>
-  <testcase name="roomupdate" classname="com.HotelService.controller.AdminControllerTest" time="0.006"/>
-  <system-out><![CDATA[11:36:49.964 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.HotelService.controller.AdminControllerTest]
-11:36:49.965 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.HotelService.controller.AdminControllerTest]
-11:36:49.966 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.HotelService.controller.AdminControllerTest]
-11:36:49.966 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.HotelService.controller.AdminControllerTest]
-11:36:49.972 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@141f6de4 testClass = AdminControllerTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@6f0a01dc testClass = AdminControllerTest, locations = '{}', classes = '{class com.HotelService.HotelApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@5de01f23, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@c459eb87, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@dfaeca7b, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@8ee08ae, [ImportsContextCustomizer@2a74e76a key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.context.MessageSourceAutoConfiguration, org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration, org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration, org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAutoConfiguration, org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration, org.springframework.boot.autoconfigure.hateoas.HypermediaAutoConfiguration, org.springframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration, org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration, org.springframework.boot.autoconfigure.jsonb.JsonbAutoConfiguration, org.springframework.boot.autoconfigure.mustache.MustacheAutoConfiguration, org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration, org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration, org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4657bd7a, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@2819f90d, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@d9b01ce9], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]], class annotated with @DirtiesContext [false] with mode [null].
-11:36:49.976 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.HotelService.controller.AdminControllerTest]
-11:36:49.976 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.HotelService.controller.AdminControllerTest]
-11:36:50.665 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true, server.port=-1}
-
+  <testcase name="update" classname="com.HotelService.controller.AdminControllerTest" time="0.03"/>
+  <testcase name="list" classname="com.HotelService.controller.AdminControllerTest" time="0.014"/>
+  <testcase name="roomAdd" classname="com.HotelService.controller.AdminControllerTest" time="0.007"/>
+  <testcase name="checkout" classname="com.HotelService.controller.AdminControllerTest" time="0.008"/>
+  <testcase name="roomupdate" classname="com.HotelService.controller.AdminControllerTest" time="0.008"/>
+  <system-out><![CDATA[
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
 ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
@@ -23,13 +15,13 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::        (v2.2.1.RELEASE)
 
-2021-06-12 11:36:51.001  INFO 11768 --- [    Test worker] c.H.controller.AdminControllerTest       : Starting AdminControllerTest on DESKTOP-R7AB2GV with PID 11768 (started by JAESEUNG in C:\Users\JAESEUNG\IdeaProjects\AbstractCnS\Hotel)
-2021-06-12 11:36:51.004  INFO 11768 --- [    Test worker] c.H.controller.AdminControllerTest       : No active profile set, falling back to default profiles: default
-2021-06-12 11:36:52.236  INFO 11768 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-06-12 11:36:52.544  INFO 11768 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2021-06-12 11:36:52.544  INFO 11768 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2021-06-12 11:36:52.558  INFO 11768 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 14 ms
-2021-06-12 11:36:52.591  INFO 11768 --- [    Test worker] c.H.controller.AdminControllerTest       : Started AdminControllerTest in 1.916 seconds (JVM running for 3.998)
+2021-06-13 15:52:22.417  INFO 12340 --- [    Test worker] c.H.controller.AdminControllerTest       : Starting AdminControllerTest on DESKTOP-R7AB2GV with PID 12340 (started by JAESEUNG in C:\Users\JAESEUNG\IdeaProjects\AbstractCnS\Hotel)
+2021-06-13 15:52:22.417  INFO 12340 --- [    Test worker] c.H.controller.AdminControllerTest       : No active profile set, falling back to default profiles: default
+2021-06-13 15:52:22.763  INFO 12340 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-13 15:52:22.933  INFO 12340 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2021-06-13 15:52:22.933  INFO 12340 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-06-13 15:52:22.947  INFO 12340 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 14 ms
+2021-06-13 15:52:22.963  INFO 12340 --- [    Test worker] c.H.controller.AdminControllerTest       : Started AdminControllerTest in 0.576 seconds (JVM running for 4.686)
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

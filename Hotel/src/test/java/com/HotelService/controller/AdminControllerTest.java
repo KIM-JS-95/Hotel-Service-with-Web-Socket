@@ -2,24 +2,17 @@ package com.HotelService.controller;
 
 import com.HotelService.entity.Admin;
 import com.HotelService.entity.Room;
-import com.HotelService.entity.RoomDTO;
 import com.HotelService.repository.RoomRepository;
 import com.HotelService.service.AdminService;
-import org.hamcrest.core.StringContains;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Component;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.WebApplicationContext;
 
 import java.util.ArrayList;
 import java.util.List;

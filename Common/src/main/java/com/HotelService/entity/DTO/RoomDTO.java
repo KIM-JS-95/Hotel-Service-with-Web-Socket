@@ -1,4 +1,4 @@
-package com.HotelService.entity;
+package com.HotelService.entity.DTO;
 
 import lombok.*;
 
