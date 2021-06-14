@@ -17,6 +17,13 @@ public class ChatController {
     @MessageMapping("/chat.sendMessage")
     @SendTo("/topic/public")
     public ChatMessage sendMessage(@Payload ChatMessage chatMessage) {
+
+        // 문장 받아서 레포로 던지면 될듯
+        String content = chatMessage.getContent();
+
+        System.out.println(content);
+
+
         return chatMessage;
     }
 
