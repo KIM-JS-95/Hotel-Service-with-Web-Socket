@@ -4,5 +4,7 @@ com/HotelServices/SpringBootApp.java
  com.HotelServices.SpringBootApp
 com/HotelServices/socket/SocketHandler.java
  com.HotelServices.socket.SocketHandler
+com/HotelServices/service/OrderService.java
+ com.HotelServices.service.OrderService
 com/HotelServices/controller/ChatController.java
  com.HotelServices.controller.ChatController

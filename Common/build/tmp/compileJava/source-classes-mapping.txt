@@ -28,3 +28,7 @@ com/HotelService/entity/DTO/AcceptDTO.java
  com.HotelService.entity.DTO.AcceptDTO
 com/HotelService/entity/DTO/RoomDTO.java
  com.HotelService.entity.DTO.RoomDTO
+com/HotelService/entity/Goods.java
+ com.HotelService.entity.Goods
+com/HotelService/repository/GoodsRepository.java
+ com.HotelService.repository.GoodsRepository

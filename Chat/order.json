@@ -1,0 +1,4 @@
+//채팅으로 주문 요청시 아래 형식으로 보내자
+
+//Type는 String
+!apple 10 banana 1

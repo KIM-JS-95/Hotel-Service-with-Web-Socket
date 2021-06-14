@@ -2,6 +2,8 @@ package com.HotelServices.controller;
 
 
 import com.HotelService.entity.ChatMessage;
+import com.HotelServices.service.OrderService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
@@ -14,6 +16,10 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class ChatController {
 
+    @Autowired
+    private OrderService orderService;
+
+
     @MessageMapping("/chat.sendMessage")
     @SendTo("/topic/public")
     public ChatMessage sendMessage(@Payload ChatMessage chatMessage) {
@@ -21,8 +27,12 @@ public class ChatController {
         // 문장 받아서 레포로 던지면 될듯
         String content = chatMessage.getContent();
 
-        System.out.println(content);
-
+        // 문장 분해
+        if(content.contains("!")) {
+            content=content.substring(1,content.length());
+           // System.out.println(content);
+            orderService.decomposition(content);
+        }
 
         return chatMessage;
     }
