@@ -1,9 +1,12 @@
 package com.HotelService.repository;
 
 import com.HotelService.entity.Goods;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-public interface GoodsRepository extends JpaRepository<Long, Goods> {
+import java.util.List;
 
-    Goods findByItems(String item);
+public interface GoodsRepository extends CrudRepository<Goods, Long> {
+
+
 }

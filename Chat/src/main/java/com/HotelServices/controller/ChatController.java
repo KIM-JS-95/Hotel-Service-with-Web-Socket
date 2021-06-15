@@ -22,19 +22,20 @@ public class ChatController {
 
     @MessageMapping("/chat.sendMessage")
     @SendTo("/topic/public")
-    public ChatMessage sendMessage(@Payload ChatMessage chatMessage) {
+    public String sendMessage(@Payload ChatMessage chatMessage) {
 
         // 문장 받아서 레포로 던지면 될듯
         String content = chatMessage.getContent();
 
+        String answer = null;
         // 문장 분해
         if(content.contains("!")) {
             content=content.substring(1,content.length());
            // System.out.println(content);
-            orderService.decomposition(content);
+            answer = orderService.decomposition(content);
         }
 
-        return chatMessage;
+        return answer;
     }
 
     @MessageMapping("/chat.addUser")

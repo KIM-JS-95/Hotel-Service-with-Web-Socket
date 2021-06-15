@@ -1,7 +1,7 @@
 com/HotelServices/socket/WebSocketEventListener.java
  com.HotelServices.socket.WebSocketEventListener
-com/HotelServices/SpringBootApp.java
- com.HotelServices.SpringBootApp
+com/HotelServices/ChatApplication.java
+ com.HotelServices.ChatApplication
 com/HotelServices/socket/SocketHandler.java
  com.HotelServices.socket.SocketHandler
 com/HotelServices/service/OrderService.java

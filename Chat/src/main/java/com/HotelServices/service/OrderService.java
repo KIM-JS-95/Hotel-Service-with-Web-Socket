@@ -3,6 +3,7 @@ package com.HotelServices.service;
 
 import com.HotelService.entity.Goods;
 import com.HotelService.repository.GoodsRepository;
+import com.HotelService.repository.GuestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,11 @@ import java.util.Map;
 public class OrderService {
 
     private GoodsRepository goodsRepository;
+
+    @Autowired
+    public OrderService(GuestRepository guestRepository) {
+        this.goodsRepository = goodsRepository;
+    }
 
     public String decomposition(String content) {
 
@@ -37,22 +43,27 @@ public class OrderService {
         }
 
         //apple 10 banana 1
-        for (String val : value) {
-            System.out.print(val + " ");
-        }
+//        for (String val : value) {
+//            System.out.print(val + " ");
+//        }
+//
+//        for (String val : items) {
+//            System.out.print(val + " ");
+//        }
 
-        for (String val : items) {
-            System.out.print(val + " ");
-        }
+        int cnt=0;
+        List<Goods> goods = new ArrayList<>();
 
-
-        if(items != null && value != null) {
-            for (int i = 0; i < items.length; i++) {
-                String item = items[i];
-                Goods goods = goodsRepository.findByItems(item);
-                goodsList.add(goods);
+        if(items != null) {
+            while(!items.isEmpty()){
+              goodsRepository.saveAll(goods);
+            cnt++;
             }
+        }else{
+            return "해당 상품은 존재하지 않습니다.";
         }
+
+        System.out.print(goods.get(0));
 
 
         return null;
