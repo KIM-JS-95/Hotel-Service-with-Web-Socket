@@ -18,31 +18,42 @@ public class OrderService {
 
     public String decomposition(String content) {
 
-        List<Goods> goodsList = new ArrayList<>();
+      //  List<Goods> goodsList = new ArrayList<>();
 
         String[] arr = content.split(" ");
-        String[] items = new String[arr.length / 2];
-        String[] value = new String[arr.length / 2];
+        List<String> items = new ArrayList<String>();
+        List<String> value = new ArrayList<String>();
 
-        for(String val : arr)
-        System.out.print(val + " ");
-//        // 상품
-//        for (int i = 0; i < arr.length; i += 2)
-//            items[i] = arr[i];
-//
-//        //갯수
-//        for (int i = 1; i <= arr.length; i += 2)
-//            value[i] = arr[i];
-//
-//        if(items != null && value != null) {
-//            for (int i = 0; i < items.length; i++) {
-//                String item = items[i];
-//                Goods goods = goodsRepository.findByItems(item);
-//                goodsList.add(goods);
-//            }
+
+//        for(int i=0; i< arr.length; i++){
+//            System.out.println(i + ":" + arr[i]);
 //        }
-//
-//        System.out. println(goodsList.get(0));
+
+        for (int i = 1; i <= arr.length; i++) {
+            if(i%2==0){
+                value.add(arr[i-1]);
+            }else
+                items.add(arr[i-1]);
+        }
+
+        //apple 10 banana 1
+        for (String val : value) {
+            System.out.print(val + " ");
+        }
+
+        for (String val : items) {
+            System.out.print(val + " ");
+        }
+
+
+        if(items != null && value != null) {
+            for (int i = 0; i < items.length; i++) {
+                String item = items[i];
+                Goods goods = goodsRepository.findByItems(item);
+                goodsList.add(goods);
+            }
+        }
+
 
         return null;
     }
