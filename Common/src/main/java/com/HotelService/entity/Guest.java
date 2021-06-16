@@ -32,6 +32,8 @@ public class Guest {
 
     private String people;
 
+    private String password;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate start;
 

@@ -13,4 +13,6 @@ public interface GuestRepository extends CrudRepository<Guest, Long> {
 
     Optional<Guest> findByNameAndEmail(String name, String email);
 
+    Optional<Guest> findByEmail(String email);
+
 }

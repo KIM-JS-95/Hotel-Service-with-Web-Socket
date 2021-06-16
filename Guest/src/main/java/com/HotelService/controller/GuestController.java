@@ -5,17 +5,16 @@ import com.HotelService.Sse.SseEmitterController;
 import com.HotelService.entity.DTO.SearchDTO;
 import com.HotelService.entity.Guest;
 import com.HotelService.service.GuestService;
-import com.HotelService.utils.JwtUtil;
-import lombok.RequiredArgsConstructor;
+import com.HotelService.entity.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.LocalDate;
+import java.util.Optional;
 
 @RestController
 public class GuestController {
@@ -41,7 +40,7 @@ public class GuestController {
         LocalDate end = resource.getEnd();
 
         Guest guest = guestService.CIrequest(email, name, phonenum, people, start, end);
-        sseEmitterController.handleSse();
+        //sseEmitterController.handleSse();
 
         // String accessToken = jwtUtil.createToken(email, name, phonenum);
 
@@ -53,12 +52,12 @@ public class GuestController {
     }
 
     @GetMapping("/CheckInInquire")
-    public Guest CIinquire(@RequestBody SearchDTO resource){// Model model) {
+    public Optional<Guest> CIinquire(@RequestBody SearchDTO resource) throws Exception {
 
         String email = resource.getEmail();
         String name = resource.getName();
 
-        Guest guest = guestService.CIinquire(email, name);
+        Optional<Guest> guest = guestService.CIinquire(email, name);
 
        // model.addAttribute("guests", guest);
         return guest;

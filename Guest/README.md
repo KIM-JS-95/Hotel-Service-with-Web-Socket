@@ -21,6 +21,7 @@
   "name": "kim",
   "phonenum": "010-1234-5677",
   "people": "10",
+  "password" : "1234",
   "start" : 20210401,
   "end" : 20210401
 }

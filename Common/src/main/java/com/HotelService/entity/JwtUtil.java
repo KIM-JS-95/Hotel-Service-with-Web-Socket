@@ -1,4 +1,4 @@
-package com.HotelService.utils;
+package com.HotelService.entity;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtBuilder;
@@ -16,11 +16,10 @@ public class JwtUtil {
         this.key = Keys.hmacShaKeyFor(secret.getBytes());
     }
 
-    public String createToken(String email, String name, String phonenum) {
+    public String createToken(String name,String email) {
         JwtBuilder builder = Jwts.builder()
-                .claim("email", email)
                 .claim("name", name)
-                .claim("phonenum", phonenum);
+                .claim("email", email);
 
         return builder
                 .signWith(key, SignatureAlgorithm.HS256)

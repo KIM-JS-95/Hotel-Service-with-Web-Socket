@@ -1,4 +1,4 @@
-package com.HotelService.Sse;
+package com.HotelService.entity.DTO;
 
 
 import lombok.Builder;

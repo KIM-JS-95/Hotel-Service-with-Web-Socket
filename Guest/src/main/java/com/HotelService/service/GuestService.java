@@ -1,6 +1,5 @@
 package com.HotelService.service;
 
-
 import com.HotelService.entity.Guest;
 import com.HotelService.repository.GuestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,10 +32,11 @@ public class GuestService {
         return guestRepository.save(guest);
     }
 
-    public Guest CIinquire(String email, String name){
-        Optional<Guest> guest = guestRepository.findByNameAndEmail(name, email);
 
-        return guest.get();
+    public Optional<Guest> CIinquire(String email, String name){
+        Optional<Guest> guest = guestRepository.findByNameAndEmail(name,email);
+
+        return guest;
     }
 
     public Guest CIcancel(Long id) {

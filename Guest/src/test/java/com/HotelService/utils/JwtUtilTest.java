@@ -1,5 +1,6 @@
 package com.HotelService.utils;
 
+import com.HotelService.entity.JwtUtil;
 import io.jsonwebtoken.Claims;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,7 +20,7 @@ public class JwtUtilTest {
 
     @Test
     public void createToken() {
-        String token = jwtUtil.createToken("adb1234@gmail.com", "John", "010-1234-5678");
+        String token = jwtUtil.createToken("John","adb1234@gmail.com");
 
         Assertions.assertThat(token).contains(".");
     }
