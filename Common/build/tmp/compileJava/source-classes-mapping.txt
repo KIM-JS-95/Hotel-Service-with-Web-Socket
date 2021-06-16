@@ -9,9 +9,8 @@ com/HotelService/entity/MessageType.java
  com.HotelService.entity.MessageType
 com/HotelService/entity/ChatMessage.java
  com.HotelService.entity.ChatMessage
-com/HotelService/entity/ChatRoom.java
- com.HotelService.entity.ChatRoom
- com.HotelService.entity.ChatRoom$ChatRoomBuilder
+com/HotelService/entity/DTO/RoomDTO.java
+ com.HotelService.entity.DTO.RoomDTO
 com/HotelService/entity/Guest.java
  com.HotelService.entity.Guest
  com.HotelService.entity.Guest$GuestBuilder
@@ -26,8 +25,9 @@ com/HotelService/repository/AdminRepository.java
  com.HotelService.repository.AdminRepository
 com/HotelService/entity/DTO/AcceptDTO.java
  com.HotelService.entity.DTO.AcceptDTO
-com/HotelService/entity/DTO/RoomDTO.java
- com.HotelService.entity.DTO.RoomDTO
+com/HotelService/entity/ChatRoom.java
+ com.HotelService.entity.ChatRoom
+ com.HotelService.entity.ChatRoom$ChatRoomBuilder
 com/HotelService/entity/Goods.java
  com.HotelService.entity.Goods
  com.HotelService.entity.Goods$GoodsBuilder

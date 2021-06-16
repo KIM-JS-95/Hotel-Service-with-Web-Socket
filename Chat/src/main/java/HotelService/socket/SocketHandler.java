@@ -1,4 +1,4 @@
-package com.HotelServices.socket;
+package HotelService.socket;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;

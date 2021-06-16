@@ -6,7 +6,8 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface GoodsRepository extends CrudRepository<Goods, Long> {
 
-
+  //  void saveAll(List<String> items);
 }

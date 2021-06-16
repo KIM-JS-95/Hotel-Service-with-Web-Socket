@@ -12,4 +12,5 @@ import java.util.Optional;
 public interface GuestRepository extends CrudRepository<Guest, Long> {
 
     Optional<Guest> findByNameAndEmail(String name, String email);
+
 }

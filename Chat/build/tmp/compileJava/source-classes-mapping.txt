@@ -1,10 +1,8 @@
-com/HotelServices/socket/WebSocketEventListener.java
- com.HotelServices.socket.WebSocketEventListener
-com/HotelServices/ChatApplication.java
- com.HotelServices.ChatApplication
-com/HotelServices/socket/SocketHandler.java
- com.HotelServices.socket.SocketHandler
-com/HotelServices/service/OrderService.java
- com.HotelServices.service.OrderService
-com/HotelServices/controller/ChatController.java
- com.HotelServices.controller.ChatController
+HotelService/socket/SocketHandler.java
+ HotelService.socket.SocketHandler
+HotelService/controller/ChatController.java
+ HotelService.controller.ChatController
+HotelService/socket/WebSocketEventListener.java
+ HotelService.socket.WebSocketEventListener
+HotelService/chatApplication.java
+ HotelService.chatApplication

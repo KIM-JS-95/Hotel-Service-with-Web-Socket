@@ -1,5 +1,4 @@
-package com.HotelServices.socket;
-
+package HotelService.socket;
 
 import com.HotelService.entity.ChatMessage;
 import com.HotelService.entity.MessageType;

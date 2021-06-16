@@ -1,26 +1,21 @@
-package com.HotelServices.service;
+package com.HotelService.service;
 
 
 import com.HotelService.entity.Goods;
-import com.HotelService.repository.GoodsRepository;
-import com.HotelService.repository.GuestRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 @Service
 public class OrderService {
 
-    private GoodsRepository goodsRepository;
-
-    @Autowired
-    public OrderService(GuestRepository guestRepository) {
-        this.goodsRepository = goodsRepository;
-    }
+//    private GoodsRepository goodsRepository;
+//
+//    @Autowired
+//    public OrderService(GoodsRepository goodsRepository) {
+//        this.goodsRepository = goodsRepository;
+//    }
 
     public String decomposition(String content) {
 
@@ -56,7 +51,7 @@ public class OrderService {
 
         if(items != null) {
             while(!items.isEmpty()){
-              goodsRepository.saveAll(goods);
+             // goodsRepository.saveAll(items);
             cnt++;
             }
         }else{
