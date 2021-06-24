@@ -16,9 +16,9 @@ public class JwtUtil {
         this.key = Keys.hmacShaKeyFor(secret.getBytes());
     }
 
-    public String createToken(String name,String email) {
+    public String createToken(String email,String password) {
         JwtBuilder builder = Jwts.builder()
-                .claim("name", name)
+                .claim("password", password)
                 .claim("email", email);
 
         return builder
