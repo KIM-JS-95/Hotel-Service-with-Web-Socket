@@ -1,30 +1,47 @@
 package HotelService.socket;
 
+import lombok.extern.log4j.Log4j2;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
+import org.springframework.stereotype.Component;
+import org.springframework.web.socket.CloseStatus;
+import org.springframework.web.socket.TextMessage;
+import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
+import org.springframework.web.socket.handler.TextWebSocketHandler;
 
-@Configuration
-@EnableWebSocketMessageBroker
-public class SocketHandler implements WebSocketMessageBrokerConfigurer {
+import java.util.ArrayList;
+import java.util.List;
+
+@Component
+@Log4j2
+public class SocketHandler extends TextWebSocketHandler {
+
+private static List<WebSocketSession> list = new ArrayList<>();
 
 
-    //sockJs 클라이언트가 Websocket 핸드셰이크를 하기 위해 연결할 endpoint를 지정할 수 있다.
-    //
-    //클라이언트가 연결되고 http://localhost:8080/endpoint/info?t=12312312으로 웹소켓 통신이 가능한지 확인한 후,
-    //
-    //응답이 websocket:true 이면 웹소켓 연결된다.
     @Override
-    public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/ws").withSockJS();
+    protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception{
+        String payload = message.getPayload();
+        log.info("payload : " + payload);
+
+        for(WebSocketSession sess : list){
+            sess.sendMessage(message);
+        }
     }
 
+    /* 클라이언트 호출 */
+    @Override
+    public void afterConnectionEstablished(WebSocketSession session)throws Exception{
+        list.add(session);
+        log.info(session + "클라이언트 접속");
+    }
 
     @Override
-    public void configureMessageBroker(MessageBrokerRegistry registry) {
-        registry.setApplicationDestinationPrefixes("/app");
-        registry.enableSimpleBroker("/topic");
+    public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception{
+        log.info(session + "클라이언트 접속 해제");
+        list.remove(session);
     }
 }
