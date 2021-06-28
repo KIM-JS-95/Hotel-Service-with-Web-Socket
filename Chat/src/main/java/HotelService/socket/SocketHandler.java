@@ -13,35 +13,43 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @Component
 @Log4j2
 public class SocketHandler extends TextWebSocketHandler {
 
-private static List<WebSocketSession> list = new ArrayList<>();
+    HashMap<String, WebSocketSession> sessionMap = new HashMap<>(); //웹소켓 세션을 담아둘 맵
 
 
     @Override
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception{
-        String payload = message.getPayload();
-        log.info("payload : " + payload);
-
-        for(WebSocketSession sess : list){
-            sess.sendMessage(message);
+        //메시지 발송
+        String msg = message.getPayload();
+        for(String key : sessionMap.keySet()) {
+            WebSocketSession wss = sessionMap.get(key);
+            try {
+                wss.sendMessage(new TextMessage(msg));
+            }catch(Exception e) {
+                e.printStackTrace();
+            }
         }
     }
+
 
     /* 클라이언트 호출 */
     @Override
     public void afterConnectionEstablished(WebSocketSession session)throws Exception{
-        list.add(session);
-        log.info(session + "클라이언트 접속");
+        //소켓 연결
+        super.afterConnectionEstablished(session);
+        sessionMap.put(session.getId(), session);
     }
 
     @Override
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception{
-        log.info(session + "클라이언트 접속 해제");
-        list.remove(session);
+        //소켓 종료
+        sessionMap.remove(session.getId());
+        super.afterConnectionClosed(session, status);
     }
 }

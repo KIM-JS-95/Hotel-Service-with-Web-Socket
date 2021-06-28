@@ -1,23 +1,23 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en" xmlns:th="http:www.thymeleaf.org" xmlns:sec = "http://www/thymeleaf.org/extras/spring-security">-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+</head>
+<body>
+<button id="example">최종 예제</button>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-<!--<th:block th:replace = "~{.layout/basic :: setContent(~{this :: content})}">-->
+<script>
+    $("#example").on("click", function(){
+      toastr.options.escapeHtml = true;
+      toastr.options.closeButton = true;
+      toastr.options.newestOnTop = false;
+      toastr.options.progressBar = true;
+      toastr.info('예제', '명월일지', {timeOut: 5000});
+    });
 
-<!--  <th:block th:fragment="content">-->
-<!--<div class = "container">-->
-<!--  <div class="col-6">-->
-<!--    <label><b> 채팅방</b></label>-->
-<!--  </div>-->
-<!--  <div>-->
-<!--    <div id = "msArea" class="col"></div>-->
-<!--    <div class = "input-group mb-3">-->
-<!--      <input type ="text" id="msg" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2">-->
-<!--      <div class = "input-group-append">-->
-<!--        <button class = "btn btn-outline-secondary" type="button" id="button-send">전송</button>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-<!--  </th:block>-->
-<!--</th:block>>-->
-<!--</html>-->
+  </script>
+</body>
+</html>
