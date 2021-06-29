@@ -1,4 +1,4 @@
-*{
+	*{
 			margin:0;
 			padding:0;
 		}
@@ -20,8 +20,12 @@
 			height: 500px;
 			overflow: auto;
 		}
-		.chating p{
-			color: #fff;
+		.chating .me{
+			color: #F6F6F6;
+			text-align: right;
+		}
+		.chating .others{
+			color: #FFE400;
 			text-align: left;
 		}
 		input{

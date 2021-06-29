@@ -2,6 +2,8 @@ HotelService/chatApplication.java
  HotelService.chatApplication
 HotelService/controller/ChatController.java
  HotelService.controller.ChatController
+HotelService/controller/Room.java
+ HotelService.controller.Room
 HotelService/socket/SocketHandler.java
  HotelService.socket.SocketHandler
 HotelService/socket/WebSocketConfig.java
