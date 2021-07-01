@@ -1,7 +1,8 @@
 package HotelService.socket;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
+
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
 import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
@@ -10,16 +11,12 @@ import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
 
 @Configuration
 @EnableWebSocket
+@RequiredArgsConstructor
 public class WebSocketConfig implements WebSocketConfigurer {
-
-    @Autowired
-    SocketHandler socketHandler;
-
+    private final SocketHandler webSocketHandler;
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        registry.addHandler(socketHandler, "/chating/{roomNumber}");
+        registry.addHandler(webSocketHandler,"/chat");
     }
 }
 
-
-// 전달 인자에 문제가 있는듯

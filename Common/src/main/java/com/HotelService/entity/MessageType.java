@@ -1,7 +1,5 @@
 package com.HotelService.entity;
 
 public enum MessageType {
-    CHAT,
-    JOIN,
-    LEAVE
+    ENTER,CHAT,LEAVE
 }

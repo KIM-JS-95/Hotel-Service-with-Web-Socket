@@ -9,5 +9,4 @@ include 'Common'
 include 'Hotel'
 include 'Guest'
 include 'Chat'
-include 'Login'
 

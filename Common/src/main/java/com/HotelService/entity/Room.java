@@ -17,9 +17,9 @@ import java.time.LocalDate;
 //@EntityListeners(AuditingEntityListener.class)
 public class Room {
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Id
     private String roomnum;

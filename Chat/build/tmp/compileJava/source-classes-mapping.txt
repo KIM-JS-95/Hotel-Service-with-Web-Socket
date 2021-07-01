@@ -1,10 +1,18 @@
+HotelService/domain/ChatMessage.java
+ HotelService.domain.ChatMessage
+HotelService/domain/ChatRoom.java
+ HotelService.domain.ChatRoom
 HotelService/chatApplication.java
  HotelService.chatApplication
 HotelService/controller/ChatController.java
  HotelService.controller.ChatController
-HotelService/controller/Room.java
- HotelService.controller.Room
+HotelService/repository/ChatRoomRepository.java
+ HotelService.repository.ChatRoomRepository
 HotelService/socket/SocketHandler.java
  HotelService.socket.SocketHandler
+HotelService/domain/MessageType.java
+ HotelService.domain.MessageType
+HotelService/controller/ChatRoomForm.java
+ HotelService.controller.ChatRoomForm
 HotelService/socket/WebSocketConfig.java
  HotelService.socket.WebSocketConfig
