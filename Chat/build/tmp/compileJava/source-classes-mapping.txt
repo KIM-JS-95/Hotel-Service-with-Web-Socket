@@ -4,8 +4,8 @@ HotelService/domain/ChatRoom.java
  HotelService.domain.ChatRoom
 HotelService/chatApplication.java
  HotelService.chatApplication
-HotelService/controller/ChatController.java
- HotelService.controller.ChatController
+HotelService/socket/WebSocketConfig.java
+ HotelService.socket.WebSocketConfig
 HotelService/repository/ChatRoomRepository.java
  HotelService.repository.ChatRoomRepository
 HotelService/socket/SocketHandler.java
@@ -14,5 +14,5 @@ HotelService/domain/MessageType.java
  HotelService.domain.MessageType
 HotelService/controller/ChatRoomForm.java
  HotelService.controller.ChatRoomForm
-HotelService/socket/WebSocketConfig.java
- HotelService.socket.WebSocketConfig
+HotelService/controller/ChatController.java
+ HotelService.controller.ChatController

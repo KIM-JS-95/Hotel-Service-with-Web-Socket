@@ -6,5 +6,3 @@ com/HotelService/controller/AcceptController.java
  com.HotelService.controller.AcceptController
 com/HotelService/controller/AdminController.java
  com.HotelService.controller.AdminController
-com/HotelService/SecurityJavaConfig.java
- com.HotelService.SecurityJavaConfig

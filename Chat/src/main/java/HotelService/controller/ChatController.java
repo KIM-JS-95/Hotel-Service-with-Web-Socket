@@ -44,4 +44,9 @@ public class ChatController {
 
         return "redirect:/";
     }
+
+    @GetMapping("/test")
+    public String test(){
+        return "test";
+    }
 }

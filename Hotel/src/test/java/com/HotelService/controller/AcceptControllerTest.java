@@ -28,7 +28,6 @@ public class AcceptControllerTest {
     @Autowired
     private MockMvc mvc;
 
-
     @MockBean
     private AdminService adminService;
 
@@ -38,25 +37,25 @@ public class AcceptControllerTest {
 
     @Test
     public void checkIn() throws Exception {
-//        String roomnum = "100";
-//        String email = "baugh248730@gmail.com";
-//        String name = "kim";
-//        String phonenum = "010-1234-4556";
-//        String people = "10";
-//
-//        Room roominfo = Room.builder()
-//                .idx(1L)
-//                .roomnum(roomnum)
-//                .bedtype("twin")
-//                .st("full")
-//                .build();
-//
-//        Admin mockadmin = Admin.builder()
-//                .email(email)
-//                .name(name)
-//                .phonenum(phonenum)
-//                .people(people)
-//                .build();
+        String roomnum = "100";
+        String email = "baugh248730@gmail.com";
+        String name = "kim";
+        String phonenum = "010-1234-4556";
+        String people = "10";
+
+        Room roominfo = Room.builder()
+                .id(1L)
+                .roomnum(roomnum)
+                .bedtype("twin")
+                .st("full")
+                .build();
+
+        Admin mockadmin = Admin.builder()
+                .email(email)
+                .name(name)
+                .phonenum(phonenum)
+                .people(people)
+                .build();
 //
 //        // 먼저 방 정보를 저장 하고
 //        given(roomRepository.save(roominfo)).willReturn(roominfo);
@@ -74,7 +73,6 @@ public class AcceptControllerTest {
                         "}\n"))
                 .andExpect(status().isOk());
 
-       // verify(adminService).addGuest(email, name, phonenum, people,roomnum);
     }
 
 

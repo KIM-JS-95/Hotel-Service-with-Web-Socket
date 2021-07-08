@@ -1,9 +1,9 @@
-jwt:
-  secret: 12345678901234567890123456789012
-
-spring:
-  security:
-    user:
-      name: user
-      password: 1111
-      roles: USER
+#jwt:
+#  secret: 12345678901234567890123456789012
+#
+#spring:
+#  security:
+#    user:
+#      name: user
+#      password: 1111
+#      roles: USER

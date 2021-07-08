@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button onclick="notifyMe()">Notify me!</button>
+<br>
+<button onclick="notifyMe()">text!</button>
+
+</body>
+
+
+<script type="javascript">
+var msg= document.getElementById("name")
+function notify(msg) {
+    var options = {
+        body: msg
+    }
+
+    // 데스크탑 알림 요청
+    var notification = new Notification("DororongJu", options);
+
+    // 3초뒤 알람 닫기
+    setTimeout(function(){
+        notification.close();
+    }, 3000);
+}
+
+
+function notifyMe() {
+  // Let's check if the browser supports notifications
+  if (!("Notification" in window)) {
+    alert("This browser does not support desktop notification");
+  }
+
+  // Let's check whether notification permissions have already been granted
+  else if (Notification.permission === "granted") {
+    // If it's okay let's create a notification
+    var notification = new Notification("Hi there!");
+  }
+
+  // Otherwise, we need to ask the user for permission
+  else if (Notification.permission !== "denied") {
+    Notification.requestPermission().then(function (permission) {
+      // If the user accepts, let's create a notification
+      if (permission === "granted") {
+        var notification = new Notification("Hi there!");
+      }
+    });
+  }
+
+  // At last, if the user has denied notifications, and you
+  // want to be respectful there is no need to bother them any more.
+}
+</script>
+</html>
