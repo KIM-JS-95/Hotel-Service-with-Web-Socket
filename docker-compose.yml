@@ -15,7 +15,7 @@ services:
       timeout: 10s
       retries: 10
 
-  Chat-api:
+  Chat:
     image: openjdk:15
     env_file: .env
     volumes:
@@ -27,7 +27,7 @@ services:
       - mysql
     command: bash -c "cd /home/AbstractCnS && sh run.sh"
 
-  Guest-api:
+  Guest:
     image: openjdk:15
     env_file: .env
     volumes:
@@ -39,7 +39,7 @@ services:
       - mysql
     command: bash -c "cd /home/AbstractCnS && sh run.sh"
 
-  Hotel-api:
+  Hotel:
     image: openjdk:15
     env_file: .env
     volumes:

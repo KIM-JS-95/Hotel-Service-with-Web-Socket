@@ -2,10 +2,6 @@ com/HotelService/Sse/SseEmitterController.java
  com.HotelService.Sse.SseEmitterController
 com/HotelService/GuestApplication.java
  com.HotelService.GuestApplication
-com/HotelService/WebConfig.java
- com.HotelService.WebConfig
-com/HotelService/service/OrderService.java
- com.HotelService.service.OrderService
 com/HotelService/controller/IndexController.java
  com.HotelService.controller.IndexController
 com/HotelService/service/GuestService.java
